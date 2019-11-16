@@ -1,0 +1,69 @@
+<div class="login">
+    <div class="content">
+
+        <form class="login-form" role="form" #pnLoginForm="ngForm" (ngSubmit)="login()">
+            <h3 class="form-title">Login to your account</h3>
+
+            <div class="alert alert-danger" *ngIf="authenticationError" jhiTranslate="login.messages.error.authentication">
+                <strong>Failed to sign in!</strong> Please check your credentials and try again.
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input #txtUserName="ngModel" class="form-control placeholder-no-fix" pattern="^[_'.@A-Za-z0-9-]*$" required type="text"
+                        autocomplete="off" jhiTranslate="global.form.username" [(ngModel)]="username" name="username" id="username"
+                        minlength="1" maxlength="50" /> </div>
+                <div *ngIf="txtUserName.dirty && txtUserName.invalid">
+                    <small class="form-text text-danger" *ngIf="txtUserName.errors.required" jhiTranslate="register.messages.validate.login.required">
+                        Your username is required.
+                    </small>
+                    <small class="form-text text-danger" *ngIf="txtUserName.errors.minlength" jhiTranslate="register.messages.validate.login.minlength">
+                        Your username is required to be at least 1 character.
+                    </small>
+                    <small class="form-text text-danger" *ngIf="txtUserName.errors.maxlength" jhiTranslate="register.messages.validate.login.maxlength">
+                        Your username cannot be longer than 50 characters.
+                    </small>
+                    <small class="form-text text-danger" *ngIf="txtUserName.errors.pattern" jhiTranslate="register.messages.validate.login.pattern">
+                        Your username can only contain letters and digits.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input #txtPassword="ngModel" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
+                        [(ngModel)]="password" name="password" id="password" minlength=4 maxlength=50 required/> </div>
+                <div *ngIf="txtPassword.dirty && txtPassword.invalid">
+                        <small class="form-text text-danger" *ngIf="txtPassword.errors.required" jhiTranslate="global.messages.validate.newpassword.required">
+                                Your password is required.
+                            </small>
+                            <small class="form-text text-danger" *ngIf="txtPassword.errors.minlength" jhiTranslate="global.messages.validate.newpassword.minlength">
+                                Your password is required to be at least 4 characters.
+                            </small>
+                            <small class="form-text text-danger" *ngIf="txtPassword.errors.maxlength" jhiTranslate="global.messages.validate.newpassword.maxlength">
+                                Your password cannot be longer than 50 characters.
+                            </small>
+                </div>
+            </div>
+            <div class="form-actions">
+                <label class="rememberme mt-checkbox mt-checkbox-outline">
+                    <input type="checkbox" name="remember" value="1" /> Remember me
+                    <span></span>
+                </label>
+                <button type="submit"  [disabled]="pnLoginForm.form.invalid"  class="btn green pull-right" jhiTranslate="login.form.button">Login</button>
+            </div>
+            <div class="forget-password">
+                <a (click)="requestResetPassword()" id="forget-password" jhiTranslate="login.password.forgot"> Did you forget your password? </a>
+                </p>
+            </div>
+            <!--<div class="create-account">-->
+                <!--<p>-->
+                    <!--<span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;-->
+                    <!--<a (click)="register()" jhiTranslate="global.messages.info.register.link" id="register-btn"> Register a new account </a>-->
+                <!--</p>-->
+            <!--</div>-->
+        </form>
+    </div>
+</div>

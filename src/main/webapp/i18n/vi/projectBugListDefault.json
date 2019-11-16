@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "projectBugListDefault" : {
+            "home": {
+                "title": "Project Bug List Defaults",
+                "createLabel": "Thêm mới một Project Bug List Default",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Project Bug List Default",
+                "search": "Tìm Project Bug List Default"
+            },
+            "created": "Một Project Bug List Default mới được tạo với định danh {{ param }}",
+            "updated": "Một Project Bug List Default cập nhật với định danh {{ param }}",
+            "deleted": "Một Project Bug List Default đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Project Bug List Default có Bug Code là: {{ code }}?"
+            },
+            "detail": {
+                "title": "Project Bug List Default"
+            },
+            "bugName": "Bug Description",
+            "code": "Code",
+            "project": "Project",
+            "bugListDefault": "Bug List Default"
+        }
+    }
+}

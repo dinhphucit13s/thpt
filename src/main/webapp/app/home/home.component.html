@@ -1,0 +1,160 @@
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a jhiTranslate="global.menu.home">Home</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Dashboard</span>
+        </li>
+    </ul>
+    <div style="float: right; margin-top: 5px">
+        <button type="button" class="btn btn-primary" (click)="saveReport()">
+            <span jhiTranslate="entity.action.changes">Change</span>
+        </button>
+    </div>
+    <div style="float: right">
+        <div class="modal-body" style="padding-top: 5px">
+            <ng-multiselect-dropdown
+                [data]="valueReports"
+                [(ngModel)]="customReports.value"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="onDeSelect($event)"
+            >
+            </ng-multiselect-dropdown>
+        </div>
+    </div>
+    <div style="float: right; width: 20%; margin-top: 5px;">
+        <select style="height: 38px;" class="form-control" required id="field_project" name="project" [(ngModel)]="projectId" (change)="loadDataByProject()"  >
+            <option [ngValue]="pro.id" *ngFor="let pro of projects; trackBy: trackProjectById" >{{pro.name}}</option>
+        </select>
+    </div>
+</div>
+<jhi-alert></jhi-alert>
+<div class="row" style="    margin-top: 20px;">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+            <div class="visual">
+                <i class="fa fa-comments"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="1349">{{totalTasks}}</span>
+                </div>
+                <div class="desc"> TASKS</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+            <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="12,5">{{totalPackages}}</span>
+                </div>
+                <div class="desc"> PACKAGES </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 green" (click)="onClickPurchaseOrder(projectId)">
+            <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="1349">{{totalPuchaseOrders}}</span>
+                </div>
+                <div class="desc">
+                    <div class="desc">PURCHASE ORDERS</div>
+                </div>
+
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 purple" (click)="onClickResource()">
+            <div class="visual">
+                <i class="fa fa-globe"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    <span data-counter="counterup" data-value="1349">{{totalResources}}</span>
+                </div>
+                <div class="desc">
+                    RESOURCES
+                </div>
+
+            </div>
+        </a>
+    </div>
+</div>
+<!--<div class="row" [hidden]="projectId === 0">-->
+    <!--<div class="col-lg-12">-->
+        <!--<div class="portlet light bordered portlet-content">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="fa fa-suitcase font-green"></i>-->
+                    <!--<span class="caption-subject font-green bold uppercase">-->
+                        <!--<span>Packages Late </span>-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+                <!--<jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [_gridOptions]="gridOptions" [toolPanel]="true"-->
+                                     <!--[_frameworkComponents]="frameworkComponents" [_hiddenPage]="true"></jhi-data-collection>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="row" [hidden]="projectId === 0">-->
+    <!--<div class="col-lg-12">-->
+        <!--<div class="portlet light bordered portlet-content">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="fa fa-book font-green"></i>-->
+                    <!--<span class="caption-subject font-green bold uppercase">-->
+                        <!--<span>Tasks Late </span>-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+                <!--<jhi-data-collection [_columnDef]="taskCcolumnDefsArg" [_rowData]="taskRowData" [_gridOptions]="gridOptions" [toolPanel]="true"-->
+                                     <!--[_frameworkComponents]="frameworkComponents" [_hiddenPage]="true"></jhi-data-collection>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="row" [hidden]="projectId === 0">-->
+    <!--<div class="col-lg-12">-->
+        <!--<div class="portlet light bordered portlet-content">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="fa fa-book font-green"></i>-->
+                    <!--<span class="caption-subject font-green bold uppercase">-->
+                        <!--<span>Tasks Un-Assign</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+                <!--<jhi-data-collection [_columnDef]="unassignTaskCcolumnDefsArg" [_rowData]="unassignTaskRowData" [_gridOptions]="gridOptions"-->
+                                     <!--[toolPanel]="true" [_frameworkComponents]="frameworkComponents" [_hiddenPage]="true"></jhi-data-collection>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="row" [hidden]="projectId === 0 || !package_late">
+    <jhi-home-sub *ngIf="projectId" [type]="'packages-late'"
+                  [projectId]="projectId"></jhi-home-sub>
+</div>
+<div class="row" [hidden]="projectId === 0 || !task_late">
+    <jhi-home-sub *ngIf="projectId" [type]="'tasks-late'"
+                  [projectId]="projectId"></jhi-home-sub>
+</div><div class="row" [hidden]="projectId === 0 || !task_un_assign">
+    <jhi-home-sub *ngIf="projectId" [type]="'tasks-un-assign'"
+                  [projectId]="projectId"></jhi-home-sub>
+</div>
+

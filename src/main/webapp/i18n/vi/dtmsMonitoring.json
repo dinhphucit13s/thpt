@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "dtmsMonitoring" : {
+            "home": {
+                "title": "Dtms Monitorings",
+                "createLabel": "Thêm mới một Dtms Monitoring",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Dtms Monitoring",
+                "search": "Tìm Dtms Monitoring"
+            },
+            "created": "Một Dtms Monitoring mới được tạo với định danh {{ param }}",
+            "updated": "Một Dtms Monitoring cập nhật với định danh {{ param }}",
+            "deleted": "Một Dtms Monitoring đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Dtms Monitoring {{ id }}?"
+            },
+            "detail": {
+                "title": "Dtms Monitoring"
+            },
+            "position": "Position",
+            "positionId": "Position Id",
+            "role": "Role",
+            "members": "Members"
+        }
+    }
+}

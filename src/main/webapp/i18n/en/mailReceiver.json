@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "mailReceiver" : {
+            "home": {
+                "title": "Mail Receivers",
+                "createLabel": "Create a new Mail Receiver",
+                "createOrEditLabel": "Create or edit a Mail Receiver",
+                "search": "Search for Mail Receiver"
+            },
+            "created": "A new Mail Receiver is created with identifier {{ param }}",
+            "updated": "A Mail Receiver is updated with identifier {{ param }}",
+            "deleted": "A Mail Receiver is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mail Receiver {{ id }}?"
+            },
+            "detail": {
+                "title": "Mail Receiver"
+            },
+            "from": "From",
+            "to": "To",
+            "status": "Status",
+            "mail": "Mail"
+        }
+    }
+}

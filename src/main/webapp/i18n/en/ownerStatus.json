@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "OwnerStatus" : {
+            "null": "",
+            "PUBLIC": "PUBLIC",
+            "PRIVATE": "PRIVATE"
+        }
+    }
+}

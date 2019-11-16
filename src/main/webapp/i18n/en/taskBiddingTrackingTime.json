@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "taskBiddingTrackingTime" : {
+            "home": {
+                "title": "Task Bidding Tracking Times",
+                "createLabel": "Create a new Task Bidding Tracking Time",
+                "createOrEditLabel": "Create or edit a Task Bidding Tracking Time",
+                "search": "Search for Task Bidding Tracking Time"
+            },
+            "created": "A new Task Bidding Tracking Time is created with identifier {{ param }}",
+            "updated": "A Task Bidding Tracking Time is updated with identifier {{ param }}",
+            "deleted": "A Task Bidding Tracking Time is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Task Bidding Tracking Time {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Bidding Tracking Time"
+            },
+            "userLogin": "User Login",
+            "role": "Role",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "startStatus": "Start Status",
+            "endStatus": "End Status",
+            "duration": "Duration",
+            "biddingScope": "Bidding Scope",
+            "task": "Task"
+        }
+    }
+}

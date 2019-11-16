@@ -1,0 +1,71 @@
+<div class="row" style="margin-top:20px;">
+    <div class="col-lg-12">
+        <div class="portlet light bordered" *ngIf="issuesAttach">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span jhiTranslate="dtmsApp.projects.detail.title">Projects</span>
+                </div>
+            </div>
+            <div class="portlet-body dataTables_wrapper">
+                <div style="height: 200px" class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <tr>
+                            <td>
+                                <span class="title">Name</span> :
+                                <span> {{issuesAttach.name}} </span>
+                            </td>
+                            <td>
+                                <span class="title">Project</span> :
+                                <span>{{issuesAttach.projectsName}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="title" style="color: #1e2dea;">Status</span> :
+                                <span>
+                                    <div class="btn-group">
+                                        <select class="form-control" name="type" [(ngModel)]="issuesAttach.status" id="field_type">
+                                            <option value="NA">{{'dtmsApp.IssuesStatus.NA' | translate}}</option>
+                                            <option value="REVIEWING">{{'dtmsApp.IssuesStatus.REVIEWING' | translate}}</option>
+                                            <option value="ACCEPTED">{{'dtmsApp.IssuesStatus.ACCEPTED' | translate}}</option>
+                                            <option value="REJECTED">{{'dtmsApp.IssuesStatus.REJECTED' | translate}}</option>
+                                            <option value="DUPPLICATED">{{'dtmsApp.IssuesStatus.DUPPLICATED' | translate}}</option>
+                                        </select>
+                                     </div>
+                                </span>
+                            </td>
+                            <td>
+                                <span>Image</span> :
+                                <span><a (click)="showAttachment(issuesAttach)">
+                                    Attachments</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="title">Description</span> :
+                                <span>{{issuesAttach.description}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+            <button (click)="changStatusIssue(issuesAttach)" type="submit" class="btn btn-primary" [disabled]="issuesAttach.status === 'NA'">
+                <span class="fa fa-save"></span>&nbsp;<span>Submit</span>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="!issuesAttach">
+        <button type="submit"
+              (click)="previousState()"
+              class="btn btn-info">
+            <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+    </div>
+</div>

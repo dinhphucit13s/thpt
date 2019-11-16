@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "feedback" : {
+            "home": {
+                "title": "Feedback",
+                "createLabel": "Create a new Feedback",
+                "createOrEditLabel": "Create or edit a Feedback",
+                "search": "Search for feedback"
+            },
+            "created": "A new Feedback is created with identifier {{ param }}",
+            "updated": "A Feedback is updated with identifier {{ param }}",
+            "deleted": "A Feedback is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Feedback {{ name }}?"
+            },
+            "detail": {
+                "title": "Feedback"
+            },
+            "name": "Name",
+            "description": "Description",
+            "status": "Status",
+            "purchaseOrder": "Purchase Order",
+            "projects": "Projects",
+            "error": {
+                "inUsed": "The Feedback is used. The system cannot delete."
+            }
+        }
+    }
+}

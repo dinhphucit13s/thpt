@@ -1,0 +1,78 @@
+<div style="display: grid">
+    <h2>
+        <span jhiTranslate="dtmsApp.effort.home.title">Effort</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class="input-group select2-bootstrap-prepend">
+                        <label class="col-md-3 control-label" for="field_project">Project </label>
+                        <select style="width: 200px" class="input-sm select2-multiple" id="field_project" name="project"
+                                [(ngModel)]="projectId" (change)="loadPurchaseOrderByProject()">
+                            <option [value]=null selected="selected">Select Project...</option>
+                            <option [ngValue]="pro.id" *ngFor="let pro of projects">
+                                {{pro.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" *ngIf="purchaseOrder">
+                <div class="form-group">
+                    <div class="input-group select2-bootstrap-prepend">
+                        <label class="col-md-3 control-label" for="field_purchase">Purchase Order </label>
+                        <select style="width: 200px" class="input-sm select2-multiple" id="field_purchase" name="purchase"
+                                [(ngModel)]="purchaseOrderId" (change)="loadPackageByPO()"
+                                [disabled]="projectId === 'null' || projectId === undefined">
+                            <option [value]=null selected="selected" disabled>Select Purchase...</option>
+                            <option value="selectAllPO">Select All</option>
+                            <option [ngValue]="pu.id" *ngFor="let pu of purchaseOrder">
+                                {{pu.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" *ngIf="package">
+                <div class="form-group">
+                    <div class="input-group select2-bootstrap-prepend">
+                        <label class="col-md-3 control-label" for="package" style="width: 80px">Package </label>
+                        <select style="width: 200px" class="input-sm select2-multiple" id="span_large"
+                                name="package" id="package"
+                                [(ngModel)]="packageId"
+                                [disabled]="purchaseOrderId===null || purchaseOrderId==='selectAllPO'">
+                            <option [value]=null selected="selected" disabled>Select Package...</option>
+                            <option value="selectAllPackages">Select All</option>
+                            <option [ngValue]="pack.id" *ngFor="let pack of package; trackBy: trackPackageById">
+                                {{pack.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <button class="input-group-append btn btn-info" (click)="bugTrackingTask()"
+                        [disabled]="(projectId === 'null' || projectId === undefined)">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive col-lg-12">
+        <jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="columnDefs"
+                             [_rowData]="rowData" [_hiddenPage]="true"
+                             [_frameworkComponents]="frameworkComponents"
+                             [toolPanel]="true" [page]="page" [queryCount]="queryCount"
+                             [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+                             (loadPage)="loadPage($event)">
+        </jhi-data-collection>
+    </div>
+</div>
+
+

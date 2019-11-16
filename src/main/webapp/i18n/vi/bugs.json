@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "bugs" : {
+            "home": {
+                "title": "Bugs",
+                "createLabel": "Thêm mới một Bugs",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Bugs",
+                "search": "Tìm Bugs"
+            },
+            "created": "Một Bugs mới được tạo với định danh {{ param }}",
+            "updated": "Một Bugs cập nhật với định danh {{ param }}",
+            "deleted": "Một Bugs đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Bugs {{ id }}?"
+            },
+            "detail": {
+                "title": "Bugs"
+            },
+            "description": "Description",
+            "code": "Code",
+            "stage": "Stage",
+            "status": "Status",
+            "resolution": "Resolution",
+            "physicalPath": "Physical Path",
+            "tasks": "Tasks",
+            "notes": "Notes"
+        }
+    }
+}

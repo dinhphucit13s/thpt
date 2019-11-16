@@ -1,0 +1,22 @@
+/* after changing this file run 'yarn run webpack:build' */
+@import './bootstrap/bootstrap.min.css';
+@import './bootstrap/datatables.bootstrap.css';
+@import '~font-awesome/css/font-awesome.css';
+@import './bootstrap/spinner.css';
+@import './bootstrap/bootstrap-select.css';
+@import './bootstrap/more.css';
+@import './components.min.css';
+@import './plugins.min.css';
+@import './layout.min.css';
+@import './loadding.css';
+@import './flatpickr.css';
+@import './themes/darkblue.min.css';
+@import './bootstrap/bootstrap-multiselect.css';
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+@import '~ng-pick-datetime/assets/style/picker.min.css';
+@import '~ngx-lightbox/lightbox.css';
+@import 'style.css';
+/*@import '~ag-grid/dist/styles/ag-grid.css';*/
+@import '~ag-grid/dist/styles/ag-theme-balham.css';
+@import 'agGrid.css';
+/*@import "~@ng-select/ng-select/themes/default.theme.css";*/

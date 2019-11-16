@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Attachments.
+    -->
+    <changeSet id="20190410091922-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="bugs_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_bugs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bugs"/>
+
+        <addForeignKeyConstraint baseColumnNames="notes_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_notes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notes"/>
+
+        <addForeignKeyConstraint baseColumnNames="issues_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_issues_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="issues"/>
+
+        <addForeignKeyConstraint baseColumnNames="mail_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_mail_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mail"/>
+
+        <addForeignKeyConstraint baseColumnNames="comment_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_comment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="comments"/>
+
+        <addForeignKeyConstraint baseColumnNames="post_id"
+                                 baseTableName="attachments"
+                                 constraintName="fk_attachments_post_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tms_post"/>
+
+    </changeSet>
+</databaseChangeLog>

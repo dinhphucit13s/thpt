@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "customReports" : {
+            "home": {
+                "title": "Custom Reports",
+                "createLabel": "Thêm mới một Custom Report",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Custom Report",
+                "search": "Tìm Custom Report"
+            },
+            "created": "Custom Reports đã được thay đổi",
+            "updated": "Custom Reports đã được thay đổi",
+            "deleted": "Một Customer đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Customer {{ name }}?",
+                "warningMessage": "Không thể xóa {{ name }} vì đang được sử dụng"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "code": "Code",
+            "name": "Name",
+            "status": "Status",
+            "description": "Description",
+            "type": "Type",
+            "error": {
+                "inUsed": "Customer đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

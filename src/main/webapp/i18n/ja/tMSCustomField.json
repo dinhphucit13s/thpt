@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomField" : {
+            "home": {
+                "title": "TMSCustomFields",
+                "createLabel": "TMS Custom Field を追加",
+                "createOrEditLabel": "TMS Custom Fieldを追加または編集",
+                "search": "Search for TMS Custom Field"
+            },
+            "created": "A new TMS Custom Field is created with identifier {{ param }}",
+            "updated": "A TMS Custom Field is updated with identifier {{ param }}",
+            "deleted": "A TMS Custom Field is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "TMS Custom Field {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "TMS Custom Field"
+            },
+            "entity": "Entity",
+            "description": "Description",
+            "error": {
+                "inUsed": "TMS Custom Field đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

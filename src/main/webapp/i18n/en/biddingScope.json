@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "BiddingScope" : {
+            "null": "",
+            "PROJECT": "PROJECT",
+            "BU": "BU",
+            "PUBLIC": "PUBLIC"
+        }
+    }
+}

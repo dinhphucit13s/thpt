@@ -1,0 +1,30 @@
+<form name="cloneForm">
+    <!--Tilte-->
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="entity.clone.title">Clone Package</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <!--Warning-->
+    <div class="modal-body">
+        <jhi-alert-error ></jhi-alert-error>
+        <p>You sure you want to clone this Package and Move Task Status OPEN?</p>
+    </div>
+    <!--Combobox PO-->
+    <div class="col-md-3">
+        <select class="input-sm select2-multiple" id="field_purchase" style="width: 100%" name="purchase"
+                [(ngModel)]="poChosen">
+            <option selected="selected" value="">Select Purchase Order...</option>
+            <option *ngFor="let po of purchaseOrders" [value]="po.id">{{po.name}}</option>
+        </select>
+    </div>
+    <!--Button cancel and Move-->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span><span>No</span>
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="poChosen === ''" (click)="cloneTask()">
+            <span class="fa fa-check-circle"></span>&nbsp;<span>Yes</span>
+        </button>
+    </div>
+</form>

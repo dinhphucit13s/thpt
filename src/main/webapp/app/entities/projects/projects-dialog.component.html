@@ -1,0 +1,355 @@
+<div class="portlet-body form">
+    <form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" id="myProjectsLabel"
+                jhiTranslate="dtmsApp.projects.home.createOrEditLabel">Create
+                or edit a Projects</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;
+            </button>
+        </div>
+        <!--<div class="modal-body">-->
+        <div class="form-body">
+            <jhi-alert-error></jhi-alert-error>
+            <!--<div class="form-group" [hidden]="!projects.id">
+                <label for="id" jhiTranslate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id"
+                       [(ngModel)]="projects.id" readonly />
+            </div>-->
+            <div class="form-group">
+                <!--class="form-control-label"-->
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.code" for="field_code">Code</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           [(ngModel)]="projects.code" required maxlength="20"/>
+                    <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.code?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.code?.errors?.maxlength"
+                               jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                            This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.name" for="field_name">Name</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           [(ngModel)]="projects.name" required maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.maxlength"
+                               jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                            This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.status"
+                       for="field_status">Status</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="status" [(ngModel)]="projects.status" id="field_status" required>
+                        <option value="OPEN">{{'dtmsApp.ProjectStatus.OPEN' | translate}}</option>
+                        <option value="RUNNING">{{'dtmsApp.ProjectStatus.RUNNING' | translate}}</option>
+                        <option value="CLOSED">{{'dtmsApp.ProjectStatus.CLOSED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.status?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.biddingHoldTime"
+                       for="field_bidding_hold_time">Actual Object</label>
+                <div class="col-md-9">
+                    <input type="number" class="form-control" name="bidding_hold_time" id="field_bidding_hold_time"
+                           [(ngModel)]="projects.biddingHoldTime"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.type" for="field_type">Type</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="type" [(ngModel)]="projects.type" id="field_type">
+                        <option value="NA">{{'dtmsApp.ProjectType.NA' | translate}}</option>
+                        <option value="MAINTENANCE">{{'dtmsApp.ProjectType.MAINTENANCE' | translate}}</option>
+                        <option value="BODY_SHOPPING">{{'dtmsApp.ProjectType.BODY_SHOPPING' | translate}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.startTime" for="field_startTime">Start
+                    Time</label>
+                <div class="col-md-9">
+                    <!--<input id="field_startTime" class="form-control" name="startTime"-->
+                    <!--[(ngModel)]="projects.startTime"-->
+                    <!--[max]="projects.endTime"-->
+                    <!--placeholder="Date Time:"-->
+                    <!--[owlDateTimeTrigger]="startTime" [owlDateTime]="startTime" readonly/>-->
+                    <!--<owl-date-time #startTime></owl-date-time>-->
+                    <input
+                        id="field_startTime"
+                        class="form-control"
+                        name="startTime"
+                        type="text"
+                        mwlFlatpickr
+                        [(ngModel)]="projects.startTime"
+                        [maxDate]="projects.endTime"
+                        placeholder="Select Date..."
+                        required
+                        dateFormat="Y/m/d">
+                    <div [hidden]="!(editForm.controls.startTime?.dirty && editForm.controls.startTime?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.startTime?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.endTime" for="field_endTime">End
+                    Time</label>
+                <div class="col-md-9">
+                    <!--<input id="field_endTime" class="form-control" name="endTime"-->
+                    <!--[disabled]="!projects.startTime"-->
+                    <!--[(ngModel)]="projects.endTime"-->
+                    <!--[min]="projects.startTime"-->
+                    <!--placeholder="Date Time:"-->
+                    <!--[owlDateTimeTrigger]="endTime" [owlDateTime]="endTime" readonly>-->
+                    <!--<owl-date-time #endTime></owl-date-time>-->
+                    <input
+                        id="field_endTime"
+                        class="form-control"
+                        name="endTime"
+                        type="text"
+                        mwlFlatpickr
+                        [(ngModel)]="projects.endTime"
+                        [minDate]="projects.startTime"
+                        placeholder="Select Date..."
+                        required
+                        dateFormat="Y/m/d">
+                    <div [hidden]="!(editForm.controls.endTime?.dirty && editForm.controls.endTime?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.endTime?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.projectLead"
+                       for="field_projectLead">Project
+                    Lead</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_projectLead" name="projectLead"
+                            [(ngModel)]="projects.projectLeadUserLogin" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userLoginOption.login"
+                                *ngFor="let userLoginOption of userLogin; trackBy: trackUsersByLogin">
+                            {{userLoginOption.login}}
+                        </option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.projectLeadUserLogin?.dirty && editForm.controls.projectLeadUserLogin?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.projectLeadUserLogin?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>-->
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="projectLead"
+                        id="field_projectLead"
+                        [data]="userLogin"
+                        [(ngModel)]="selectedProjectLead"
+                        [settings]="dropdownSettingsProjectLead"
+                        (onSelect)="onItemSelectProjectLead($event)"
+                        (onDeSelect)="onDeSelectProjectLead($event)"
+                        required>
+                    </ng-multiselect-dropdown>
+                    <div [hidden]="checkProjectLead">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.projectLead?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.delegateUser"
+                       for="field_dedicatedUser">Delegate User</label>
+                <div class="col-md-9">
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="dedicatedUser"
+                        id="field_dedicatedUser"
+                        [data]="userLogin"
+                        [(ngModel)]="projects.dedicatedUsers"
+                        [settings]="dropdownSettingsDedicatedUser"
+                        (onSelect)="onItemSelectDedicatedUser($event)"
+                        (onDeSelect)="onDeSelectDedicatedUser($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.watcherUser"
+                       for="field_watcherUser">Watcher User</label>
+                <div class="col-md-9">
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="watcherUser"
+                        id="field_watcherUser"
+                        [data]="userLogin"
+                        [(ngModel)]="projects.watcherUsers"
+                        [settings]="dropdownSettingsWatcherUser"
+                        (onSelect)="onItemSelectWatcherUser($event)"
+                        (onDeSelect)="onDeSelectWatcherUser($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.projectTemplates"
+                       for="field_projectTemplates">Project Templates</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_projectTemplates" name="projectTemplates"
+                            [(ngModel)]="projects.projectTemplatesId" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectTemplatesOption.id"
+                                *ngFor="let projectTemplatesOption of projecttemplates; trackBy: trackProjectTemplatesById">
+                            {{projectTemplatesOption.name}}
+                        </option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.projectTemplatesId?.dirty && editForm.controls.projectTemplatesId?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.projectTemplatesId?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>-->
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="projectTemplates"
+                        id="field_projectTemplates"
+                        [data]="projecttemplates"
+                        [(ngModel)]="selectedTemplates"
+                        [settings]="dropdownSettingsTemplates"
+                        (onSelect)="onItemSelectTemplates($event)"
+                        (onDeSelect)="onDeSelectTemplates($event)"
+                        required>
+                    </ng-multiselect-dropdown>
+                    <div [hidden]="checkTemplates">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.projectTemplates?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.businessUnit"
+                       for="field_businessUnit">Business Unit</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_businessUnit" name="businessUnit"
+                            [(ngModel)]="projects.businessUnitId" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="businessUnitsOption.id"
+                                *ngFor="let businessUnitsOption of businessUnits; trackBy: trackBusinessUnitById">
+                            {{businessUnitsOption.name}}
+                        </option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.businessUnitId?.dirty && editForm.controls.businessUnitId?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.businessUnitId?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>-->
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="businessUnit"
+                        id="field_businessUnit"
+                        [data]="businessUnits"
+                        [(ngModel)]="selectedBusinessUnit"
+                        [settings]="dropdownSettingsBusinessUnit"
+                        (onSelect)="onItemSelectBusinessUnit($event)"
+                        (onDeSelect)="onDeSelectBusinessUnit($event)"
+                        required>
+                    </ng-multiselect-dropdown>
+                    <div [hidden]="checkBusinessUnit">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.businessUnit?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.customer"
+                       for="field_customer">Customer</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_customer" name="customer"
+                            [(ngModel)]="projects.customerId" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.name}}</option>
+                    </select>-->
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="customer"
+                        id="field_customer"
+                        [data]="customers"
+                        [(ngModel)]="selectedCustomer"
+                        [settings]="dropdownSettingsCustomer"
+                        (onSelect)="onItemSelectCustomer($event)"
+                        (onDeSelect)="onDeSelectCustomer($event)"
+                        required>
+                    </ng-multiselect-dropdown>
+                    <div [hidden]="checkCustomer">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.customer?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.description"
+                       for="field_description">Description</label>
+                <div class="col-md-9">
+                <textarea class="form-control" name="description" id="field_description"
+                          [(ngModel)]="projects.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

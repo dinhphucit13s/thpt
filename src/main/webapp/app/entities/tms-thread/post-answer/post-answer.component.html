@@ -1,0 +1,151 @@
+<div *ngFor="let post of posts" class="margin-top-10" style="display: flex;">
+  <div style="display: flex; flex-direction: column">
+    <div class="avatar" style="background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)"></div>
+    <div class="margin-top-10" style="display: flex; justify-content: center"><span>{{post.createdBy}}</span></div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div>
+      <div class="col-lg-12 col-md-12 col-sm-12 header-posts">
+        <span><b>Posted</b> in {{post.createdDate | date: 'MMM dd,yyyy'}}</span>
+        <a *ngIf="post.createdBy.toLocaleLowerCase() === currentUserLogin && !isClosed" style="float: right" [routerLink]="['/', { outlets: { popup: 'tms-post/'+ post.id + '/edit'} }]"><i class="fa fa-pencil-square-o"></i>&nbsp;<b>Edit</b></a>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 content-posts">
+        <span>{{post.content}}</span>
+      </div>
+      <div *ngIf="post.attachments.length > 0" class="col-lg-12 col-md-12 col-sm-12 margin-top-15 attachment-posts">
+          <span *ngFor="let attachment of post.attachments" style="margin-right: 10px">
+            <span class="fa fa-file-o" style="margin-right: 3px"></span>
+            <a [attr.href]="'api/file/download?id=' + attachment.id" style="color: #32c5d2" download>{{attachment.filename}};</a>
+          </span>
+      </div>
+    </div>
+    <div class="margin-top-10" style="display: inline-block">
+      <a (click)="showListCommentOfPost(post)">
+          <span style="cursor: pointer"><i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;
+            <span *ngIf="post.comments > 1">{{post.comments}} Comments</span>
+            <span *ngIf="post.comments <= 1">{{post.comments}} Comment</span>
+          </span>
+      </a>
+      <span *ngIf="!isClosed" style="padding-left: 10px; padding-right: 10px">-</span>
+      <a *ngIf="!isClosed" (click)="showSideComment(post)">Add a Comment</a>
+    </div>
+
+    <div class="list-comment-side margin-top-10 margin-bottom-10">
+      <div *ngFor="let comment of post.commentsDTOs">
+          <div *ngIf="!comment.commentClone || isClosed" class="col-lg-12 col-md-12 col-sm-12 comment" style="padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #c4ccdf; display: flex">
+              <div *ngIf="!isClosed && currentUserLogin.toLocaleLowerCase() === comment.createdBy.toLocaleLowerCase()"
+               class="dropdown" style="float: right; position: absolute; right: 0">
+            <div class="dropdown-toggle fa fa-ellipsis-h" data-toggle="dropdown"
+                 style="cursor: pointer"></div>
+            <div class="dropdown-menu">
+              <div class="btn-event-notes" (click)="cloneComment(comment)">
+                <span class="fa fa-pencil-square" style="margin-left: 5px"></span>
+                <span style="margin-left: 5px">Edit</span>
+              </div>
+              <div class="btn-event-notes" [routerLink]="['/', { outlets: { popup: 'comments/'+ comment.id + '/delete'} }]">
+                <span class="fa fa-trash" style="margin-left: 5px"></span>
+                <span style="margin-left: 5px">Delete</span>
+              </div>
+            </div>
+          </div>
+          <div style="float: left">
+            <div class="avatar avatar-sm" style="background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)"></div>
+          </div>
+          <div style="float: left; padding: 0 15px; flex-grow: 1">
+            <span><b>{{comment.createdBy}}: </b>{{comment.content}}</span>
+            <div *ngIf="comment.attachments.length > 0" class="col-lg-12 col-md-12 col-sm-12 margin-top-10 attachment-posts">
+              <span *ngFor="let attachment of comment.attachments" style="margin-right: 10px">
+                <span class="fa fa-file-o" style="margin-right: 3px"></span>
+                <a [attr.href]="'api/file/download?id=' + attachment.id" style="color: #32c5d2" download>{{attachment.filename}};</a>
+              </span>
+            </div>
+            <span class="col-lg-12 col-md-12 pl-0"><span style="opacity: 0.6; font-size: 12px;">Added a comment - {{formatDate(comment.createdDate)}}</span></span>
+          </div>
+        </div>
+
+          <div *ngIf="comment.commentClone && !isClosed">
+              <div class="col-lg-12 col-md-12 col-sm-12 margin-top-10" style="padding-left: 0px; padding-right: 0px">
+          <textarea class="form-control comment-side" [(ngModel)]="comment.commentClone.content" placeholder="Write your comment..."
+                    (keyup)="autoResizeCommentTextArea($event.target)" (keydown)="autoResizeCommentTextArea($event.target)"></textarea>
+                  <div class="comment-attach">
+                      <div class="col-lg-12 col-md-12 col-sm-12 pr-0" style="display: flex">
+                          <div class="">
+                              <input type="file" multiple name="field_image" (change)="onFileChangeComment($event, comment.commentClone)"
+                                     id="attach_comment_{{comment.commentClone.id}}"/>
+                              <label class="fa fa-paperclip" for="attach_comment_{{comment.commentClone.id}}"><span></span></label>
+                          </div>
+                          <div class="" style="padding: 0 15px; flex-grow: 1">
+                              <div *ngIf="comment.commentClone.attachments && comment.commentClone.attachments.length > 0">
+                <span *ngFor="let attachComment of comment.commentClone.attachments" style="margin-right: 10px">
+                  <span class="fa fa-file-o" style="margin-right: 3px"></span>
+                  <a>{{attachComment.filename}};</a>
+                  <span class="fa fa-times text-danger" style="cursor: pointer" (click)="removeAttachment(attachComment, comment.commentClone);"></span>
+                </span>
+                              </div>
+                              <div class="" style="display: flex; margin-right: 15px; width: 100%; justify-content: flex-end">
+                                  <button class="btn btn-primary btn-qa" style="height: fit-content" (click)="updateComment(comment, post)">Change</button>
+                                  <button class="btn btn-qa" style="height: fit-content; margin-left: 15px" (click)="removeCloneComment(comment)">Cancel</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+    <!--<div style="display: flex;width: inherit;justify-content: center;padding: 10px 10px 0px 10px;">-->
+      <!--<mat-spinner [diameter]="20"></mat-spinner>-->
+    <!--</div>-->
+      <div *ngIf="post.isComment && !isClosed">
+          <div class="col-lg-12 col-md-12 col-sm-12 margin-top-10" style="padding-left: 0px; padding-right: 0px">
+          <textarea class="form-control comment-side" [(ngModel)]="post.contentComment" placeholder="Write your comment..."
+                    (keyup)="autoResizeCommentTextArea($event.target)" (keydown)="autoResizeCommentTextArea($event.target)"></textarea>
+              <div class="comment-attach">
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 pr-0" style="display: flex">
+                      <div class="">
+                          <input type="file" multiple name="field_image" (change)="onFileChange($event, post)"
+                                 id="attach_comment_{{post.id}}"/>
+                          <label class="fa fa-paperclip" for="attach_comment_{{post.id}}"><span></span></label>
+                      </div>
+                      <div class="" style="padding: 0 15px; flex-grow: 1">
+                          <div *ngIf="post.attachmentsComment && post.attachmentsComment.length > 0">
+                            <span *ngFor="let attachComment of post.attachmentsComment" style="margin-right: 10px">
+                              <span class="fa fa-file-o" style="margin-right: 3px"></span>
+                              <a>{{attachComment.filename}};</a>
+                              <span class="fa fa-times text-danger" style="cursor: pointer" (click)="removeAttachmentCommentNew(attachComment, post)"></span>
+                            </span>
+                          </div>
+                          <div class="" style="display: flex; margin-right: 15px; width: 100%; justify-content: flex-end">
+                              <button class="btn btn-primary btn-qa" style="height: fit-content" (click)="saveComment(post)">Add</button>
+                              <button class="btn btn-qa" style="height: fit-content; margin-left: 15px" (click)="hideSideComment(post)">Cancel</button>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!--<div class="col-lg-10 col-md-10 col-sm-10 pr-0" style="display: flex">-->
+                  <!--<div class="">-->
+                  <!--<input type="file" multiple name="field_image"-->
+                  <!--(change)="onFileChange($event, post)" id="attach_comment"/>-->
+                  <!--<label class="fa fa-paperclip" for="attach_comment"><span></span></label>-->
+                  <!--</div>-->
+                  <!--<div class="" style="padding: 0 15px">-->
+                  <!--<div *ngIf="post.attachmentsComment && post.attachmentsComment.length > 0">-->
+                  <!--<span *ngFor="let attachComment of post.attachmentsComment" style="margin-right: 10px">-->
+                  <!--<span class="fa fa-file-o" style="margin-right: 3px"></span>-->
+                  <!--<a>{{attachComment.filename}};</a>-->
+                  <!--<span class="fa fa-times text-danger" style="cursor: pointer" (click)="removeAttachment(attachComment, post.attachmentsComment);"></span>-->
+                  <!--</span>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--<div class="" style="display: flex; margin-right: 15px">-->
+                  <!--<button class="btn btn-primary btn-qa" style="height: fit-content" (click)="saveComment(post)">Add</button>-->
+                  <!--<button class="btn col-lg-offset-1 btn-qa" style="height: fit-content" (click)="hideSideComment(post)">Cancel</button>-->
+                  <!--</div>-->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

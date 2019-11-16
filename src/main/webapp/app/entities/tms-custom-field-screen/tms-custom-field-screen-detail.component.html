@@ -1,0 +1,38 @@
+
+<div *ngIf="tMSCustomFieldScreen">
+    <h2><span jhiTranslate="dtmsApp.tMSCustomFieldScreen.detail.title">TMS Custom Field Screen</span> {{tMSCustomFieldScreen.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreen.sequence">Sequence</span></dt>
+        <dd>
+            <span>{{tMSCustomFieldScreen.sequence}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreen.tmsCustomField">Tms Custom Field</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreen.tmsCustomFieldId">
+                <a [routerLink]="['/tms-custom-field', tMSCustomFieldScreen.tmsCustomFieldId]">{{tMSCustomFieldScreen.tmsCustomFieldId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreen.projectWorkflows">Project Workflows</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreen.projectWorkflowsId">
+                <a [routerLink]="['/project-workflows', tMSCustomFieldScreen.projectWorkflowsId]">{{tMSCustomFieldScreen.projectWorkflowsName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tms-custom-field-screen/'+ tMSCustomFieldScreen.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

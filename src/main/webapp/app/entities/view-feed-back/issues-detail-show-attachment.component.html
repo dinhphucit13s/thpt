@@ -1,0 +1,18 @@
+<form name="attachmentForm" #attachmentForm="ngForm" class="">
+    <h2 mat-dialog-title>Attachment</h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="attachment-form row" style="width: 700px">
+            <div *ngFor="let attachment of data.model.attachments; index as index" class="col-lg-3 text-center">
+                <img *ngIf="attachment.value" [src]="sanitize('data:image/png;base64,' + attachment.value)" style="width: 100%; height: 102px"
+                     (dblclick)="open(data.model.attachments, index)">
+                <img *ngIf="!attachment.value" style="width: 100%; height: 102px">
+                <span style="word-break: break-all;">{{attachment.filename}}</span><span *ngIf="isUpdate && data.mode === 'edit'" class="fa fa-trash btn-remove"></span>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button mat-button type="button" [mat-dialog-close]="false">
+            <span>Close</span>
+        </button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,71 @@
+
+{
+    "dtmsApp": {
+        "tasks" : {
+            "home": {
+                "title": "Tasks",
+                "createLabel": "Tasks を追加",
+                "createOrEditLabel": "Tasksを追加または編集",
+                "search": "Search for Tasks",
+                "importTitle": "Import Tasks",
+                "import": "Import Tasks",
+                "export": "Export Tasks"
+            },
+            "created": "A new Tasks is created with identifier {{ param }}",
+            "updated": "A Tasks is updated with identifier {{ param }}",
+            "imported": "Tasks imported successfully",
+            "exported": "Tasks exported successfully",
+            "deleted": "A Tasks is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tasks"
+            },
+            "name": "Name",
+            "severity": "Severity",
+            "priority": "Priority",
+            "data": "Data",
+            "fileName": "File Name",
+            "type": "Type",
+            "availability": "Availability",
+            "frame": "Frame",
+            "actualObject": "Actual Object",
+            "opStatus": "Op Status",
+            "opEstimateStartTime": "Op Estimate Start Time",
+            "opEstimateEndTime": "Op Estimate End Time",
+            "opStartTime": "Op Start Time",
+            "opEndTime": "Op End Time",
+            "review1Status": "Review 1 Status",
+            "review1StartTime": "Review 1 Start Time",
+            "review1EndTime": "Review 1 End Time",
+            "fixStatus": "Fix Status",
+            "fixStartTime": "Fix Start Time",
+            "fixEndTime": "Fix End Time",
+            "review2Status": "Review 2 Status",
+            "review2StartTime": "Review 2 Start Time",
+            "review2EndTime": "Review 2 End Time",
+            "fiStatus": "Fi Status",
+            "fiStartTime": "Fi Start Time",
+            "fiEndTime": "Fi End Time",
+            "duration": "Duration",
+            "target": "Target",
+            "errorQuantity": "Error Quantity",
+            "errorSeverity": "Error Severity",
+            "status": "Status",
+            "description": "Description",
+            "parent": "Parent",
+            "op": "Op",
+            "review1": "Review 1",
+            "review2": "Review 2",
+            "fixer": "Fixer",
+            "fi": "Fi",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "packages": "Packages",
+            "error": {
+                "importFailed": "The system cannot import Tasks successfully. Please check your file data.",
+                "inUsed": "The Tasks is used. The system cannot delete."
+            }
+        }
+    }
+}

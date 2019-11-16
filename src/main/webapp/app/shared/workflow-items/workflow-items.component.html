@@ -1,0 +1,210 @@
+<div class="table-responsive" style="max-height: 500px">
+    <div class="modal-header" *ngIf="hasActions">
+        <h5 class="modal-title text-center text-uppercase" >Custom Fields Management</h5>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.title">Title</span></th>
+            <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.showOnPM">Show on PM</span></th>
+            <th><span *ngIf="hasOPColumn" jhiTranslate="dtmsApp.projectWorkflows.editDialog.showOnOP">Show on OP</span>
+            </th>
+            <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.requiredField">Required</span></th>
+            <th *ngIf="hasActions"><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.actions">Actions</span></th>
+        </tr>
+        </thead>
+        <tbody *ngIf="!hasActions" class="">
+        <tr *ngFor="let stepItem of this.workflowObject.entityDTO; index as i;">
+            <td *ngIf="stepItem.field !== 'id'">{{stepItem.headerName}}</td>
+            <td *ngIf="stepItem.field !== 'id'">
+                <label class="mt-checkbox">
+                    <input type="checkbox" [disabled]="stepItem.properties.isRequiredOnPM"
+                           [checked]="stepItem.properties.isRequiredOnPM"
+                           [(ngModel)]="stepItem.properties.isActiveOnPM"
+                           (change)="onViewChange(stepItem)"/>
+                    <span></span>
+                </label>
+
+            </td>
+            <td *ngIf="(stepItem.field !== 'id')">
+                <label class="mt-checkbox" *ngIf="hasOPColumn">
+                    <input type="checkbox" [disabled]="!stepItem.properties.isActiveOnPM"
+                           [checked]="stepItem.properties.isRequiredOnOP"
+                           [(ngModel)]="stepItem.properties.isActiveOnOP"
+                           (change)="onViewChange(stepItem)"/>
+                    <span></span>
+                </label>
+            </td>
+            <td *ngIf="stepItem.field !== 'id'">
+                <label class="mt-checkbox">
+                    <input type="checkbox"
+                           [disabled]="(!stepItem.properties.isActiveOnPM) || (stepItem.hide) || (stepItem.field === 'packagesName')"
+                           [checked]="stepItem.properties.isRequiredOnPM"
+                           [(ngModel)]="stepItem.properties.isRequiredField"
+                           (change)="onViewChange(stepItem)"/>
+                    <span></span>
+                </label>
+            </td>
+        </tr>
+        </tbody>
+        <tbody *ngIf="hasActions" class="">
+        <tr *ngFor="let stepItem of this.workflowObject.entityDTO; index as i;">
+            <td *ngIf="stepItem.entityPropertiesData.field !== 'id'">{{stepItem.entityPropertiesData.headerName}}</td>
+            <td *ngIf="stepItem.entityPropertiesData.field !== 'id'">
+                <label class="mt-checkbox">
+                    <input type="checkbox" [disabled]="stepItem.entityPropertiesView.properties.isRequiredOnPM"
+                           [checked]="stepItem.entityPropertiesView.properties.isRequiredOnPM"
+                           [(ngModel)]="stepItem.entityPropertiesView.properties.isActiveOnPM"
+                           (change)="onViewChange(stepItem.entityPropertiesView)"/>
+                    <span></span>
+                </label>
+
+            </td>
+            <td *ngIf="(stepItem.entityPropertiesData.field !== 'id')">
+                <label class="mt-checkbox" *ngIf="hasOPColumn">
+                    <input type="checkbox" [disabled]="!stepItem.entityPropertiesView.properties.isActiveOnPM"
+                           [checked]="stepItem.entityPropertiesView.properties.isRequiredOnOP"
+                           [(ngModel)]="stepItem.entityPropertiesView.properties.isActiveOnOP"
+                           (change)="onViewChange(stepItem.entityPropertiesView)"/>
+                    <span></span>
+                </label>
+            </td>
+            <td *ngIf="stepItem.entityPropertiesData.field !== 'id'">
+                <label class="mt-checkbox">
+                    <input type="checkbox"
+                           [disabled]="(!stepItem.entityPropertiesView.properties.isActiveOnPM) || (stepItem.entityPropertiesView.hide) || (stepItem.entityPropertiesData.field === 'packagesName')"
+                           [checked]="stepItem.entityPropertiesView.properties.isRequiredOnPM"
+                           [(ngModel)]="stepItem.entityPropertiesView.properties.isRequiredField"
+                           (change)="onViewChange(stepItem.entityPropertiesView)"/>
+                    <span></span>
+                </label>
+            </td>
+            <td *ngIf="stepItem.entityPropertiesData.field !== 'id'&& hasActions">
+                <span (click)="editCustomFieldProperties(stepItem)" class="fa fa-pencil-square-o text-primary"
+                      style="cursor: pointer"></span>
+                <span (click)="deleteProperties(stepItem)" class="fa fa-trash margin-left text-danger"
+                      style="cursor: pointer"></span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--<section class="">
+    <div class="container">
+        <table>
+            <thead>
+            <tr class="header">
+                <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.title">Title</span></th>
+                <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.showOnPM">Show on PM</span></th>
+                <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.showOnOP">Show on OP</span></span></th>
+                <th><span jhiTranslate="dtmsApp.projectWorkflows.editDialog.requiredField">Required</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let stepItem of this.workflowObject.entityDTO; index as i;" >
+                <td *ngIf="stepItem.field !== 'id'">{{stepItem.headerName}}</td>
+                <td *ngIf="stepItem.field !== 'id'">
+                    <label class="mt-checkbox">
+                        <input type="checkbox" [disabled]="stepItem.properties.isRequiredOnPM"
+                               [checked]="stepItem.properties.isRequiredOnPM"
+                               [(ngModel)]="stepItem.properties.isActiveOnPM"
+                               (change)="onViewChange(stepItem)" />
+                        <span></span>
+                    </label>
+
+                </td>
+                <td *ngIf="stepItem.field !== 'id'">
+                    <label class="mt-checkbox">
+                        <input type="checkbox" [disabled]="!stepItem.properties.isActiveOnPM"
+                               [checked]="stepItem.properties.isRequiredOnOP"
+                               [(ngModel)]="stepItem.properties.isActiveOnOP"
+                               (change)="onViewChange(stepItem)" />
+                        <span></span>
+                    </label>
+
+                </td>
+                <td *ngIf="stepItem.field !== 'id'">
+                    <label class="mt-checkbox">
+                        <input type="checkbox"
+                               [disabled]="!stepItem.properties.isActiveOnPM"
+                               [checked]="stepItem.properties.isRequiredOnPM"
+                               [(ngModel)]="stepItem.properties.isRequiredField"
+                               (change)="onViewChange(stepItem)" />
+                        <span></span>
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>-->
+<!--<section class="">
+    <div class="container">
+        <table>
+            <thead>
+            <tr class="header">
+                <th>
+                    Table attribute name
+                    <div>Table attribute name</div>
+                </th>
+                <th>
+                    Value
+                    <div>Value</div>
+                </th>
+                <th>
+                    Description
+                    <div>Description</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>align</td>
+                <td>left, center, right</td>
+                <td>Not supported in HTML5. Deprecated in HTML 4.01. Specifies the alignment of a table according to surrounding text</td>
+            </tr>
+            <tr>
+                <td>bgcolor</td>
+                <td>rgb(x,x,x), #xxxxxx, colorname</td>
+                <td>Not supported in HTML5. Deprecated in HTML 4.01. Specifies the background color for a table</td>
+            </tr>
+            <tr>
+                <td>border</td>
+                <td>1,""</td>
+                <td>Specifies whether the table cells should have borders or not</td>
+            </tr>
+            <tr>
+                <td>cellpadding</td>
+                <td>pixels</td>
+                <td>Not supported in HTML5. Specifies the space between the cell wall and the cell content</td>
+            </tr>
+            <tr>
+                <td>cellspacing</td>
+                <td>pixels</td>
+                <td>Not supported in HTML5. Specifies the space between cells</td>
+            </tr>
+            <tr>
+                <td>frame</td>
+                <td>void, above, below, hsides, lhs, rhs, vsides, box, border</td>
+                <td>Not supported in HTML5. Specifies which parts of the outside borders that should be visible</td>
+            </tr>
+            <tr>
+                <td>rules</td>
+                <td>none, groups, rows, cols, all</td>
+                <td>Not supported in HTML5. Specifies which parts of the inside borders that should be visible</td>
+            </tr>
+            <tr>
+                <td>summary</td>
+                <td>text</td>
+                <td>Not supported in HTML5. Specifies a summary of the content of a table</td>
+            </tr>
+            <tr>
+                <td>width</td>
+                <td>pixels, %</td>
+                <td>Not supported in HTML5. Specifies the width of a table</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>-->

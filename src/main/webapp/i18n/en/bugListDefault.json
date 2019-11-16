@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "bugListDefault" : {
+            "home": {
+                "title": "Bug List Defaults",
+                "createLabel": "Create a new Bug List Default",
+                "createOrEditLabel": "Create or edit a Bug List Default",
+                "search": "Search for Bug List Default"
+            },
+            "created": "A new Bug List Default is created with identifier {{ param }}",
+            "updated": "A Bug List Default is updated with identifier {{ param }}",
+            "deleted": "A Bug List Default is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bug List Default {{ name }}?"
+            },
+            "detail": {
+                "title": "Bug List Default"
+            },
+            "description": "Description",
+            "status": "Status",
+            "businessLine": "Business Line",
+            "error": {
+                "inUsed": "The Bug List Default is used. The system cannot delete."
+            }
+        }
+    }
+}

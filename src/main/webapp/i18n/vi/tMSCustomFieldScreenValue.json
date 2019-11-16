@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomFieldScreenValue" : {
+            "home": {
+                "title": "TMS Custom Field Screen Values",
+                "createLabel": "Thêm mới một TMS Custom Field Screen Value",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật TMS Custom Field Screen Value",
+                "search": "Tìm TMS Custom Field Screen Value"
+            },
+            "created": "Một TMS Custom Field Screen Value mới được tạo với định danh {{ param }}",
+            "updated": "Một TMS Custom Field Screen Value cập nhật với định danh {{ param }}",
+            "deleted": "Một TMS Custom Field Screen Value đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa TMS Custom Field Screen Value {{ id }}?"
+            },
+            "detail": {
+                "title": "TMS Custom Field Screen Value"
+            },
+            "value": "Value",
+            "text": "Text",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks",
+            "tmsCustomField": "Tms Custom Field"
+        }
+    }
+}

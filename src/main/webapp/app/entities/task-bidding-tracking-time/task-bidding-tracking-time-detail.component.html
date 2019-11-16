@@ -1,0 +1,60 @@
+
+<div *ngIf="taskBiddingTrackingTime">
+    <h2><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.detail.title">Task Bidding Tracking Time</span> {{taskBiddingTrackingTime.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.userLogin">User Login</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.userLogin}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.role">Role</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.role}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.endTime">End Time</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.startStatus">Start Status</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.startStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.endStatus">End Status</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.endStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.duration">Duration</span></dt>
+        <dd>
+            <span>{{taskBiddingTrackingTime.duration}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.biddingScope">Bidding Scope</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dtmsApp.BiddingScope.' + taskBiddingTrackingTime.biddingScope}}">{{taskBiddingTrackingTime.biddingScope}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskBiddingTrackingTime.task">Task</span></dt>
+        <dd>
+            <div *ngIf="taskBiddingTrackingTime.taskId">
+                <a [routerLink]="['/tasks', taskBiddingTrackingTime.taskId]">{{taskBiddingTrackingTime.taskName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'task-bidding-tracking-time/'+ taskBiddingTrackingTime.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

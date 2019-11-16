@@ -1,0 +1,28 @@
+<div *ngFor="let process of taskWorkflowVM; index as i;">
+    <div *ngIf="i % 3 == 0" class="row">
+        <div *ngIf="i + 1 <= taskWorkflowVM.length" class="col-sm-12 col-md-3">
+            <input type="radio" name="process" id="{{taskWorkflowVM[i].processKey}}" class="input-hidden"
+                   (click)="setSelectedProcess(taskWorkflowVM[i])"
+                   [checked]="workflowObject.activity === taskWorkflowVM[i].processKey" />
+            <label for="{{taskWorkflowVM[i].processKey}}">
+                <img (dblclick)="open(i)" [src]="sanitize('data:image/png' + ';base64,' + taskWorkflowVM[i].image)"/>
+            </label>
+        </div>
+        <div *ngIf="i + 2 <= taskWorkflowVM.length" class="col-sm-12 col-md-3">
+            <input type="radio" name="process" id="{{taskWorkflowVM[i+1].processKey}}" class="input-hidden"
+                   (click)="setSelectedProcess(taskWorkflowVM[i+1])"
+                   [checked]="workflowObject.activity === taskWorkflowVM[i+1].processKey" />
+            <label for="{{taskWorkflowVM[i+1].processKey}}">
+                <img (dblclick)="open(i + 1)" [src]="sanitize('data:image/png' + ';base64,' + taskWorkflowVM[i+1].image)"/>
+            </label>
+        </div>
+        <div *ngIf="i + 3 <= taskWorkflowVM.length" class="col-sm-12 col-md-3">
+            <input type="radio" name="process" id="{{taskWorkflowVM[i+2].processKey}}" class="input-hidden"
+                   (click)="setSelectedProcess(taskWorkflowVM[i+2])"
+                   [checked]="workflowObject.activity === taskWorkflowVM[i+2].processKey" />
+            <label for="{{taskWorkflowVM[i+2].processKey}}">
+                <img (dblclick)="open(i + 2)" [src]="sanitize('data:image/png' + ';base64,' + taskWorkflowVM[i+2].image)"/>
+            </label>
+        </div>
+    </div>
+</div>

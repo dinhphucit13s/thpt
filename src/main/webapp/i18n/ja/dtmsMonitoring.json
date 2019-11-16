@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "dtmsMonitoring" : {
+            "home": {
+                "title": "DtmsMonitorings",
+                "createLabel": "Dtms Monitoring を追加",
+                "createOrEditLabel": "Dtms Monitoringを追加または編集",
+                "search": "Search for Dtms Monitoring"
+            },
+            "created": "A new Dtms Monitoring is created with identifier {{ param }}",
+            "updated": "A Dtms Monitoring is updated with identifier {{ param }}",
+            "deleted": "A Dtms Monitoring is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Dtms Monitoring {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Dtms Monitoring"
+            },
+            "position": "Position",
+            "positionId": "Position Id",
+            "role": "Role",
+            "members": "Members"
+        }
+    }
+}

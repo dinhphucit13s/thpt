@@ -1,0 +1,44 @@
+
+{
+    "dtmsApp": {
+        "membersManagement" : {
+            "home": {
+                "title": "Members Management",
+                "createLabel": "Thêm mới một Members Management",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Members Management",
+                "search": "Tìm Members Management",
+                "export":"Export Members Management"
+            },
+            "created": "Một Members Management mới được tạo với định danh {{ param }}",
+            "updated": "Một Members Management cập nhật với định danh {{ param }}",
+            "deleted": "Một Members Management đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa {{ name }}?",
+                "warningMessage": "Ràng buộc với dữ liệu con! không thể xóa {{ name }}"
+            },
+            "detail": {
+                "title": "Members Management",
+                "history": "Lịch sử thành viên"
+            },
+            "name": "Name",
+            "status": "Status",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "project": "Tên Dự Án",
+            "role": "Vai Trò Trong Dự Án",
+            "time": "Thời Gian Tham Gia Dự Án",
+            "totalTime": "Tổng Thời Gian",
+            "to": "đến",
+            "day": "ngày",
+            "highestRole": "Vai Trò Cao Nhất Từng Làm: ",
+            "projects": "Số Dự Án Từng Tham Gia: ",
+            "statistical": "Thống Kê",
+            "fullName": "Họ Tên: ",
+            "purchaseOrderLead": "Purchase Order Lead",
+            "packages": "Packages",
+            "historyProject": "Lịch sử dự án"
+        }
+    }
+}

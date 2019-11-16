@@ -1,0 +1,60 @@
+<div class="row margin-top-15">
+    <div class="col-sm-12">
+        <div class="col-md-2">
+            <select class="input-sm select2-multiple" id="field_project" style="width: 100%" name="project"
+                    [(ngModel)]="projectChosen" (change)="onChangeProject()">
+                <option selected="selected" value="">Select Project...</option>
+                <option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-2" *ngIf="purchaseOrders.length > 0">
+            <select class="input-sm select2-multiple" id="field_purchase" style="width: 100%" name="purchase"
+                    [(ngModel)]="poChosen" (change)="onChangePO()">
+                <option *ngFor="let po of purchaseOrders"[value]="po.id">{{po.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-2" *ngIf="packages.length > 0">
+            <select class="input-sm select2-multiple" id="field_package" style="width: 100%" name="package"
+                    [(ngModel)]="packageChosen">
+                <option *ngFor="let package of packages"[value]="package.id">{{package.name}}</option>
+            </select>
+        </div>
+        <div style="height: 30px;display: flex; align-items: center;">
+            <div style="padding-left: 15px; padding-right: 15px">
+                <button class="input-group-append btn btn-info rounded-4" [disabled]="projectChosen === ''" (click)="processMultiWorkFlowOfPurchaseOrders()">
+                    <span class="fa fa-search"></span> Search
+                </button>
+            </div>
+            <div style="padding-right: 15px; padding-left: 60px"><span>Record per page</span>
+                <select class="input-sm select2-multiple" id="select-per-page" style="margin-left: 5px" (change)="processMultiWorkFlowOfPurchaseOrders()"
+                        [(ngModel)] ="itemsPerPage" name="numberRecord">
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <div style="width: 100%; display: flex; justify-content: flex-end">
+            <div class="btn-group btn-group-solid" style="width: 400px;">
+                <button class="btn green tabs" id="btn-Project" type="button" style="margin: 10px 10px;" [disabled]="this.selectedRows.length === 0"
+                        (click) ="biddingTaskByClassify('PROJECT')"  [routerLink] = "['/', { outlets: { popup: 'tasks-bidding-assign'}}]">
+                    <i class="fa fa-file"></i> Project Public</button>
+                <button class="btn yellow-crusta tabs" id="btn-BU" type="button" style="margin: 10px 10px;" [disabled]="this.selectedRows.length === 0"
+                        (click)="biddingTaskByClassify('BU')" [routerLink] = "['/', { outlets: { popup: 'tasks-bidding-assign'}}]">
+                    <i class="fa fa-check"></i> BU Public</button>
+                <button class="btn yellow-soft tabs" id="btn-All" type="button" style=" margin: 10px 10px;" [disabled]="this.selectedRows.length === 0"
+                        (click)="biddingTaskByClassify('PUBLIC')" [routerLink] = "['/', { outlets: { popup: 'tasks-bidding-assign'}}]">
+                    <i class="fa fa-trello"></i> Public all</button>
+            </div>
+        </div>
+        <div class="margin-top-10">
+            <jhi-alert></jhi-alert>
+            <jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [toolPanel]="true" [isRowSelectable]="isRowSelectable"
+                                 [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount" (loadAuthorities)="getSelectedRow($event)"
+                                 [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)"></jhi-data-collection>
+        </div>
+    </div>
+</div>
+

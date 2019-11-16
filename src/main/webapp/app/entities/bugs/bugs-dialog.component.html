@@ -1,0 +1,117 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title text-center text-uppercase" id="myBugsLabel" jhiTranslate="dtmsApp.bugs.home.createOrEditLabel">Create or edit a Bugs</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!bugs.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="bugs.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.description" for="field_description">Description</label>
+            <div>
+                <div *ngIf="bugs.description" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{bugs.descriptionContentType}}, {{byteSize(bugs.description)}}</span>
+                    <button type="button" (click)="bugs.description=null;bugs.descriptionContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_description" (change)="setFileData($event, bugs, 'description', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="description" id="field_description"
+                [(ngModel)]="bugs.description" required minlength="10"/>
+            <input type="hidden" class="form-control" name="descriptionContentType" id="field_descriptionContentType"
+                [(ngModel)]="bugs.descriptionContentType" />
+            <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.description?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 10 }">
+                   This field is required to be at least 10 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="bugs.code" required minlength="2"/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.stage" for="field_stage">Stage</label>
+            <input type="text" class="form-control" name="stage" id="field_stage"
+                [(ngModel)]="bugs.stage" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="bugs.status" id="field_status"  required>
+                <option value="OPEN">{{'dtmsApp.BugStatus.OPEN' | translate}}</option>
+                <option value="FIXING">{{'dtmsApp.BugStatus.FIXING' | translate}}</option>
+                <option value="CLOSED">{{'dtmsApp.BugStatus.CLOSED' | translate}}</option>
+                <option value="REOPEN">{{'dtmsApp.BugStatus.REOPEN' | translate}}</option>
+                <option value="CANCELLED">{{'dtmsApp.BugStatus.CANCELLED' | translate}}</option>
+                <option value="PENDING">{{'dtmsApp.BugStatus.PENDING' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.resolution" for="field_resolution">Resolution</label>
+            <select class="form-control" name="resolution" [(ngModel)]="bugs.resolution" id="field_resolution"  required>
+                <option value="NA">{{'dtmsApp.BugResolution.NA' | translate}}</option>
+                <option value="FIXED">{{'dtmsApp.BugResolution.FIXED' | translate}}</option>
+                <option value="WILL_NOT_FIX">{{'dtmsApp.BugResolution.WILL_NOT_FIX' | translate}}</option>
+                <option value="CAN_NOT_REPRODUCE">{{'dtmsApp.BugResolution.CAN_NOT_REPRODUCE' | translate}}</option>
+                <option value="CANCEL">{{'dtmsApp.BugResolution.CANCEL' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.resolution?.dirty && editForm.controls.resolution?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.resolution?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.physicalPath" for="field_physicalPath">Physical Path</label>
+            <input type="text" class="form-control" name="physicalPath" id="field_physicalPath"
+                [(ngModel)]="bugs.physicalPath" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.bugs.tasks" for="field_tasks">Tasks</label>
+            <select class="form-control" id="field_tasks" name="tasks" [(ngModel)]="bugs.tasksId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tasksOption.id" *ngFor="let tasksOption of tasks; trackBy: trackTasksById">{{tasksOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "authorityResource" : {
+            "home": {
+                "title": "Authority Resources",
+                "createLabel": "Thêm mới một Authority Resource",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Authority Resource",
+                "search": "Tìm Authority Resource",
+                "roleList": "List Roles"
+            },
+            "created": "Một Authority Resource mới được tạo với định danh {{ param }}",
+            "updated": "Một Authority Resource cập nhật với định danh {{ param }}",
+            "deleted": "Một Authority Resource đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Authority Resource {{ id }}?"
+            },
+            "detail": {
+                "title": "Authority Resource"
+            },
+            "name": "Name",
+            "permission": "Permission",
+            "authorityName": "Authority Name",
+            "resources" : "Role Resource"
+        }
+    }
+}

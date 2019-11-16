@@ -1,0 +1,51 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title text-center text-uppercase">Add bug list default into project</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body" style="min-height: 500px;">
+        <ng-multiselect-dropdown
+            [data]="bugListDefaults"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="onDeSelect($event)"
+        >
+        </ng-multiselect-dropdown>
+        <div *ngIf="projectBugListDefaults?.length > 0">
+            <table class="table">
+                <tr>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectBugListDefault.bugName">Bug Name</span></th>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectBugListDefault.code">Code</span></th>
+                </tr>
+
+                <tr *ngFor="let item of projectBugListDefaults; let i = index">
+                    <td><label>{{item.bugListDefaultDescription}}</label></td>
+                    <td>
+                        <input type="text" class="form-control bugCode" name="code{{i}}" id="file_code{{i}}" [(ngModel)]="item.code" required minlength="2" maxlength="255" #validateLength/>
+                            <small *ngIf="validateLength.value.length == 1 " class="form-text text-danger"
+                                   jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                Cannot be less than 1 characters.
+                            </small>
+                            <small *ngIf="validateLength.value.length <= 0 " class="form-text text-danger"
+                                   jhiTranslate="entity.validation.required">
+                                The Field must required
+                            </small>
+
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                    <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" [disabled]="editForm.form.invalid || isSaving || !bugCodeExist" class="btn btn-primary">
+                    <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

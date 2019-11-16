@@ -1,0 +1,137 @@
+.badge-in-progress {
+    background-color: #64ce36;
+    color: #ffffff;
+    padding: 0px 5px 2px 5px;
+    font-weight: bold;
+    border-radius: 4px !important;
+    margin-right: 20px;
+}
+
+.badge-closed {
+    background-color: #fa2323;
+    color: #ffffff;
+    padding: 0px 5px 2px 5px;
+    font-weight: bold;
+    border-radius: 4px !important;
+    margin-right: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.avatar {
+    width: 9rem;
+    height: 9rem;
+    min-width: 9rem;
+    min-height: 9rem;
+    background: #ced4da no-repeat center/cover;
+    box-shadow: 1px 1px 1px 1px #ebebeb;
+    border-radius: 4px !important;
+}
+
+.header-posts {
+    border: 1px solid #c4ccdf;
+    background-color: #f7f7f7;
+    height: 40px;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    line-height: 40px;
+}
+
+.content-posts {
+    padding-top: 16px;
+    padding-bottom: 15px;
+    border-left: 1px solid #c4ccdf;
+    border-right: 1px solid #c4ccdf;
+    border-bottom: 1px solid #c4ccdf;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+.attachment-posts {
+    border: 1px dashed #c4ccdf;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+[type="file"] + label {
+    margin-top: 10px;
+    font-size: 26px;
+    padding: 0px 5px 0px 5px;
+    margin-bottom: 0;
+}
+
+[type="file"] + label span {
+    font: 400 14px/20px Roboto,"Helvetica Neue",sans-serif !important;
+}
+
+[type="file"] + label:hover {
+    text-shadow: 2px 2px 8px #777777;
+}
+
+[type="file"]:disabled + label {
+    opacity: 0.4;
+}
+
+[type="file"]:enabled + label {
+    cursor: pointer;
+}
+
+[type="file"]:enabled + label:active {
+    text-shadow: 2px 2px 5px #a0a0a0;
+}
+[type="file"] {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.comment-side {
+    resize: none;
+    min-height: 52px;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+
+.comment-side:focus {
+    outline: none !important;
+    border: 1px solid #c4ccdf;
+}
+
+.comment-attach {
+    display: flex;
+    padding: 5px 0px 5px 0px;
+    border-left: 1px solid #c4ccdf;
+    border-right: 1px solid #c4ccdf;
+    border-bottom: 1px solid #c4ccdf;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+button {
+    border-radius: 4px !important;
+}
+
+.pr-0 {
+    padding-right: 0 !important;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+.thread-title {
+    font-size: 24px;
+    font-family: open sans,Helvetica,Arial,sans-serif !important;
+    margin-left: 5px; font-weight: 800
+}
+
+.btn-qa {
+    width: 120px !important;
+}

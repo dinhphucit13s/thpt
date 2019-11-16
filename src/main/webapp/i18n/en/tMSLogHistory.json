@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "tMSLogHistory" : {
+            "home": {
+                "title": "TMS Log Histories",
+                "createLabel": "Create a new TMS Log History",
+                "createOrEditLabel": "Create or edit a TMS Log History",
+                "search": "Search for TMS Log History"
+            },
+            "created": "A new TMS Log History is created with identifier {{ param }}",
+            "updated": "A TMS Log History is updated with identifier {{ param }}",
+            "deleted": "A TMS Log History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete TMS Log History {{ id }}?"
+            },
+            "detail": {
+                "title": "TMS Log History"
+            },
+            "action": "Action",
+            "oldValue": "Old Value",
+            "newValue": "New Value",
+            "projects": "Projects",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks"
+        }
+    }
+}

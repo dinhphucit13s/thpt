@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "taskBidding" : {
+            "home": {
+                "title": "TaskBiddings",
+                "createLabel": "Task Bidding を追加",
+                "createOrEditLabel": "Task Biddingを追加または編集",
+                "search": "Search for Task Bidding"
+            },
+            "created": "A new Task Bidding is created with identifier {{ param }}",
+            "updated": "A Task Bidding is updated with identifier {{ param }}",
+            "deleted": "A Task Bidding is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Task Bidding {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Task Bidding"
+            },
+            "biddingScope": "Bidding Scope",
+            "biddingStatus": "Bidding Status",
+            "task": "Task"
+        }
+    }
+}

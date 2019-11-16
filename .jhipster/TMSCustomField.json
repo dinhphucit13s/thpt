@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "entity",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190122163250",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "tms_custom_field",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "javadoc": "The TMSCustomField entity.",
+    "enableEntityAudit": true
+}

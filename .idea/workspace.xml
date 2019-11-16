@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="61ec2437-bca9-4c7f-a79e-9b24bcd6ab86" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/app/entities/mail/mail.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/app/entities/mail/mail.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/content/css/vendor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/content/css/vendor.css" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>previousPage</find>
+      <find>routeData</find>
+      <find>cle</find>
+      <find>loadAll</find>
+      <find>task-tracking-time</find>
+      <find>trackBy</find>
+      <find>page</find>
+      <find>pagingParams</find>
+      <find>UserResolvePagingParams</find>
+      <find>ngon</find>
+      <find>medium</find>
+      <find>date</find>
+      <find>positionNecessary</find>
+      <find>EstimateS</find>
+      <find>displayPosition</find>
+      <find>displayedColumns</find>
+      <find>formatDateTime</find>
+      <find>totalItems</find>
+      <find>queryCount</find>
+      <find>sort</find>
+      <find>resourceSearchUrl</find>
+      <find>rowData</find>
+      <find>this.itemsPerPage</find>
+      <find>users</find>
+      <find>onSuccess</find>
+      <find>user-management</find>
+      <find>loadPage</find>
+      <find>foreach</find>
+      <find>columnDefsArg</find>
+      <find>ngOn</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\DTMS_Project\btms\src\main\webapp\app\admin</dir>
+      <dir>D:\DTMS_Project\btms\src\main\webapp\app\entities\packages</dir>
+      <dir>D:\DTMS_Project\btms\src\main\webapp\app</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectId" id="1SYwMHVg8w2DdiSR6CCBu8Y3feQ" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/Projects/DTMS_Project/btms" />
+    <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.prettier" value="D:\DTMS_Project\btms\node_modules\prettier" />
+    <property name="node.js.selected.package.tslint" value="D:\DTMS_Project\btms\node_modules\tslint" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DTMS_Project\btms\src\main\webapp\app\entities\packages" />
+      <recent name="D:\DTMS_Project\btms\src\main\webapp\app\entities" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61ec2437-bca9-4c7f-a79e-9b24bcd6ab86" name="Default" comment="" />
+      <created>1566297550165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566297550165</updated>
+      <workItem from="1566297551640" duration="251000" />
+      <workItem from="1566353546056" duration="2044000" />
+      <workItem from="1566438399412" duration="8944000" />
+      <workItem from="1566534612682" duration="2721000" />
+      <workItem from="1566553598782" duration="299000" />
+      <workItem from="1566784009792" duration="210000" />
+      <workItem from="1566784973595" duration="4374000" />
+      <workItem from="1566871360309" duration="22989000" />
+      <workItem from="1566955136447" duration="4685000" />
+      <workItem from="1566960849586" duration="8010000" />
+      <workItem from="1566980204027" duration="4276000" />
+      <workItem from="1566985316442" duration="5587000" />
+      <workItem from="1566991289708" duration="888000" />
+      <workItem from="1567043605321" duration="15291000" />
+      <workItem from="1567132510494" duration="3890000" />
+      <workItem from="1567476331053" duration="4206000" />
+      <workItem from="1567482026134" duration="20071000" />
+      <workItem from="1567510724029" duration="2685000" />
+      <workItem from="1567559647653" duration="7881000" />
+      <workItem from="1567567898133" duration="1435000" />
+      <workItem from="1567570120503" duration="1105000" />
+      <workItem from="1567571613884" duration="13021000" />
+      <workItem from="1567591096094" duration="10056000" />
+      <workItem from="1567664357562" duration="14155000" />
+      <workItem from="1567739284380" duration="482000" />
+      <workItem from="1567994776976" duration="10876000" />
+      <workItem from="1568079245170" duration="2701000" />
+      <workItem from="1568084108542" duration="945000" />
+      <workItem from="1568085380466" duration="5296000" />
+      <workItem from="1568164739507" duration="3667000" />
+      <workItem from="1568254135079" duration="1790000" />
+      <workItem from="1568338260384" duration="2219000" />
+      <workItem from="1568360790092" duration="3387000" />
+      <workItem from="1568599067839" duration="3648000" />
+      <workItem from="1568615646590" duration="7367000" />
+      <workItem from="1568684849819" duration="7369000" />
+      <workItem from="1568859912286" duration="20631000" />
+      <workItem from="1568946299863" duration="13018000" />
+      <workItem from="1569202522023" duration="18504000" />
+      <workItem from="1569289318979" duration="17906000" />
+      <workItem from="1569314985340" duration="6811000" />
+      <workItem from="1569376421129" duration="10020000" />
+      <workItem from="1569468167617" duration="15494000" />
+      <workItem from="1569550788491" duration="16240000" />
+      <workItem from="1569645459301" duration="3367000" />
+      <workItem from="1569809557719" duration="27925000" />
+      <workItem from="1569895784767" duration="8461000" />
+      <workItem from="1569935064117" duration="9000" />
+      <workItem from="1569988443538" duration="894000" />
+      <workItem from="1570002050520" duration="2672000" />
+      <workItem from="1570108559746" duration="3356000" />
+      <workItem from="1570117991689" duration="639000" />
+      <workItem from="1570155484355" duration="707000" />
+      <workItem from="1570156374806" duration="7381000" />
+      <workItem from="1570270466588" duration="3176000" />
+      <workItem from="1571753799465" duration="135000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

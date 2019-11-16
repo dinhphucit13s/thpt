@@ -1,0 +1,56 @@
+<div class="row" style="margin-top:20px;">
+    <div class="col-lg-12">
+        <div class="portlet light bordered" *ngIf="businessLine">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green bold uppercase">BUSINESS LINE DETAIL</span>
+                </div>
+            </div>
+            <div class="portlet-body dataTables_wrapper">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 150px;" >Name</th>
+                            <th>Detail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.businessLine.name">Name</span>
+                            </td>
+                            <td>
+                                <span>{{businessLine.name}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.businessLine.description">Description</span>
+                            </td>
+                            <td>
+                                <span>{{businessLine.description}}</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'business-line/'+ businessLine.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "ProjectType" : {
+            "null": "",
+            "NA": "NA",
+            "MAINTENANCE": "MAINTENANCE",
+            "BODY_SHOPPING": "BODY_SHOPPING"
+        }
+    }
+}

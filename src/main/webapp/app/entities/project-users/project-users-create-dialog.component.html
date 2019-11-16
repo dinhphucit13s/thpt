@@ -1,0 +1,102 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myProjectUsersLabel" jhiTranslate="dtmsApp.projectUsers.home.createOrEditLabel">
+            Create or edit a Project Users</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;
+        </button>
+    </div>
+    <div class="modal-body" style="min-height: 500px;">
+        <ng-multiselect-dropdown
+            [placeholder]="'dtmsApp.projectUsers.home.search' | translate"
+            [data]="users"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onDeSelect)="onDeSelect($event)"
+        >
+        </ng-multiselect-dropdown>
+        <div *ngIf="projectUsersList?.length > 0">
+            <table class="table">
+                <tr>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectUsers.userLogin">User Login</span></th>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectUsers.startDate">Start Date</span></th>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectUsers.endDate">End Date</span></th>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectUsers.roleName">Role Name</span></th>
+                    <th scope="col"><span jhiTranslate="dtmsApp.projectUsers.effortPlan">Effort Plan</span></th>
+                </tr>
+
+                <tr *ngFor="let item of projectUsersList; let i = index">
+                    <td><label>{{item.userLogin}}</label></td>
+                    <td>
+                        <!--<input id="field_startDate" class="form-control" name="startDate{{i}}"-->
+                               <!--[(ngModel)]="item.startDate"-->
+                               <!--[max]="item.endDate"-->
+                               <!--placeholder="Start Date"-->
+                               <!--[owlDateTimeTrigger]="startDate" [owlDateTime]="startDate" required readonly/>-->
+                        <!--<owl-date-time #startDate [pickerType]="'calendar'"></owl-date-time>-->
+                        <input
+                            id="field_startDate"
+                            class="form-control"
+                            name="startDate{{i}}"
+                            type="text"
+                            mwlFlatpickr
+                            [(ngModel)]="item.startDate"
+                            [maxDate]="item.endDate"
+                            placeholder="Start Date"
+                            dateFormat="Y/m/d"
+                            required>
+                    </td>
+                    <td>
+                        <!--<input id="field_endDate" class="form-control" name="endDate{{i}}"-->
+                               <!--[(ngModel)]="item.endDate"-->
+                               <!--[min]="item.startDate"-->
+                               <!--placeholder="Start Date"-->
+                               <!--[owlDateTimeTrigger]="endDate" [owlDateTime]="endDate" required readonly/>-->
+                        <!--<owl-date-time #endDate [pickerType]="'calendar'"></owl-date-time>-->
+                        <input
+                            id="field_endDate"
+                            class="form-control"
+                            name="endDate{{i}}"
+                            type="text"
+                            mwlFlatpickr
+                            [(ngModel)]="item.endDate"
+                            [minDate]="item.startDate"
+                            placeholder="End Date"
+                            dateFormat="Y/m/d"
+                            required>
+                    </td>
+                    <td style="width: 200px;">
+                        <select class="form-control" name="field_roleName{{i}}" [(ngModel)]="item.roleName"
+                                id="field_roleName{{i}}" required>
+                            <option value="PM">{{'dtmsApp.ProjectRoles.PM' | translate}}</option>
+                            <option value="TEAMLEAD">{{'dtmsApp.ProjectRoles.TEAMLEAD' | translate}}</option>
+                            <option value="OPERATOR">{{'dtmsApp.ProjectRoles.OPERATOR' | translate}}</option>
+                            <option value="REVIEWER">{{'dtmsApp.ProjectRoles.REVIEWER' | translate}}</option>
+                            <option value="FI">{{'dtmsApp.ProjectRoles.FI' | translate}}</option>
+                        </select>
+                    </td>
+                    <td style="width: 150px;">
+                        <input type="text" class="form-control" name="field_effortPlan{{i}}" #effortInput="ngModel"
+                               id="field_effortPlan{{i}}" [(ngModel)]="item.effortPlan" maxlength="11" pattern="^([1-9]|1[0-2]|[1-9](\.)[5]{1}|1[0-1](\.)[5]{1}|[1-9](\.)[0]{1}|1[0-2](\.)[0]{1})$" required>
+                        <div *ngIf="effortInput.dirty && effortInput.invalid">
+                            <small class="form-text text-danger"
+                                   *ngIf="effortInput.errors.pattern" jhiTranslate="dtmsApp.projectUsers.validation.patternNumber">
+                                This field can only contain number.
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                    <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+

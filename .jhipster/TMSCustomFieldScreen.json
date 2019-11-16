@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tmsCustomField",
+            "otherEntityName": "tMSCustomField",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "tMSCustomFieldScreen"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectWorkflows",
+            "otherEntityName": "projectWorkflows",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "sequence",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20190122163251",
+    "javadoc": "The TMSCustomFieldScreen entity.",
+    "entityTableName": "tms_custom_field_screen",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "enableEntityAudit": true
+}

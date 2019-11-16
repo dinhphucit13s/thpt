@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "mail" : {
+            "home": {
+                "title": "Mail",
+                "createLabel": "Mail を追加",
+                "createOrEditLabel": "Mailを追加または編集",
+                "search": "Search for Mail"
+            },
+            "created": "A new Mail is created with identifier {{ param }}",
+            "updated": "A Mail is updated with identifier {{ param }}",
+            "deleted": "A Mail is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Mail {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Mail"
+            },
+            "from": "From",
+            "subject": "Subject",
+            "body": "Body",
+            "startTime": "Start Time",
+            "endTime": "End Time"
+        }
+    }
+}

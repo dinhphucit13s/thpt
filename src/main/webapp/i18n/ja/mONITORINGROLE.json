@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "MONITORINGROLE" : {
+            "null": "",
+            "ROLE_DEDICATED": "ROLE_DEDICATED",
+            "ROLE_WATCHER": "ROLE_WATCHER"
+        }
+    }
+}

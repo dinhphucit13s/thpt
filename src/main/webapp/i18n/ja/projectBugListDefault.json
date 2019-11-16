@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "projectBugListDefault" : {
+            "home": {
+                "title": "ProjectBugListDefaults",
+                "createLabel": "Project Bug List Default を追加",
+                "createOrEditLabel": "Project Bug List Defaultを追加または編集",
+                "search": "Search for Project Bug List Default"
+            },
+            "created": "A new Project Bug List Default is created with identifier {{ param }}",
+            "updated": "A Project Bug List Default is updated with identifier {{ param }}",
+            "deleted": "A Project Bug List Default is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Project Bug List Default {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Project Bug List Default"
+            },
+            "code": "Code",
+            "project": "Project",
+            "bugListDefault": "Bug List Default"
+        }
+    }
+}

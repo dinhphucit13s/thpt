@@ -1,0 +1,36 @@
+<div>
+    <ngb-tabset #tabset="ngbTabset" type="pills" (tabChange)="changeTab($event)">
+        <ngb-tab id="unAssign">
+            <ng-template ngbTabTitle>
+                <span>Un-Assign</span>
+            </ng-template>
+            <ng-template ngbTabContent>
+                <jhi-task-bidding-un-assign></jhi-task-bidding-un-assign>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab id="projectPublic">
+            <ng-template ngbTabTitle>
+                Project Public
+            </ng-template>
+            <ng-template ngbTabContent>
+                <jhi-task-bidding-classify [modeBidding]="'project'"></jhi-task-bidding-classify>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab id="buPublic">
+            <ng-template ngbTabTitle>
+                BU Public
+            </ng-template>
+            <ng-template ngbTabContent>
+                <jhi-task-bidding-classify [modeBidding]="'businessUnit'"></jhi-task-bidding-classify>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab id="publicAll">
+            <ng-template ngbTabTitle>
+                Public All
+            </ng-template>
+            <ng-template ngbTabContent>
+                <jhi-task-bidding-classify [modeBidding]="'publicAll'"></jhi-task-bidding-classify>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+</div>

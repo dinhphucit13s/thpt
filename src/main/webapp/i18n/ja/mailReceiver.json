@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "mailReceiver" : {
+            "home": {
+                "title": "MailReceivers",
+                "createLabel": "Mail Receiver を追加",
+                "createOrEditLabel": "Mail Receiverを追加または編集",
+                "search": "Search for Mail Receiver"
+            },
+            "created": "A new Mail Receiver is created with identifier {{ param }}",
+            "updated": "A Mail Receiver is updated with identifier {{ param }}",
+            "deleted": "A Mail Receiver is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Mail Receiver {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Mail Receiver"
+            },
+            "from": "From",
+            "to": "To",
+            "status": "Status",
+            "mail": "Mail"
+        }
+    }
+}

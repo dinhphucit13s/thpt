@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "tasks",
+            "otherEntityName": "tasks",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "bug",
+            "otherEntityName": "bugs",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "description"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190122163255",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "notes",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "enableEntityAudit": true
+}

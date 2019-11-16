@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "businessUnit" : {
+            "home": {
+                "title": "BusinessUnits",
+                "createLabel": "Business Unit を追加",
+                "createOrEditLabel": "Business Unitを追加または編集",
+                "search": "Search for Business Unit"
+            },
+            "created": "A new Business Unit is created with identifier {{ param }}",
+            "updated": "A Business Unit is updated with identifier {{ param }}",
+            "deleted": "A Business Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Business Unit {{ name }}を削除してもよろしいですか？",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "detail": {
+                "title": "Business Unit"
+            },
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "error": {
+                "inUsed": "The Business Unit is used. The system cannot delete."
+            }
+        }
+    }
+}

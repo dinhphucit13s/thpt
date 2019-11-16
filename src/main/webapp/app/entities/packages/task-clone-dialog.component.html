@@ -1,0 +1,57 @@
+<form name="cloneForm">
+    <!--Tilte-->
+    <div class="modal-header">
+        <h2 class="modal-title" jhiTranslate="entity.clone.titleclone">Clone Tasks</h2>
+    </div>
+    <!--Warning-->
+    <div>
+        <h4 class="modal-title" style="margin: 1em;" jhiTranslate="entity.clone.titleclonemodal">Option PurchaseOder and Packages</h4>
+    </div>
+    <!--Combobox PO-->
+    <div class="col-md-3">
+        <select class="input-sm select2-multiple" id="field_purchase" style="width: 100%" name="purchase"
+                [(ngModel)]="poChosen" (change)="onChangePO()">
+            <option selected="selected" value="">Select Purchase Order...</option>
+            <option *ngFor="let po of purchaseOrders" [value]="po.id">{{po.name}}</option>
+        </select>
+        <small *ngIf="poChosen.length == 0 " class="form-text text-danger" jhiTranslate="entity.validation.optionPurcharse">You must option value purchase order</small>
+    </div>
+    <!--Combobox PK-->
+    <div *ngIf="poChosen.length == 0 " class="col-md-3">
+        <select [disabled]="poChosen.length == 0" class="input-sm select2-multiple classDisableCombobox" id="field_packages" style="width: 100%" name="package"
+                [(ngModel)]="packageChosen">
+            <option selected="selected" value="">Select Package...</option>
+            <option *ngFor="let pa of packageLst" [value]="pa.id">{{pa.name}}</option>
+        </select>
+    </div>
+    <div *ngIf="poChosen.length !== 0 " class="col-md-3">
+        <select class="input-sm select2-multiple" id="field_package" style="width: 100%" name="package"
+                [(ngModel)]="packageChosen">
+            <option selected="selected" value="">Select Package...</option>
+            <option *ngFor="let pa of packageLst" [value]="pa.id">{{pa.name}}</option>
+        </select>
+        <small *ngIf="packageChosen.length == 0 " class="form-text text-danger" jhiTranslate="entity.validation.optionPackages">You must option method clone </small>
+    </div>
+    <small *ngIf="packageChosen.length !== 0 " class="form-text text-danger" jhiTranslate="entity.validation.optionAction">You must option value purchase order</small>
+    <div class="col-sm-12">
+        <div style="width: 100%; display: flex; justify-content: flex-end">
+            <div class="btn-group btn-group-solid" style="width: 800px;">
+                <button class="btn green tabs" id="btn-Project" type="button" style="margin: 10px 10px;" [disabled]="this.packageChosen.length == 0"
+                        (click) ="checkTaskByClassify('ALL')"  [routerLink] = "['/', { outlets: { popup: 'tasks-clone-assign'}}]">
+                    <i class="fa fa-file"></i>All Task</button>
+                <button class="btn yellow-crusta tabs" id="btn-BU" type="button" style="margin: 10px 10px;" [disabled]="this.packageChosen.length == 0"
+                        (click)="checkTaskByClassify('OPEN')" [routerLink] = "['/', { outlets: { popup: 'tasks-clone-assign'}}]">
+                    <i class="fa fa-check"></i>Task Status OPEN</button>
+            </div>
+
+        </div>
+
+    </div>
+    <!--Button cancel and Move-->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span><span>Back</span>
+        </button>
+    </div>
+</form>
+

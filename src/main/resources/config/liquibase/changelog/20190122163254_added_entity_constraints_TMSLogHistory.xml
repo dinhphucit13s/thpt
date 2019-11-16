@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TMSLogHistory.
+    -->
+    <changeSet id="20190122163254-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="projects_id"
+                                 baseTableName="tms_log_history"
+                                 constraintName="fk_tmslog_history_projects_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projects"/>
+
+        <addForeignKeyConstraint baseColumnNames="purchase_orders_id"
+                                 baseTableName="tms_log_history"
+                                 constraintName="fk_tmslog_history_purchase_orders_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="purchase_orders"/>
+
+        <addForeignKeyConstraint baseColumnNames="packages_id"
+                                 baseTableName="tms_log_history"
+                                 constraintName="fk_tmslog_history_packages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="packages"/>
+
+        <addForeignKeyConstraint baseColumnNames="tasks_id"
+                                 baseTableName="tms_log_history"
+                                 constraintName="fk_tmslog_history_tasks_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tasks"/>
+
+    </changeSet>
+</databaseChangeLog>

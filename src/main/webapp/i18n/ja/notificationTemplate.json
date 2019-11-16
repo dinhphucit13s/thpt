@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "notificationTemplate" : {
+            "home": {
+                "title": "NotificationTemplates",
+                "createLabel": "Notification Template を追加",
+                "createOrEditLabel": "Notification Templateを追加または編集",
+                "search": "Search for Notification Template"
+            },
+            "created": "A new Notification Template is created with identifier {{ param }}",
+            "updated": "A Notification Template is updated with identifier {{ param }}",
+            "deleted": "A Notification Template is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Notification Template {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Notification Template"
+            },
+            "type": "Type",
+            "template": "Template",
+            "description": "Description"
+        }
+    }
+}

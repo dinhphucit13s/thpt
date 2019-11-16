@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomFieldScreen" : {
+            "home": {
+                "title": "TMSCustomFieldScreens",
+                "createLabel": "TMS Custom Field Screen を追加",
+                "createOrEditLabel": "TMS Custom Field Screenを追加または編集",
+                "search": "Search for TMS Custom Field Screen"
+            },
+            "created": "A new TMS Custom Field Screen is created with identifier {{ param }}",
+            "updated": "A TMS Custom Field Screen is updated with identifier {{ param }}",
+            "deleted": "A TMS Custom Field Screen is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "TMS Custom Field Screen {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "TMS Custom Field Screen"
+            },
+            "sequence": "Sequence",
+            "tmsCustomField": "Tms Custom Field",
+            "projectWorkflows": "Project Workflows"
+        }
+    }
+}

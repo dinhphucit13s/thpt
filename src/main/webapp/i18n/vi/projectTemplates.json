@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "projectTemplates" : {
+            "home": {
+                "title": "Project Templates",
+                "createLabel": "Thêm mới một Project Templates",
+                "createWorkflowLabel": "Thêm mới một Workflow",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Project Templates",
+                "search": "Tìm Project Templates"
+            },
+            "created": "Một Project Templates mới được tạo với định danh {{ param }}",
+            "updated": "Một Project Templates cập nhật với định danh {{ param }}",
+            "deleted": "Một Project Templates đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Project Templates {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Templates"
+            },
+            "name": "Name",
+            "image": "Image",
+            "description": "Description",
+            "businessLine": "Business Line",
+            "project": "Project",
+            "error": {
+                "inUsed": "Project Templates đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

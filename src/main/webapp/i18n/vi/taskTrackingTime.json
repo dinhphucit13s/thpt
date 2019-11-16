@@ -1,0 +1,33 @@
+
+{
+    "dtmsApp": {
+        "taskTrackingTime" : {
+            "home": {
+                "title": "Task Tracking Times",
+                "createLabel": "Thêm mới một Task Tracking Time",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Task Tracking Time",
+                "search": "Tìm Task Tracking Time"
+            },
+            "created": "Một Task Tracking Time mới được tạo với định danh {{ param }}",
+            "updated": "Một Task Tracking Time cập nhật với định danh {{ param }}",
+            "deleted": "Một Task Tracking Time đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Task Tracking Time {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Tracking Time"
+            },
+            "taskId": "Task Id",
+            "userLogin": "User Login",
+            "role": "Role",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "startStatus": "Start Status",
+            "endStatus": "End Status",
+            "duration": "Duration",
+            "error": {
+                "inUsed": "The Task Tracking Time đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

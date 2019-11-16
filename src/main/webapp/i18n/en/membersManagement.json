@@ -1,0 +1,44 @@
+
+{
+    "dtmsApp": {
+        "membersManagement" : {
+            "home": {
+                "title": "Members Management",
+                "createLabel": "Create a new Members Management",
+                "createOrEditLabel": "Create or edit a Members Management",
+                "search": "Search for Members Management",
+                "export":"Export Members Management"
+            },
+            "created": "A new Members Management is created with identifier {{ param }}",
+            "updated": "A Members Management is updated with identifier {{ param }}",
+            "deleted": "A Members Management is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete {{ name }}?",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "detail": {
+                "title": "Members Management",
+                "history": "Member History"
+            },
+            "name": "Name",
+            "status": "Status",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "project": "Project Name",
+            "role": "Project Role",
+            "time": "Time To Join The Project",
+            "totalTime": "Total Time",
+            "to": "to",
+            "day": "days",
+            "highestRole": "Highest Role: ",
+            "projects": "Projects: ",
+            "statistical": "Statistical",
+            "fullName": "Full Name: ",
+            "purchaseOrderLead": "Purchase Order Lead",
+            "packages": "Packages",
+            "historyProject": "History Projects"
+        }
+    }
+}

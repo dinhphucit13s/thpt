@@ -1,0 +1,12 @@
+.btn-clone {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+span.content {
+    display: inline-block;
+    white-space: nowrap;
+    max-width: 370px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

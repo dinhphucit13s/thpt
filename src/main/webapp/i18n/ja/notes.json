@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "notes" : {
+            "home": {
+                "title": "Notes",
+                "createLabel": "Notes を追加",
+                "createOrEditLabel": "Notesを追加または編集",
+                "search": "Search for Notes"
+            },
+            "created": "A new Notes is created with identifier {{ param }}",
+            "updated": "A Notes is updated with identifier {{ param }}",
+            "deleted": "A Notes is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Notes {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Notes"
+            },
+            "description": "Description",
+            "attachment": "Attachment",
+            "tasks": "Tasks",
+            "bug": "Bug"
+        }
+    }
+}

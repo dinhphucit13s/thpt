@@ -1,0 +1,24 @@
+
+{
+    "dtmsApp": {
+        "comments" : {
+            "home": {
+                "title": "Comments",
+                "createLabel": "Thêm mới một Comments",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Comments",
+                "search": "Tìm Comments"
+            },
+            "created": "Một Comments mới được tạo với định danh {{ param }}",
+            "updated": "Một Comments cập nhật với định danh {{ param }}",
+            "deleted": "Một Comments đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Comments?"
+            },
+            "detail": {
+                "title": "Comments"
+            },
+            "content": "Content",
+            "post": "Post"
+        }
+    }
+}

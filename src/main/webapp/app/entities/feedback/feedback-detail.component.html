@@ -1,0 +1,18 @@
+<div *ngIf="issuesAttach">
+    <h2>
+        <span>Feedback</span>
+    </h2>
+    <div><b>Name</b></div>
+    <div>{{issuesAttach.name}}</div>
+    <div><b>Description</b></div>
+    <div>{{issuesAttach.description}}</div>
+    <div><b>Status</b></div>
+    <div>{{issuesAttach.status}}</div>
+    <div><b>Attachment</b></div>
+    <div><a (click)="showAttachment(issuesAttach)">{{issuesAttach.attachments.length}} attachments</a></div>
+    <button type="submit"
+            routerLink="/feedback"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,202 @@
+
+.dropdown-action {
+    transform: translateX(4px) translateY(8px) !important;
+    min-width: 42px;
+}
+
+.dropdown-action-right {
+    transform: translateX(65px) translateY(8px) !important;
+    min-width: 42px;
+}
+
+.action-item {
+    margin-left: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.hr-panel {
+    padding-right: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAADCAYAAABS3WWCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEQ5RDgxQzc2RjQ5MTFFMjhEMUNENzFGRUMwRjhBRTciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEQ5RDgxQzg2RjQ5MTFFMjhEMUNENzFGRUMwRjhBRTciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0RDlEODFDNTZGNDkxMUUyOEQxQ0Q3MUZFQzBGOEFFNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0RDlEODFDNjZGNDkxMUUyOEQxQ0Q3MUZFQzBGOEFFNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvXFWFAAAAAYSURBVHjaYvj//z8D0/Pnz/8zgFgAAQYAS5UJscReGMIAAAAASUVORK5CYII=) repeat-x scroll 0 10px;
+}
+
+.row-comment {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 5px;
+    display: -webkit-box;
+}
+
+.pr-0 {
+    padding-right: 0 !important;
+}
+
+.pl-0 {
+    padding-left: 0 !important;
+}
+
+textarea {
+    resize: vertical;
+    border-radius: 8px !important;
+}
+
+.pnl-bug {
+    background-color: #f4f7f0;
+    border: 1px solid #f4f7f0 !important;
+    border-radius: 8px !important;
+}
+
+.avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50% !important;
+    background: #ced4da no-repeat center/cover;
+}
+
+.avatar.avatar-sm {
+    width: 2rem;
+    height: 2rem;
+}
+
+.row-center {
+    display: grid;
+    justify-content: center;
+}
+
+.btn-delete-bug {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.btn-delete-bug:before {
+    font-size: 16px;
+}
+
+.over-content-bug:hover .btn-delete-bug {
+    opacity: 1;
+}
+
+.toggle-comment {
+    padding-right: 5px;
+    background-color: #f4f7f0;
+}
+
+.add-comment {
+    margin-left: 10px;
+    opacity: 0;
+}
+
+.row-comment:hover .add-comment {
+    opacity: 1;
+}
+
+.dropdown-menu:after, .dropdown-menu:before {
+    content: none;
+}
+
+.dropdown-menu ul{
+    margin: 0;
+}
+
+.dropdown-menu {
+    margin: -5px;
+    min-width: 70px !important;
+}
+
+.dropdown {
+    float: right;
+    opacity: 0;
+}
+
+.dropdown-menu .fa-trash, .dropdown-menu .fa-pencil-square {
+    font-size: 16px;
+    margin-top: 4px;
+    transform: scale(1.15);
+}
+
+.comment:hover .dropdown {
+    opacity: 1;
+}
+
+.accordion-panel-custom {
+    display: table !important;
+    margin: 0;
+    color: unset;
+    width: 100%;
+}
+
+.btn-event-notes {
+    cursor: pointer;
+}
+
+.btn-event-notes:hover {
+    background-color: #E9EBEE;
+}
+
+a {
+    color: #508ec1 !important;
+    font-weight: unset !important;
+}
+
+a:hover {
+    color: #508ec1 !important;
+    font-weight: unset !important;
+}
+
+.panel-review {
+    border-radius: 4px !important;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12) !important;
+}
+
+.collapse-header {
+    width: 100%;
+    background-color: #ffffff;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    line-height: 1.8em !important;
+    padding: 6px 24px;
+    font-size: 15px
+}
+
+.collapse-header[aria-expanded = true]:hover {
+    background-color: inherit;
+}
+
+.collapse-header[aria-expanded = false]:hover {
+    background-color: rgba(0,0,0,.04);
+}
+
+.header-span {
+    float: left;
+    color: #111111;
+}
+
+.panel-body {
+    font-size: unset;
+    padding:0px 24px 15px;
+}
+
+.header-indicator {
+    float: right;
+}
+
+.header-indicator::after {
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    content: '';
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    color: rgba(0,0,0,.54);
+}
+
+.collapse-header[aria-expanded = true] .header-indicator {
+    transform: rotate(180deg);
+}
+
+.collapse-header[aria-expanded = false] .header-indicator {
+    transform: rotate(0deg);
+}

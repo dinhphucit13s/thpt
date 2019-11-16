@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "attachments" : {
+            "home": {
+                "title": "Attachments",
+                "createLabel": "Thêm mới một Attachments",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Attachments",
+                "search": "Tìm Attachments"
+            },
+            "created": "Một Attachments mới được tạo với định danh {{ param }}",
+            "updated": "Một Attachments cập nhật với định danh {{ param }}",
+            "deleted": "Một Attachments đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Attachments {{ id }}?"
+            },
+            "detail": {
+                "title": "Attachments"
+            },
+            "filename": "Filename",
+            "diskFile": "Disk File",
+            "fileType": "File Type",
+            "bugs": "Bugs",
+            "notes": "Notes",
+            "issues": "Issues",
+            "mail": "Mail",
+            "comment": "Comment",
+            "post": "Post"
+        }
+    }
+}

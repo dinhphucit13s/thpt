@@ -1,0 +1,47 @@
+
+{
+    "dtmsApp": {
+        "packages" : {
+            "home": {
+                "title": "Packages",
+                "createLabel": "Create a new Packages",
+                "createOrEditLabel": "Create or edit a Packages",
+                "import": "Import",
+                "importTitle": "Import Packages and Tasks",
+                "search": "Search for Packages"
+            },
+            "created": "A new Packages is created with identifier {{ param }}",
+            "updated": "A Packages is updated with identifier {{ param }}",
+            "deleted": "A Packages is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete {{ name }}?",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "deliveryConfirm": {
+                "title": "Confirm Delivery Package",
+                "question": "Are you sure you want to delivery {{ name }}?"
+            },
+            "detail": {
+                "title": "Packages"
+            },
+            "name": "Name",
+            "op": "Op",
+            "reviewer": "Reviewer",
+            "fi": "Fi",
+            "delivery": "Delivery",
+            "estimateDelivery": "Estimate Delivery",
+            "target": "Target",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "purchaseOrders": "Purchase Orders",
+            "tasks": "Tasks",
+            "imported": "Imported successfully",
+            "error": {
+                "importFailed": "The system cannot import Packages and Tasks successfully. Please check your file data.",
+                "inUsed": "The Package is used. The system cannot delete."
+            }
+        }
+    }
+}

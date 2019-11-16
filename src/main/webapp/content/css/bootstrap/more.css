@@ -1,0 +1,69 @@
+@media screen and (max-width: 992px) {
+    .push-right .sidebar {
+      left: 235px !important;
+    }
+  }
+  .rtl {
+    /*rtl dropdown items correction*/
+  }
+  .rtl .sidebar {
+    left: auto !important;
+    right: 0 !important;
+  }
+  .rtl .sidebar > ul.list-group {
+    padding: 0;
+  }
+  .rtl .main-container {
+    margin-left: 0 !important;
+    margin-right: 235px;
+  }
+  .rtl .dropdown-menu {
+    text-align: right;
+  }
+  .rtl * {
+    direction: rtl;
+  }
+  .rtl .navbar * {
+    direction: ltr;
+  }
+  .rtl .sidebar * {
+    direction: ltr;
+  }
+  .rtl .navbar .dropdown-menu {
+    text-align: left;
+  }
+  .rtl .breadcrumb {
+    direction: ltr;
+    justify-content: flex-end;
+  }
+  .rtl .breadcrumb * {
+    direction: ltr;
+  }
+  .rtl .datepicker-input {
+    direction: ltr;
+  }
+  .rtl .datepicker-input .dropdown-menu {
+    direction: ltr;
+  }
+  .rtl .datepicker-input .dropdown-menu * {
+    direction: ltr;
+  }
+  .rtl .input-group {
+    direction: ltr;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .rtl .navbar-brand {
+      direction: ltr;
+    }
+    .rtl .sidebar {
+      right: -235px !important;
+    }
+    .rtl .main-container {
+      margin-right: 0;
+    }
+    .rtl.push-right .sidebar {
+      left: auto !important;
+      right: 0 !important;
+    }
+  }

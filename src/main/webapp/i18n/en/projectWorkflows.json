@@ -1,0 +1,42 @@
+
+{
+    "dtmsApp": {
+        "projectWorkflows" : {
+            "home": {
+                "title": "Project Workflows",
+                "createLabel": "Create a new Project Workflows",
+                "createOrEditLabel": "Manage Template",
+                "search": "Search for Project Workflows",
+                "export": "Export Excel"
+            },
+            "created": "A new Project Workflows is created with identifier {{ param }}",
+            "updated": "A Project Workflows is updated with identifier {{ param }}",
+            "deleted": "A Project Workflows is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Workflows {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Workflows"
+            },
+            "name": "Name",
+            "step": "Step",
+            "inputDTO": "Input DTO",
+            "opGridDTO": "Op Grid DTO",
+            "pmGridDTO": "Pm Grid DTO",
+            "nextURI": "Next URI",
+            "description": "Description",
+            "activity": "Process Flow",
+            "projectTemplates": "Project Templates",
+            "editDialog": {
+                "title": "Field Name",
+                "showOnOP": "Show on OP",
+                "showOnPM": "Show on PM",
+                "requiredField": "Require Field",
+                "purchaseOrder": "Purchase Order",
+                "package": "Package",
+                "task": "Task",
+                "actions": "Actions"
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "tMSLogHistory" : {
+            "home": {
+                "title": "TMSLogHistories",
+                "createLabel": "TMS Log History を追加",
+                "createOrEditLabel": "TMS Log Historyを追加または編集",
+                "search": "Search for TMS Log History"
+            },
+            "created": "A new TMS Log History is created with identifier {{ param }}",
+            "updated": "A TMS Log History is updated with identifier {{ param }}",
+            "deleted": "A TMS Log History is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "TMS Log History {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "TMS Log History"
+            },
+            "action": "Action",
+            "oldValue": "Old Value",
+            "newValue": "New Value",
+            "projects": "Projects",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks"
+        }
+    }
+}

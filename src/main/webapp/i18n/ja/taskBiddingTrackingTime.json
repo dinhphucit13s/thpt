@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "taskBiddingTrackingTime" : {
+            "home": {
+                "title": "TaskBiddingTrackingTimes",
+                "createLabel": "Task Bidding Tracking Time を追加",
+                "createOrEditLabel": "Task Bidding Tracking Timeを追加または編集",
+                "search": "Search for Task Bidding Tracking Time"
+            },
+            "created": "A new Task Bidding Tracking Time is created with identifier {{ param }}",
+            "updated": "A Task Bidding Tracking Time is updated with identifier {{ param }}",
+            "deleted": "A Task Bidding Tracking Time is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Task Bidding Tracking Time {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Task Bidding Tracking Time"
+            },
+            "userLogin": "User Login",
+            "role": "Role",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "startStatus": "Start Status",
+            "endStatus": "End Status",
+            "duration": "Duration",
+            "biddingScope": "Bidding Scope",
+            "task": "Task"
+        }
+    }
+}

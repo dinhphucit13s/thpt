@@ -1,0 +1,58 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.taskTrackingTime.home.title">Task Tracking Times</span>
+        <button class="btn btn-primary float-right jh-create-entity create-task-tracking-time" [routerLink]="['/', { outlets: { popup: ['task-tracking-time-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="dtmsApp.taskTrackingTime.home.createLabel">
+            Create new Task Tracking Time
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.taskTrackingTime.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="taskTrackingTimes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="taskId"><span jhiTranslate="dtmsApp.taskTrackingTime.taskId">Task Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="dtmsApp.taskTrackingTime.userLogin">User Login</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="role"><span jhiTranslate="dtmsApp.taskTrackingTime.role">Role</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startTime"><span jhiTranslate="dtmsApp.taskTrackingTime.startTime">Start Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endTime"><span jhiTranslate="dtmsApp.taskTrackingTime.endTime">End Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startStatus"><span jhiTranslate="dtmsApp.taskTrackingTime.startStatus">Start Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endStatus"><span jhiTranslate="dtmsApp.taskTrackingTime.endStatus">End Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="duration"><span jhiTranslate="dtmsApp.taskTrackingTime.duration">Duration</span> <span class="fa fa-sort"></span></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let taskTrackingTime of taskTrackingTimes ;trackBy: trackId">
+                <td><a [routerLink]="['../task-tracking-time', taskTrackingTime.id ]">{{taskTrackingTime.id}}</a></td>
+                <td>{{taskTrackingTime.taskId}}</td>
+                <td>{{taskTrackingTime.userLogin}}</td>
+                <td>{{taskTrackingTime.role}}</td>
+                <td>{{taskTrackingTime.startTime | date:'medium'}}</td>
+                <td>{{taskTrackingTime.endTime | date:'medium'}}</td>
+                <td>{{taskTrackingTime.startStatus}}</td>
+                <td>{{taskTrackingTime.endStatus}}</td>
+                <td>{{taskTrackingTime.duration}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "ContractType" : {
+            "null": "",
+            "FULLTIME": "FULLTIME",
+            "PARTTIME": "PARTTIME"
+        }
+    }
+}

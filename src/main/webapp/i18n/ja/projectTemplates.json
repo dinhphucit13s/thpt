@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "projectTemplates" : {
+            "home": {
+                "title": "ProjectTemplates",
+                "createLabel": "Project Templates を追加",
+                "createOrEditLabel": "Project Templatesを追加または編集",
+                "search": "Search for Project Templates"
+            },
+            "created": "A new Project Templates is created with identifier {{ param }}",
+            "updated": "A Project Templates is updated with identifier {{ param }}",
+            "deleted": "A Project Templates is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Project Templates {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Project Templates"
+            },
+            "name": "Name",
+            "image": "Image",
+            "description": "Description",
+            "businessLine": "Business Line",
+            "project": "Project",
+            "error": {
+                "inUsed": "The Project Templates is used. The system cannot delete."
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.tMSCustomField.home.title">TMS Custom Fields</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-9 form-inline" style="padding-left: 0px">
+                <div class="col-md-4" style="padding-left: 0px">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.tMSCustomField.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" #loginInput="ngModel" class="form-control" [(ngModel)]="tMSCustomFiled.entityData.headerName" (change)="changeFieldName()" id="nameField" name="nameField" placeholder="enter field name" required/>
+                    <button [disabled]="loginInput.invalid" class="input-group-append btn btn-info" (click)="save()">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px" *ngIf="loginInput.dirty && loginInput.invalid">
+                        <small class="form-text text-danger"
+                               *ngIf="loginInput.errors.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px" *ngIf="nameExists && tMSCustomFiled.entityData.headerName.length > 0">
+                        <small class="form-text text-danger"
+                               jhiTranslate="entity.validation.exists">
+                            This field is exists.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div *ngIf="rowData">
+        <jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="columnDefs" [_rowData]="rowData" [_frameworkComponents]="frameworkComponents"
+                             [toolPanel]="false" [page]="page" [queryCount]="queryCount" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+        </jhi-data-collection>
+    </div>
+</div>

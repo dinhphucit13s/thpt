@@ -1,0 +1,42 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "Users",
+            "createLabel": "Create a new user",
+            "createOrEditLabel": "Create or edit a user",
+            "import": "Import new user",
+            "importTitle": "Import New User"
+        },
+        "created": "A new user is created with identifier {{ param }}",
+        "updated": "An user is updated with identifier {{ param }}",
+        "imported": "A new user is created",
+        "deleted": "An user is deleted with identifier {{ param }}",
+        "delete": {
+            "question": "Are you sure you want to delete user {{ login }}?"
+        },
+        "detail": {
+            "title": "User"
+        },
+        "login": "Login",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "activated": "Activated",
+        "deactivated": "Deactivated",
+        "profiles": "Profiles",
+        "langKey": "Language",
+        "createdBy": "Created by",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date"
+    },
+    "dtmsApp": {
+        "User Management": {
+            "imported": "Tài khoản mới đã được tạo thành công",
+            "error": {
+                "importFailed": "The system cannot import Tasks successfully. Please check your file data.",
+                "inUsed": "The User is used. The system cannot delete."
+            }
+        }
+    }
+}

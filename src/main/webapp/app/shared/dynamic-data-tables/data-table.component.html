@@ -1,0 +1,71 @@
+<div>
+    <div [ngClass]="toolPanel ? 'grid' : 'grid-normal'">
+        <ag-grid-angular
+            style="width: 100%"
+            class="ag-theme-balham"
+            [gridOptions]="gridOptions"
+            [columnDefs]="_columnDef"
+            [rowData]="_rowData"
+            [isRowSelectable]="isRowSelectable"
+            [rowSelection]="'multiple'"
+            [rowDeselection]="true"
+            [sideBar]="sideBar"
+            (gridReady)="onGridReady($event)"
+            (gridColumnsChanged) = "onGridColumnsChanged($event)"
+            [context]="_context"
+            (bodyScroll) = "onBodyScroll($event)"
+            (selectionChanged) = 'onSelectionChanged($event)'
+            (cellClicked)="showDetailFilePath($event)"
+            [frameworkComponents]="_frameworkComponents">
+        </ag-grid-angular>
+    </div>
+    <div *ngIf="toolPanel" class="grid-tool-panel">
+        <div class="tool">
+            <div class="toolPanelItem">
+                <i class="fa fa-navicon font-grey"></i>
+                <label>Columns</label>
+            </div>
+        </div>
+        <div class="toolPanelContent">
+            <div *ngFor="let col of _columnDef; index as i;">
+                <ul>
+                    <li *ngIf="col.showToogle !== undefined ">
+                        <input type="checkbox" [checked]="!col.showToogle" (change)="toogleGridColum(col)">
+                        {{col.headerName}}
+                    </li>
+                    <li *ngIf="columnDefArg[i] && col.showToogle === undefined">
+                        <input type="checkbox" (change)="toogleGridColum(col)">
+                        {{col.headerName}}
+                    </li>
+                </ul>
+            </div>
+            <div *ngFor="let col of _columnDef;">
+                <div *ngIf = "col.headerName === ''">
+                    <div *ngFor="let child of col.children">
+                        <ul>
+                            <li *ngIf="child.showToogle !== undefined && !child.showToogle">
+                                <input type="checkbox" [checked]="!child.showToogle" (change)="toogleGridColum(child)">
+                                {{child.headerName}}
+                            </li>
+                            <li *ngIf="child.showToogle === undefined">
+                                <input type="checkbox" (change)="toogleGridColum(child)">
+                                {{child.headerName}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="enableSave" type="submit" class="btn default" (click)="emitCustomReport()">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="_rowData && _rowData.length && !hiddenPage">
+    <div class="row justify-content-center">
+        <jhi-item-count class="col-lg-12" [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+    </div>
+    <div class="row justify-content-center">
+        <ngb-pagination class="col-lg-12" [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="emitPage(page)"></ngb-pagination>
+    </div>
+</div>

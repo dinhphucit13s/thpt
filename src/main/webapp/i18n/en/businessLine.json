@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "businessLine" : {
+            "home": {
+                "title": "Business Lines",
+                "createLabel": "Create a new Business Line",
+                "createOrEditLabel": "Create or edit a Business Line",
+                "search": "Search for Business Line"
+            },
+            "created": "A new Business Line is created with identifier {{ param }}",
+            "updated": "A Business Line is updated with identifier {{ param }}",
+            "deleted": "A Business Line is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Business Line {{ name }}?"
+            },
+            "detail": {
+                "title": "Business Line"
+            },
+            "name": "Name",
+            "description": "Description",
+            "error": {
+                "inUsed": "The Business Line is used. The system cannot delete."
+            }
+        }
+    }
+}

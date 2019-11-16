@@ -1,0 +1,13 @@
+{
+    "dtmsApp": {
+        "BugStatus" : {
+            "null": "",
+            "OPEN": "OPEN",
+            "FIXING": "FIXING",
+            "CLOSED": "CLOSED",
+            "REOPEN": "REOPEN",
+            "CANCELLED": "CANCELLED",
+            "PENDING": "PENDING"
+        }
+    }
+}

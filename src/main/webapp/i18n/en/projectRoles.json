@@ -1,0 +1,12 @@
+{
+    "dtmsApp": {
+        "ProjectRoles" : {
+            "null": "",
+            "PM": "PM",
+            "TEAMLEAD": "TEAMLEAD",
+            "OPERATOR": "OPERATOR",
+            "REVIEWER": "REVIEWER",
+            "FI": "FI"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "dtmsApp": {
+        "PurchaseOrderStatus" : {
+            "null": "",
+            "OPEN": "OPEN",
+            "PROCESSING": "PROCESSING",
+            "DELIVERED": "DELIVERED",
+            "CANCEL": "CANCEL"
+        }
+    }
+}

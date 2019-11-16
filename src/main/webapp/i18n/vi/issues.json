@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "issues" : {
+            "home": {
+                "title": "Issues",
+                "createLabel": "Thêm mới một Issues",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Issues",
+                "search": "Tìm Issues"
+            },
+            "created": "Một Issues mới được tạo với định danh {{ param }}",
+            "updated": "Một Issues cập nhật với định danh {{ param }}",
+            "deleted": "Một Issues đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Issues {{ name }}?"
+            },
+            "detail": {
+                "title": "Issues"
+            },
+            "name": "Name",
+            "description": "Description",
+            "status": "Status",
+            "purchaseOrder": "Purchase Order",
+            "projects": "Projects",
+            "error": {
+                "inUsed": "Issues đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

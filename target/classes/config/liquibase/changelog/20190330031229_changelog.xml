@@ -1,0 +1,58 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="TuHP (generated)" id="1553915564529-1">
+        <addDefaultValue 
+            columnName="severity"
+            defaultValue="NORMAL"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-2">
+        <addDefaultValue 
+            columnName="priority"
+            defaultValue="NORMAL"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-3">
+        <addDefaultValue 
+            columnName="availability"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-4">
+        <addDefaultValue 
+            columnName="status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-5">
+        <addDefaultValue 
+            columnName="op_status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-6">
+        <addDefaultValue 
+            columnName="review_1_status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-7">
+        <addDefaultValue 
+            columnName="fix_status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-8">
+        <addDefaultValue 
+            columnName="review_2_status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1553915564529-9">
+        <addDefaultValue 
+            columnName="fi_status"
+            defaultValue="NA"
+            tableName="tasks"/>
+    </changeSet>
+    
+</databaseChangeLog>

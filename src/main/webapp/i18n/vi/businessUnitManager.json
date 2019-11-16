@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "businessUnitManager" : {
+            "home": {
+                "title": "Business Unit Managers",
+                "createLabel": "Thêm mới một Business Unit Manager",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Business Unit Manager",
+                "search": "Tìm Business Unit Manager"
+            },
+            "created": "Một Business Unit Manager mới được tạo với định danh {{ param }}",
+            "updated": "Một Business Unit Manager cập nhật với định danh {{ param }}",
+            "deleted": "Một Business Unit Manager đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Business Unit Manager {{ id }}?"
+            },
+            "detail": {
+                "title": "Business Unit Manager"
+            },
+            "description": "Description",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "businessUnit": "Business Unit",
+            "manager": "Manager"
+        }
+    }
+}

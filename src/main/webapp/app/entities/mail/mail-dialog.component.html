@@ -1,0 +1,161 @@
+<form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMailLabel" jhiTranslate="dtmsApp.mail.home.createOrEditLabel">Create or edit a Mail</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="field_from">To</label>
+            <div class="col-md-10">
+                <!--<div class="input-group">
+                    <input type="email" class="txt_search form-control" name="from" id="field_from"
+                           [(ngModel)]="searchMail" (drop)="suggestionUser()" (input)="suggestionUser()" autocomplete="off">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i> </span>
+                </div>
+                <ng-multiselect-dropdown *ngIf="users"
+                    [data]="users"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="onDeSelect($event)"></ng-multiselect-dropdown>-->
+                <div class="input-group">
+                    <ng-select name="from"
+                               id="field_from"
+                               [items]="users"
+                               [(ngModel)]="selectedItems"
+                               bindLabel="login"
+                               bindValue="login"
+                               [multiple]="true"
+                               [closeOnSelect]="false"
+                               [hideSelected]="true"
+                               (add)="onAdd($event)"
+                               (remove)="onRemove($event)"
+                               (blur)="onBlur($event)"
+                               (clear)="onClear()"
+                               required>
+                    </ng-select>
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i> </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="field_subject">Subject</label>
+            <div class="col-md-10">
+                <input (focus)="clearTo()" type="text" class="form-control" name="subject" id="field_subject"
+                       [(ngModel)]="mail.subject" required minlength="5" required/>
+                <div [hidden]="!(editForm.controls.subject?.dirty && editForm.controls.subject?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.subject?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.subject?.errors?.minlength"
+                           jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+                        This field is required to be at least 5 characters.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" jhiTranslate="dtmsApp.mail.body"
+                   for="field_body">Body</label>
+            <div class="col-md-10">
+                <textarea (focus)="clearTo()" class="form-control" name="body" id="field_body"
+                          [(ngModel)]="mail.body" required></textarea>
+                <div [hidden]="!(editForm.controls.body?.dirty && editForm.controls.body?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.body?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" jhiTranslate="dtmsApp.mail.attachFile">Attach File</label>
+            <div class="col-md-10 margin-top-10">
+                <input type="file" multiple
+                       (change)="onFileChange($event)" id="attach_mail"/>
+                <label class="fa fa-paperclip" for="attach_mail"><span> Add Attachments</span></label>
+            </div>
+        </div>
+        <div *ngIf="attachments.length > 0" class="form-group">
+            <label class="col-md-2 control-label">Attached</label>
+            <div class="col-md-10 margin-top-10" style="border: solid 1px #ddd;height: 70px;overflow-y: scroll;">
+                <div *ngFor="let attach of attachments">
+                    <span > {{attach.name }} </span>
+                    <a style="padding-left: 5px; color: red;" (click)="deleteAttach(attach)"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+        </div>
+        <fieldset>
+            <legend> <label style="font-size: 13px; font-weight: bold;" jhiTranslate="dtmsApp.mail.meetingReminder">Meeting Reminder</label></legend>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.mail.startTime" for="field_startTime">Start
+                    Time</label>
+                <div class="col-md-10">
+                    <!--<input id="field_startTime" class="form-control" name="startTime"-->
+                           <!--[(ngModel)]="mail.startTime"-->
+                           <!--[min]="today"-->
+                           <!--placeholder="Date Time:"-->
+                           <!--[owlDateTimeTrigger]="startTime" [owlDateTime]="startTime" readonly/>-->
+                    <!--<owl-date-time #startTime></owl-date-time>-->
+                    <input
+                        id="field_startTime"
+                        class="form-control"
+                        name="startTime"
+                        type="text"
+                        mwlFlatpickr
+                        [enableTime]="true"
+                        [(ngModel)]="mail.startTime"
+                        [minDate]="today"
+                        placeholder="Select Date..."
+                        dateFormat="Y/m/d H:i"
+                    >
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.mail.endTime" for="field_endTime">End
+                    Time</label>
+                <div class="col-md-10">
+                    <!--<input id="field_endTime" class="form-control" name="endTime" (click)="changeTime()"-->
+                           <!--[disabled]="!mail.startTime"-->
+                           <!--[(ngModel)]="mail.endTime"-->
+                           <!--[min]="mail.startTime"-->
+                           <!--[max]="maxDate"-->
+                           <!--placeholder="Date Time:"-->
+                           <!--[owlDateTimeTrigger]="endTime" [owlDateTime]="endTime" readonly/>-->
+                    <!--<owl-date-time #endTime></owl-date-time>-->
+                    <input
+                        id="field_endTime"
+                        class="form-control"
+                        name="startTime"
+                        type="text"
+                        (click)="changeTime()"
+                        mwlFlatpickr
+                        [enableTime]="true"
+                        [(ngModel)]="mail.endTime"
+                        [minDate]="mail.startTime"
+                        [maxDate]="maxDate"
+                        placeholder="Select Date..."
+                        dateFormat="Y/m/d H:i"
+                    >
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving || (mailFrom && mailFrom.length < 0)" class="btn btn-primary">
+            <i class="fa fa-send"></i>&nbsp;<span jhiTranslate="entity.action.send">Send</span>
+        </button>
+    </div>
+</form>

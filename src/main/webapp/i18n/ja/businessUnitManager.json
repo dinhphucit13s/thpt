@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "businessUnitManager" : {
+            "home": {
+                "title": "BusinessUnitManagers",
+                "createLabel": "Business Unit Manager を追加",
+                "createOrEditLabel": "Business Unit Managerを追加または編集",
+                "search": "Search for Business Unit Manager"
+            },
+            "created": "A new Business Unit Manager is created with identifier {{ param }}",
+            "updated": "A Business Unit Manager is updated with identifier {{ param }}",
+            "deleted": "A Business Unit Manager is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Business Unit Manager {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Business Unit Manager"
+            },
+            "description": "Description",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "businessUnit": "Business Unit",
+            "manager": "Manager"
+        }
+    }
+}

@@ -1,0 +1,76 @@
+.payment-methods {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.payment-methods:after {
+    content: "";
+    clear: both;
+}
+
+.payment-method {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    float: left;
+    height: 70px;
+    position: relative;
+    width: 120px;
+}
+
+.payment-method label {
+    background: #fff no-repeat center center;
+    bottom: 1px;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    left: 1px;
+    position: absolute;
+    right: 1px;
+    text-indent: 100%;
+    top: 1px;
+    white-space: nowrap;
+}
+
+.payment-method + .payment-method {
+    margin-left: 25px;
+}
+
+.pagseguro label {
+    background-image: url(https://dl.dropbox.com/s/yvzrr9o54s2llkr/uol.png);
+}
+
+.paypal label {
+    background-image: url(https://dl.dropbox.com/s/i4z39zy2mtb7xq1/paypal.png);
+}
+
+.bankslip label {
+    background-image: url(https://dl.dropbox.com/s/myj41602bom0g8p/bankslip.png);
+}
+
+.payment-methods input:focus + label {
+    outline: 2px dotted #21b4d0;
+}
+
+.payment-methods input:checked + label {
+    outline: 4px solid #21b4d0;
+}
+
+.payment-methods input:checked + label:after {
+    background: url(https://dl.dropbox.com/s/vm6hpxjqbupy1xv/checked.png);
+    bottom: -10px;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    position: absolute;
+    right: -10px;
+    width: 20px;
+}
+
+@-moz-document url-prefix() {
+    .payment-methods input:checked + label:after {
+        bottom: 0;
+        right: 0;
+        background-color: #21b4d0;
+    }
+}

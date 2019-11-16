@@ -1,0 +1,56 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNotificationTemplateLabel" jhiTranslate="dtmsApp.notificationTemplate.home.createOrEditLabel">Create or edit a Notification Template</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!notificationTemplate.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="notificationTemplate.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.notificationTemplate.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="notificationTemplate.type" id="field_type" >
+                <option value="TASK">{{'dtmsApp.NotificationCategory.TASK' | translate}}</option>
+                <option value="REASSIGNED_TASK">{{'dtmsApp.NotificationCategory.REASSIGNED_TASK' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.notificationTemplate.template" for="field_template">Template</label>
+            <textarea class="form-control" name="template" id="field_template"
+                      [(ngModel)]="notificationTemplate.template" required minlength="20" maxlength="2000"></textarea>
+            <div [hidden]="!(editForm.controls.template?.dirty && editForm.controls.template?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.template?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.template?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 20 }">
+                   This field is required to be at least 20 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.template?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2000 }">
+                   This field cannot be longer than 2000 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.notificationTemplate.description" for="field_description">Description</label>
+            <textarea class="form-control" name="description" id="field_description"
+                      [(ngModel)]="notificationTemplate.description"></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+
+{
+    "dtmsApp": {
+        "packages" : {
+            "home": {
+                "title": "Packages",
+                "createLabel": "Thêm mới một Packages",
+                "import": "Import",
+                "importTitle": "Import Packages and Tasks",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Packages",
+                "search": "Tìm Packages"
+            },
+            "created": "Một Packages mới được tạo với định danh {{ param }}",
+            "updated": "Một Packages cập nhật với định danh {{ param }}",
+            "deleted": "Một Packages đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa {{ name }}?",
+                "warningMessage": "Ràng buộc với dữ liệu con! không thể xóa {{ name }}"
+            },
+            "deliveryConfirm": {
+                "title": "Confirm Delivery Package",
+                "question": "Bạn có chắc là muốn delivery {{ name }}?"
+            },
+            "detail": {
+                "title": "Packages"
+            },
+            "name": "Name",
+            "op": "Op",
+            "reviewer": "Reviewer",
+            "fi": "Fi",
+            "delivery": "Delivery",
+            "estimateDelivery": "Estimate Delivery",
+            "target": "Target",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "purchaseOrders": "Purchase Orders",
+            "tasks": "Tasks",
+            "imported": "Packages và Tasks đã được tạo thành công",
+            "error": {
+                "importFailed": "Hệ thống không thể import Packages and Tasks. Vui lòng kiểm tra lại dữ liệu.",
+                "inUsed": "The Package is used. The system cannot delete."
+            }
+        }
+    }
+}

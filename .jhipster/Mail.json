@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "from",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "subject",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": "5"
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "byte[]",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20190605075434",
+    "javadoc": "The Mail entity.",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "mail",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll",
+    "enableEntityAudit": true
+}

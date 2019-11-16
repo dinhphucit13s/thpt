@@ -1,0 +1,66 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tmsCustomFieldScreenValue",
+            "otherEntityName": "tMSCustomFieldScreenValue",
+            "otherEntityRelationshipName": "purchaseOrders"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "project",
+            "otherEntityName": "projects",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "purchaseOrderLead",
+            "otherEntityName": "projectUsers",
+            "otherEntityField": "userLogin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "packages",
+            "otherEntityName": "packages",
+            "otherEntityRelationshipName": "purchaseOrders"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "PurchaseOrderStatus",
+            "fieldValues": "OPEN,PROCESSING,DELIVERED,CANCEL"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190122163247",
+    "javadoc": "The Purchase Order entity.",
+    "entityTableName": "purchase_orders",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "enableEntityAudit": true
+}

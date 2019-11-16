@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "authorityResource" : {
+            "home": {
+                "title": "AuthorityResources",
+                "createLabel": "Authority Resource を追加",
+                "createOrEditLabel": "Authority Resourceを追加または編集",
+                "search": "Search for Authority Resource"
+            },
+            "created": "A new Authority Resource is created with identifier {{ param }}",
+            "updated": "A Authority Resource is updated with identifier {{ param }}",
+            "deleted": "A Authority Resource is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Authority Resource {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Authority Resource"
+            },
+            "name": "Name",
+            "permission": "Permission",
+            "authorityName": "Authority Name"
+        }
+    }
+}

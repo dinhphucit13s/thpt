@@ -1,0 +1,119 @@
+<div class="portlet-body form">
+    <form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" id="myProjectTemplatesLabel"
+                jhiTranslate="dtmsApp.projectTemplates.home.createOrEditLabel">Create or edit a Project Templates</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;
+            </button>
+        </div>
+        <div class="form-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.projectTemplates.businessLine"
+                       for="field_businessLine">Business Line</label>
+                <div class="col-md-10">
+                    <!--<select class="form-control" required id="field_businessLine" name="businessLine"
+                            [(ngModel)]="projectTemplates.businessLineId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="businessLineOption.id"
+                                *ngFor="let businessLineOption of businesslines; trackBy: trackBusinessLineById">
+                            {{businessLineOption.name}}
+                        </option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.businessLine?.dirty && editForm.controls.businessLine?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.businessLine?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>-->
+                    <ng-multiselect-dropdown
+                    style="display: -webkit-box;"
+                    name="businessLine"
+                    id="field_businessLine"
+                    [placeholder]=""
+                    [data]="businesslines"
+                    [(ngModel)]="selectedBusinessLine"
+                    [settings]="dropdownSettingsBL"
+                    (onSelect)="onItemSelectBL($event)"
+                    (onDeSelect)="onDeSelectBL($event)"
+                    required>
+                    </ng-multiselect-dropdown>
+                    <div [hidden]="checkBusinessLine">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.businessLine?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.projectTemplates.name"
+                       for="field_name">Name</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           [(ngModel)]="projectTemplates.name" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.maxlength"
+                               jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                            This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.projectTemplates.image"
+                       for="field_image">Image</label>
+                <div class="col-md-10">
+                    <img [src]="'data:' + projectTemplates.imageContentType + ';base64,' + projectTemplates.image"
+                         style="max-height: 100px;" *ngIf="projectTemplates.image" alt="projectTemplates image"/>
+                    <div *ngIf="projectTemplates.image" class="form-text text-danger clearfix">
+                        <span class="pull-left">{{projectTemplates.imageContentType}}, {{byteSize(projectTemplates.image)}}</span>
+                        <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')"
+                                class="btn btn-secondary btn-xs pull-right">
+                            <span class="fa fa-times"></span>
+                        </button>
+                    </div>
+                    <input type="file" id="file_image" (change)="setFileData($event, projectTemplates, 'image', true)"
+                           accept="image/*" jhiTranslate="entity.action.addimage"/>
+                </div>
+                <input type="hidden" class="form-control" name="image" id="field_image"
+                       [(ngModel)]="projectTemplates.image" required/>
+                <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                       [(ngModel)]="projectTemplates.imageContentType"/>
+                <div [hidden]="!(editForm.controls.image?.dirty && editForm.controls.image?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.image?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" jhiTranslate="dtmsApp.projectTemplates.description"
+                       for="field_description">Description</label>
+                <div class="col-md-10">
+                <textarea class="form-control" name="description" id="field_description"
+                          [(ngModel)]="projectTemplates.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

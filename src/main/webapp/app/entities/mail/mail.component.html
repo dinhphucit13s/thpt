@@ -1,0 +1,119 @@
+<div ng-app="angularResizable">
+    <h2>
+        <span jhiTranslate="dtmsApp.mail.home.title">Mail</span>
+        <button *ngIf="this.adminResource > 0 || this.mail > 1"  class="btn btn-primary float-right jh-create-entity create-mail" [routerLink]="['/', { outlets: { popup: ['mail-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="dtmsApp.mail.home.createLabel">
+            Create new Mail
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.mail.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+</div>
+<div>
+    <div>
+        <button id="btn_inboxMail" class="btn default btn-outline" (click)="loadInbox()" active>Inbox</button>
+        <button id="btn_sendMail" class="btn default btn-outline" (click)="loadSendItems()">Send Items</button>
+    </div>
+</div>
+<div *ngIf="listMail">
+    <div *ngIf="listMail.length > 0" class="row">
+        <div class="col-lg-12">
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1_1">
+                    <div class="row" style="display: flex; justify-content:flex-start;flex-direction: row;">
+                        <div class="col-lg-3" jhiResizable style="flex-grow:0;max-width: 70%">
+                            <div class="portlet-body">
+                                <div class="mt-element-list mail-scroll-y"
+                                     infiniteScroll
+                                     [scrollWindow]="false"
+                                     [infiniteScrollDistance]="2"
+                                     [infiniteScrollDisabled]="page > links.last"
+                                     (scrolled)="lazyLoadingPage(page + 1)">
+                                    <div class="mt-list-container list-default ext-1">
+                                        <ul>
+                                            <li>
+                                                <a style="text-decoration: none; color: #666; font-size: 12px; float: right;" (click)="sortCreateBy(sortDate)">
+                                                    By Date
+                                                    <span *ngIf="sortDate"><i class="fa fa-long-arrow-up"></i></span>
+                                                    <span *ngIf="!sortDate"><i class="fa fa-long-arrow-down"></i></span>
+                                                </a>
+                                            </li>
+                                            <li class="mt-list-item done" *ngFor="let subMail of listMail" (click)="viewMail(subMail.id)" id="li_mail{{subMail.id}}">
+                                                <div class="item-mail-topic row" style="display: flex">
+                                                    <div style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; padding-left: 15px; flex-grow: 1;">
+                                                        <span class="from" style="color: #2f353b; font-weight: bold"> {{subMail.from}} </span> <br>
+                                                        <span *ngIf="mailChange === 'to'" class="from" [ngStyle]="{'color': !subMail.status ? '#3396ea':'#bdc3c7'}"> {{subMail.subject}} </span>
+                                                        <span *ngIf="mailChange === 'from'" class="from" style="color: #bdc3c7"> {{subMail.subject}} </span>
+                                                        <br>
+                                                        <span [innerHTML]="subMail.body.content"></span>
+                                                    </div>
+                                                    <div class="list-datetime" style="min-width: 40px; max-width: 40px;">
+                                                        {{subMail.createdDate | date: 'HH:mm dd/MM'}}
+                                                    </div>
+                                                    <span class="btn-delete-mail" (click)="deleteMail(subMail.id)">
+                                                      <i class="fa fa-window-close-o"></i>
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="flex-grow: 1">
+                            <div *ngIf="mailDetail" class="border fixed-height" style="height: 850px">
+                                <div class="col-lg-12 col-md-12" style="display: flex; padding-top: 15px; padding-bottom: 15px; border-bottom: 1px solid #e7ecf1">
+                                    <div class="avatar" style="background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)"></div>
+                                    <div class="col-lg-12 col-md-12" style="line-height: 1.8em; display: inline-grid">
+                                        <div class="text-ellipsis"><span>{{mailDetail.date | date: 'HH:mm:ss dd/MM/yyyy'}}</span></div>
+                                        <div class="text-ellipsis" style="font-size: 22px"><span>{{mailDetail.subject}}</span></div>
+                                        <div class="text-ellipsis"><span>From: {{mailDetail.from}}</span></div>
+                                        <div class="text-ellipsis"><span>To: {{mailDetail.to}}</span></div>
+                                    </div>
+                                </div>
+                                <div *ngIf="mailDetail.startTime" class="col-lg-12 col-md-12" style="display: flex; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #e7ecf1">
+                                    <span style="color: #666; font-size: 13px; padding-right: 10px;">Metting Time</span>
+                                    <span style="color:#f36a5a;">{{mailDetail.startTime | date: 'HH:mm dd/MM'}}</span>
+                                    <span> - </span>
+                                    <span style="color: #f36a5a">{{mailDetail.endTime | date: 'HH:mm dd/MM'}}</span>
+                                </div>
+                                <div *ngIf="mailDetail.attachments.length > 0" class="col-lg-12 col-md-12" style="display: flex; padding-top: 10px; padding-bottom: 10px; border-bottom: 1px solid #e7ecf1">
+                                    <span *ngFor="let attach of mailDetail.attachments">
+                                      <span *ngIf="attach.fileType.indexOf('image') >= 0"><i class="fa fa-file-photo-o"></i>
+                                        <a (click)="open(attach.id)" style="color: #32c5d2">{{attach.filename}};</a>
+                                      </span>
+                                      <span *ngIf="attach.fileType.indexOf('image') < 0"><i class="fa fa-sticky-note-o"></i>
+                                        <a [attr.href]="'api/file/download?id=' + attach.id" style="color: #32c5d2" download>{{attach.filename}};</a>
+                                      </span>
+                                    </span>
+                                </div>
+                                <div class="email-body col-lg-12 col-md-12" style="padding-top: 10px;">
+                                    <p style="color: #2d5271" [innerHTML]="mailDetail.body.content">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

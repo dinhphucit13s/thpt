@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":4,"metadata":{},"exports":[{"from":"./src/ng2-img-tools.service","export":["Ng2ImgToolsService"]},{"from":"./src/ng2-img-tools.module","export":["Ng2ImgToolsModule"]},{"from":"./src/img-crop.service","export":["ImgCropService"]},{"from":"./src/img-resize-exact.service","export":["ImgResizeExactService"]}]}]

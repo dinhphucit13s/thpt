@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "issues" : {
+            "home": {
+                "title": "Issues",
+                "createLabel": "Issues を追加",
+                "createOrEditLabel": "Issuesを追加または編集",
+                "search": "Search for Issues"
+            },
+            "created": "A new Issues is created with identifier {{ param }}",
+            "updated": "A Issues is updated with identifier {{ param }}",
+            "deleted": "A Issues is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Issues {{ name }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Issues"
+            },
+            "name": "Name",
+            "description": "Description",
+            "status": "Status",
+            "purchaseOrder": "Purchase Order",
+            "projects": "Projects",
+            "error": {
+                "inUsed": "The Issues is used. The system cannot delete."
+            }
+        }
+    }
+}

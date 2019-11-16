@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "purchaseOrder",
+            "otherEntityName": "purchaseOrders",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "projects",
+            "otherEntityName": "projects",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "IssueStatus",
+            "fieldValues": "NA,REVIEWING,ACCEPTED,REJECTED,DUPPLICATED"
+        }
+    ],
+    "changelogDate": "20190122163253",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "issues",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "javadoc": "The Issues entity.",
+    "enableEntityAudit": true
+}

@@ -1,0 +1,22 @@
+<div class="activityContent" #container>
+    <div class="row" *ngFor="let activity of workflowObject.activity; index as i;" id="activity{{i}}">
+        <div class="col-md-5 col-xs-12 col-sm-12">
+            <select class="bs-select form-control" [(ngModel)]="workflowObject.activity[i]" [disabled]="activity==='op'" required>
+                <option value="">Select</option>
+                <option [ngValue]="stepItem.name" *ngFor="let stepItem of activityItems; index as i;">{{stepItem.label}}</option>
+            </select>
+        </div>
+        <div class="col-md-5 col-xs-12 col-sm-12">
+            <a href="javascript:;" class="btn btn-circle green" *ngIf="i === 0 && this.workflowObject.activity.length < this.activityItems.length" (click)="onAddComponentClick()"> Add New
+                <i class="fa fa-plus"></i>
+            </a>
+            <a href="javascript:;" class="btn btn-circle green disabled" *ngIf="i === 0 && this.workflowObject.activity.length >= this.activityItems.length"> Add New
+                <i class="fa fa-plus"></i>
+            </a>
+            <a href="javascript:;" class="btn btn-circle red" *ngIf="i >= 1" (click)="onRemoveComponentClick(i)"> Remove
+                <i class="fa fa-minus"></i>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>

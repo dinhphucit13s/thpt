@@ -1,0 +1,223 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tmsCustomFieldScreenValue",
+            "otherEntityName": "tMSCustomFieldScreenValue",
+            "otherEntityRelationshipName": "tasks"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "packages",
+            "otherEntityName": "packages",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "severity",
+            "fieldType": "TaskSeverity",
+            "fieldValues": "NORMAL,MEDIUM,HIGH"
+        },
+        {
+            "fieldName": "priority",
+            "fieldType": "TaskPriority",
+            "fieldValues": "NORMAL,MEDIUM,HIGH"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "fileName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 2000
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "availability",
+            "fieldType": "TaskAvailability",
+            "fieldValues": "NA,OK,NO_OBJECT,NO_SCOPE,REWORK"
+        },
+        {
+            "fieldName": "frame",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "actualObject",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "opStatus",
+            "fieldType": "OPStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE,CANCEL,REWORK"
+        },
+        {
+            "fieldName": "estimateStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "estimateEndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "opStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "opEndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "review1Status",
+            "fieldType": "ReviewStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE,NOT_GOOD"
+        },
+        {
+            "fieldName": "review1StartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "review1EndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fixStatus",
+            "fieldType": "FixStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE"
+        },
+        {
+            "fieldName": "fixStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fixEndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "review2Status",
+            "fieldType": "ReviewStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE,NOT_GOOD"
+        },
+        {
+            "fieldName": "review2StartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "review2EndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fiStatus",
+            "fieldType": "FIStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE,NOT_GOOD"
+        },
+        {
+            "fieldName": "fiStartTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fiEndTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "target",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "errorQuantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "errorSeverity",
+            "fieldType": "ErrorSeverity",
+            "fieldValues": "NA,TRIVIAL,MINOR,MAJOR,CRITICAL"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "TaskStatus",
+            "fieldValues": "NA,OPEN,DOING,DONE"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "parent",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "op",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "review1",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "review2",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "fixer",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "fi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "changelogDate": "20190122163249",
+    "javadoc": "The Task entity.",
+    "entityTableName": "tasks",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "enableEntityAudit": true
+}

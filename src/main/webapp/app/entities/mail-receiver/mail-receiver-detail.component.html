@@ -1,0 +1,40 @@
+
+<div *ngIf="mailReceiver">
+    <h2><span jhiTranslate="dtmsApp.mailReceiver.detail.title">Mail Receiver</span> {{mailReceiver.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.mailReceiver.from">From</span></dt>
+        <dd>
+            <span>{{mailReceiver.from}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.mailReceiver.to">To</span></dt>
+        <dd>
+            <span>{{mailReceiver.to}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.mailReceiver.status">Status</span></dt>
+        <dd>
+            <span>{{mailReceiver.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.mailReceiver.mail">Mail</span></dt>
+        <dd>
+            <div *ngIf="mailReceiver.mailId">
+                <a [routerLink]="['/mail', mailReceiver.mailId]">{{mailReceiver.mailSubject}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'mail-receiver/'+ mailReceiver.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

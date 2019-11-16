@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProjectBugListDefault.
+    -->
+    <changeSet id="20190505155159-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="project_bug_list_default"
+                                 constraintName="fk_project_bug_list_default_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projects"/>
+
+        <addForeignKeyConstraint baseColumnNames="bug_list_default_id"
+                                 baseTableName="project_bug_list_default"
+                                 constraintName="fk_project_bug_list_default_bug_list_default_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bug_list_default"/>
+
+    </changeSet>
+</databaseChangeLog>

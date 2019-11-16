@@ -1,0 +1,93 @@
+<div style="display: flow-root">
+<ngb-tabset type="pills">
+    <ngb-tab id="taskDetail">
+        <ng-template ngbTabTitle >
+            <span>Chi tiết task</span>
+        </ng-template>
+        <ng-template ngbTabContent>
+            <button type="submit" *ngIf="_bidding === 'false'"
+                    (click)="onClickCloneTask(tasks.id)"
+                    class="btn btn-clone">
+                <span> Clone</span>
+            </button>
+            <div *ngIf="tasks">
+                <div class="portlet-body dataTables_wrapper">
+                    <div class="table-responsive">
+                        <div class="col-md-12">
+                            <div *ngIf="positionNecessary && positionNecessary.length > 0" class="col-md-3" style="padding-right: 5px !important;padding-left: 5px!important;">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tr *ngFor="let necessary of positionNecessary">
+                                        <td>
+                                            <span style="font-family: initial; color: #2900ff;">{{necessary.headerName}}</span>:
+                                            <span *ngIf="necessary.format !== 'datetime' && necessary.headerName !== 'Description'">{{tasks[necessary.field]}}</span>
+                                            <span *ngIf="necessary.headerName === 'Description'" class="content" [title]="tasks[necessary.field]">{{tasks[necessary.field]}}</span>
+                                            <span *ngIf="necessary.format === 'datetime'">{{tasks[necessary.field] | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div *ngIf="positionGeneral && positionGeneral.length > 0" class="col-md-3" style="padding-right: 5px !important;padding-left: 5px!important;">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tr *ngFor="let general of positionGeneral">
+                                        <td>
+                                            <span style="font-family: initial; color: #2900ff;">{{general.headerName}}</span>:
+                                            <span *ngIf="general.format !== 'datetime' && general.headerName !== 'Physical File'" >{{tasks[general.field]}}</span>
+                                            <span *ngIf="general.headerName === 'Physical File'" class="content" [title]="tasks[general.field]" (click)="showDetailFilePath($event, general)">{{tasks[general.field]}}</span>
+                                            <span *ngIf="general.format === 'datetime'">{{tasks[general.field] | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div *ngIf="positionPrivateOR && positionPrivateOR.length > 0" class="col-md-3" style="padding-right: 5px !important;padding-left: 5px!important;">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tr *ngFor="let or of positionPrivateOR">
+                                        <td>
+                                            <span style="font-family: initial; color: #2900ff;">{{or.headerName}}</span>:
+                                            <span *ngIf="or.format !== 'datetime'">{{tasks[or.field]}}</span>
+                                            <span *ngIf="or.format === 'datetime'">{{tasks[or.field] | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div *ngIf="positionPrivateRF && positionPrivateRF.length > 0" class="col-md-3" style="padding-right: 5px !important;padding-left: 5px!important;">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <tr *ngFor="let rf of positionPrivateRF">
+                                        <td>
+                                            <span style="font-family: initial; color: #2900ff;">{{rf.headerName}}</span>:
+                                            <span *ngIf="rf.format !== 'datetime'">{{tasks[rf.field]}}</span>
+                                            <span *ngIf="rf.format === 'datetime'">{{tasks[rf.field] | date: 'dd/MM/yyyy HH:mm:ss'}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+
+                <button *ngIf="_bidding === 'false'" type="button" [disabled]="tasks.status === 'CANCEL'"
+                        [routerLink]="['/', { outlets: { popup: 'tasks/'+ tasks.id + '/edit'} }]"
+                        replaceUrl="true"
+                        queryParamsHandling="merge"
+                        class="btn btn-primary">
+                    <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+        <ng-template ngbTabTitle>
+            <span>Bugs log</span>
+        </ng-template>
+        <ng-template ngbTabContent>
+            <jhi-tasks-detail-reviewer [(tasks)]="tasks"></jhi-tasks-detail-reviewer>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>
+</div>
+<ng4-loading-spinner> </ng4-loading-spinner>

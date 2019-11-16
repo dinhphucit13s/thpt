@@ -1,0 +1,254 @@
+<div class="portlet-body form">
+    <form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" id="myProjectWorkflowsLabel"
+                jhiTranslate="dtmsApp.tMSCustomFieldScreen.home.createOrEditLabel">Create or edit properties a TMS
+                Custom
+                Field Screen</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;
+            </button>
+        </div>
+        <!-- BEGIN FORM-->
+        <div class="form-body scroll-custom">
+            <div class="form-group">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.headerName">Header
+                    Name</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="nameField" [(ngModel)]="tMSCustomField.entityData.entityPropertiesData.headerName"
+                           required readonly="readonly"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label"
+                       jhiTranslate="dtmsApp.tMSCustomField.properties.width">Width</label>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.width" name="widthField"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.sort">Sort</label>
+                <div class="col-md-8">
+                    <select class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.sort" name="sortField" id="field_value_checkbox" >
+                        <option value="asc">ASC</option>
+                        <option value="desc">DESC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.cellStyle">BackgroundColor</label>
+                <div class="col-md-8">
+                    <!--<input type="text" class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.backgroundColor" name="cellStyleField"/>-->
+                    <input
+                        class="form-control"
+                        name="cellStyleField"
+                        [value]="tMSCustomField.entityData.entityPropertiesView.backgroundColor"
+                        [style.background]="tMSCustomField.entityData.entityPropertiesView.backgroundColor"
+                        [cpPosition]="'bottom'"
+                        [cpPositionOffset]="'50%'"
+                        [cpCancelButton]="true" [cpCancelButtonClass]= "'btn btn-primary btn-xs'"
+                        [(colorPicker)]="tMSCustomField.entityData.entityPropertiesView.backgroundColor"
+                        autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.color">Color</label>
+                <div class="col-md-8">
+                    <!--<input type="text" class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.color" name="color"/>-->
+                    <input
+                        class="form-control"
+                        name="color"
+                        [value]="tMSCustomField.entityData.entityPropertiesView.color"
+                        [style.background]="tMSCustomField.entityData.entityPropertiesView.color"
+                        [cpPosition]="'bottom'"
+                        [cpPositionOffset]="'50%'"
+                        [cpCancelButton]="true" [cpCancelButtonClass]= "'btn btn-primary btn-xs'"
+                        [(colorPicker)]="tMSCustomField.entityData.entityPropertiesView.color"
+                        autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label"
+                       jhiTranslate="dtmsApp.tMSCustomField.properties.pinned">Pinned</label>
+                <div class="col-md-8">
+                    <select class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.pinned" name="pinnedField">
+                        <option value="left">LEFT</option>
+                        <option value="right">RIGHT</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group last" *ngIf="data.pageName === 'Task'">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.displayPosition">Display Position</label>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.displayPosition" name="displayPositionField"/>
+                </div>
+            </div>
+            <div class="form-group last" *ngIf="data.pageName === 'Task'">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.sortByPosition">Sort
+                    By Position</label>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.sortByPosition" name="sortByPositionField"/>
+                </div>
+            </div>
+            <div *ngIf="validOff || validLength || validValue" class="fieldset">
+                <h1><span style="font-size: 13px; font-weight: bold;" jhiTranslate="dtmsApp.tMSCustomField.typeField.validations">Validations</span></h1>
+                <div class="form-group" *ngIf="validOff">
+                    <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.titleValidate.pattern">Pattern</label>
+                    <div class="col-md-8">
+                        <input type="text" [(ngModel)]="validatePattern.validator" class="form-control"
+                               name="patternValidate"/>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="validLength">
+                    <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.titleValidate.maxLength">maxLength</label>
+                    <div class="col-md-8">
+                        <input type="number" [(ngModel)]="validateMaxLength.validator" class="form-control"
+                               name="maxLengthValidate"/>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="validLength">
+                    <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.titleValidate.minLength">minLength</label>
+                    <div class="col-md-8">
+                        <input type="number" [(ngModel)]="validateMinLength.validator" class="form-control"
+                               name="minLengthValidate"/>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="validValue">
+                    <label class="col-md-4 control-label"
+                           jhiTranslate="dtmsApp.tMSCustomField.titleValidate.max">Max</label>
+                    <div class="col-md-8" *ngIf="!tMSCustomField.entityData.entityPropertiesData.format">
+                        <input type="number" [(ngModel)]="validateMax.validator" class="form-control" name="maxValidate"/>
+                    </div>
+                    <div class="col-md-8" *ngIf="tMSCustomField.entityData.entityPropertiesData.format === 'date'">
+                        <input
+                            id="field_short_date_value"
+                            class="form-control"
+                            name="shortDateValue"
+                            type="text"
+                            mwlFlatpickr
+                            [(ngModel)]="validateMax.validator"
+                            placeholder="Select Date..."
+                            dateFormat="Y/m/d">
+                    </div>
+                    <div class="col-md-8" *ngIf="tMSCustomField.entityData.entityPropertiesData.format === 'datetime'">
+                        <input
+                            id="field_long_date_value"
+                            class="form-control"
+                            name="longDateValue"
+                            type="text"
+                            mwlFlatpickr
+                            [enableTime]="true"
+                            [(ngModel)]="validateMax.validator"
+                            placeholder="Select Date..."
+                            dateFormat="Y/m/d H:i">
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="validValue">
+                    <label class="col-md-4 control-label"
+                           jhiTranslate="dtmsApp.tMSCustomField.titleValidate.min">Min</label>
+                    <div class="col-md-8" *ngIf="!tMSCustomField.entityData.entityPropertiesData.format">
+                        <input type="number" [(ngModel)]="validateMin.validator" class="form-control" name="minValidate"/>
+                    </div>
+                    <div class="col-md-8" *ngIf="tMSCustomField.entityData.entityPropertiesData.format === 'date'">
+                        <input
+                            id="field_short_date"
+                            class="form-control"
+                            name="shortDate"
+                            type="text"
+                            mwlFlatpickr
+                            [(ngModel)]="validateMin.validator"
+                            placeholder="Select Date..."
+                            dateFormat="Y/m/d">
+                    </div>
+                    <div class="col-md-8" *ngIf="tMSCustomField.entityData.entityPropertiesData.format === 'datetime'">
+                        <input
+                            id="field_long_date"
+                            class="form-control"
+                            name="longDate"
+                            type="text"
+                            mwlFlatpickr
+                            [enableTime]="true"
+                            [(ngModel)]="validateMin.validator"
+                            placeholder="Select Date..."
+                            dateFormat="Y/m/d H:i">
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <label class="col-md-4 control-label"
+                       jhiTranslate="dtmsApp.tMSCustomField.properties.editAble">editable</label>
+                <div class="col-md-8">
+                    <label class="mt-checkbox">
+                        <input type="checkbox" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.editable" name="editableField"/>
+                        <span></span>
+                    </label>
+                </div>
+            </div>-->
+            <div class="form-group">
+                <div class="col-lg-12 col-md-12 pl-0 pr-0">
+                    <div class="col-lg-6 col-md-6 pl-0 pr-0">
+                        <label class="col-md-8 control-label"
+                               jhiTranslate="dtmsApp.tMSCustomField.properties.sortAble">sortable</label>
+                        <div class="col-md-4" style="padding-top: 7px;">
+                            <label class="mt-checkbox">
+                                <input type="checkbox" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.sortable" name="sortableField"/>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 pl-0 pr-0">
+                        <label class="col-md-8 control-label"
+                               jhiTranslate="dtmsApp.tMSCustomField.properties.checkboxSelection">checkboxSelection</label>
+                        <div class="col-md-4" style="padding-top: 7px;">
+                            <label class="mt-checkbox">
+                                <input type="checkbox" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.checkboxSelection" name="checkboxSelectionField"/>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12 col-md-12 pl-0 pr-0">
+                    <div class="col-lg-6 col-md-6 pl-0 pr-0">
+                        <label class="col-md-8 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.headerCheckboxSelection">headerCheckboxSelection</label>
+                        <div class="col-md-4" style="padding-top: 7px;">
+                            <label class="mt-checkbox">
+                                <input type="checkbox" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.headerCheckboxSelection" name="headerCheckboxSelectionField"/>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 pl-0 pr-0">
+                        <label class="col-md-8 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.hideDynamicField" for="field_hideDynamicField">Hide Dynamic Field</label>
+                        <div class="col-md-4" style="padding-top: 7px;">
+                            <label class="mt-checkbox">
+                                <input id="field_hideDynamicField" name="hideDynamicField" type="checkbox" ng-reflect-model="true" class="ng-untouched ng-pristine"
+                                       [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.hideDynamicField"><span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" jhiTranslate="dtmsApp.tMSCustomField.properties.hide">Hide</label>
+                <div class="col-md-8" style="padding-top: 7px;">
+                    <label class="mt-checkbox">
+                        <input type="checkbox" [(ngModel)]="tMSCustomField.entityData.entityPropertiesView.hide" name="hideField"/>
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.changes">Save</span>
+            </button>
+        </div>
+    </form>
+    <!-- END FORM-->
+</div>

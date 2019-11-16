@@ -1,0 +1,3 @@
+id;jhi_type;template;description
+1;TASK;A task <b>%task_name%</b> <br>was %status% by %user%;Notification Template for TASK
+2;REASSIGNED_TASK;A task <b>%task_name%</b> <br>was reassigned for %user%;Notification Template for REASSIGN_TASK

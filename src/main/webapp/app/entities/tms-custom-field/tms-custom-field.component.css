@@ -1,0 +1,48 @@
+.scroll-custom {
+    overflow-y: auto;
+    height: 650px;
+}
+
+.fieldset {
+    border: 1px #cccccc solid;
+    border-top: none;
+    padding: 0.5em;
+    margin: 1em 2px;
+}
+
+.fieldset>h1 {
+    font: 1em Arial;
+    margin: -1em -0.5em 0;
+}
+
+.fieldset>h1>span {
+    float: left;
+}
+
+.fieldset>h1:before {
+    border-top: 1px #cccccc solid;
+    content: ' ';
+    float: left;
+    margin: 0.5em 2px 0 -1px;
+    width: 0.75em;
+}
+
+.fieldset>h1:after {
+    border-top: 1px #cccccc solid;
+    content: ' ';
+    display: block;
+    height: 1.5em;
+    left: 2px;
+    margin: 0 1px 0 0;
+    overflow: hidden;
+    position: relative;
+    top: 0.5em;
+}
+
+.pl-0 {
+    padding-left: 0px !important;
+}
+
+.pr-0 {
+    padding-right: 0px !important;
+}

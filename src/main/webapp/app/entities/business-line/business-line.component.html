@@ -1,0 +1,31 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.businessLine.home.title">Business Lines</span>
+        <button *ngIf="this.permission > 1" class="btn btn-primary float-right jh-create-entity create-business-line" [routerLink]="['/', { outlets: { popup: ['business-line-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="dtmsApp.businessLine.home.createLabel">
+            Create new Business Line
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.projectTemplates.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [toolPanel]="true"
+                         [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount"
+                         [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)"></jhi-data-collection>
+</div>

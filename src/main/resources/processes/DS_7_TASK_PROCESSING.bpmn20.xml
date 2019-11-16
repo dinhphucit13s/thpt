@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="ds7_task_processing" name="DS 7 TASK PROCESSING" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="op" name="OPERATOR" activiti:candidateGroups="OPERATOR">
+      <extensionElements>
+        <modeler:group-info-name-OPERATOR xmlns:modeler="http://activiti.com/modeler"><![CDATA[OPERATOR]]></modeler:group-info-name-OPERATOR>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD" sourceRef="startEvent1" targetRef="op"></sequenceFlow>
+    <exclusiveGateway id="check_opstatus" name="Check OP Status"></exclusiveGateway>
+    <sequenceFlow id="sid-7459EE28-7289-402C-8838-36FC453182D0" sourceRef="op" targetRef="check_opstatus"></sequenceFlow>
+    <userTask id="review1" name="REVIEW1" activiti:candidateGroups="REVIEWER">
+      <extensionElements>
+        <modeler:group-info-name-REVIEWER xmlns:modeler="http://activiti.com/modeler"><![CDATA[REVIEWER]]></modeler:group-info-name-REVIEWER>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="check_review1status" name="Check Review 1 Status"></exclusiveGateway>
+    <sequenceFlow id="op_done" name="DONE" sourceRef="check_opstatus" targetRef="review1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status== "DONE"}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask id="fi" name="TEAM LEADER"></userTask>
+    <exclusiveGateway id="sid-78C09447-5027-420D-9255-F96D8E2C94DB" name="Check FI status"></exclusiveGateway>
+    <endEvent id="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39"></endEvent>
+    <sequenceFlow id="task_cancel1" name="Task is cancelled" sourceRef="check_opstatus" targetRef="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="not_done" name="Not DONE" sourceRef="check_opstatus" targetRef="op">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status != "DONE"&&status != "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-930AF8E4-171F-487F-A242-9EAC9CA32DB6" sourceRef="fi" targetRef="sid-78C09447-5027-420D-9255-F96D8E2C94DB"></sequenceFlow>
+    <sequenceFlow id="review1_done" name="DONE OR NOT_GOOD" sourceRef="check_review1status" targetRef="fi">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "DONE" || status == "NOT_GOOD"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="review1_remaining_status" name="Remaining Status" sourceRef="check_review1status" targetRef="review1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status != "DONE" && status != "NOT_GOOD"&&status != "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-612477E0-78BF-4DD2-9F65-27E1E17ADE2C" sourceRef="review1" targetRef="check_review1status"></sequenceFlow>
+    <sequenceFlow id="task_cancel2" name="Task is cancelled" sourceRef="check_review1status" targetRef="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="fi_done" name="DONE" sourceRef="sid-78C09447-5027-420D-9255-F96D8E2C94DB" targetRef="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "DONE" || status == "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="fi_not_good" name="RE ASSIGN OP" sourceRef="sid-78C09447-5027-420D-9255-F96D8E2C94DB" targetRef="op">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "RE_ASSIGN"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="fi_remaining_status" name="FI Remaining  Status" sourceRef="sid-78C09447-5027-420D-9255-F96D8E2C94DB" targetRef="fi">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status != "DONE" && status != "NOT_GOOD"&&status != "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ds7taskprocessing">
+    <bpmndi:BPMNPlane bpmnElement="ds7taskprocessing" id="BPMNPlane_ds7taskprocessing">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="263.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="op" id="BPMNShape_op">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="238.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="check_opstatus" id="BPMNShape_check_opstatus">
+        <omgdc:Bounds height="40.0" width="40.0" x="330.0" y="145.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="review1" id="BPMNShape_review1">
+        <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="165.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="check_review1status" id="BPMNShape_check_review1status">
+        <omgdc:Bounds height="40.0" width="40.0" x="707.0" y="205.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="fi" id="BPMNShape_fi">
+        <omgdc:Bounds height="80.0" width="100.0" x="678.0" y="360.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-78C09447-5027-420D-9255-F96D8E2C94DB" id="BPMNShape_sid-78C09447-5027-420D-9255-F96D8E2C94DB">
+        <omgdc:Bounds height="40.0" width="40.0" x="405.0" y="380.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39" id="BPMNShape_sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+        <omgdc:Bounds height="28.0" width="28.0" x="1020.0" y="265.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="review1_remaining_status" id="BPMNEdge_review1_remaining_status">
+        <omgdi:waypoint x="727.0" y="205.0"></omgdi:waypoint>
+        <omgdi:waypoint x="610.0" y="205.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="task_cancel2" id="BPMNEdge_task_cancel2">
+        <omgdi:waypoint x="727.5" y="205.26274198260725"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="205.26274198260725"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="265.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="task_cancel1" id="BPMNEdge_task_cancel1">
+        <omgdi:waypoint x="350.0" y="145.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="117.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="117.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="265.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="fi_done" id="BPMNEdge_fi_done">
+        <omgdi:waypoint x="425.0" y="420.0"></omgdi:waypoint>
+        <omgdi:waypoint x="425.0" y="478.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="478.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1034.0" y="293.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="fi_remaining_status" id="BPMNEdge_fi_remaining_status">
+        <omgdi:waypoint x="425.0" y="380.0"></omgdi:waypoint>
+        <omgdi:waypoint x="425.0" y="301.0"></omgdi:waypoint>
+        <omgdi:waypoint x="728.0" y="301.0"></omgdi:waypoint>
+        <omgdi:waypoint x="728.0" y="360.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="review1_done" id="BPMNEdge_review1_done">
+        <omgdi:waypoint x="727.0" y="245.0"></omgdi:waypoint>
+        <omgdi:waypoint x="727.0" y="302.5"></omgdi:waypoint>
+        <omgdi:waypoint x="728.0" y="300.0"></omgdi:waypoint>
+        <omgdi:waypoint x="728.0" y="360.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-930AF8E4-171F-487F-A242-9EAC9CA32DB6" id="BPMNEdge_sid-930AF8E4-171F-487F-A242-9EAC9CA32DB6">
+        <omgdi:waypoint x="678.0" y="400.0"></omgdi:waypoint>
+        <omgdi:waypoint x="445.0" y="400.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7459EE28-7289-402C-8838-36FC453182D0" id="BPMNEdge_sid-7459EE28-7289-402C-8838-36FC453182D0">
+        <omgdi:waypoint x="225.0" y="238.0"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="211.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="211.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="185.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="fi_not_good" id="BPMNEdge_fi_not_good">
+        <omgdi:waypoint x="405.0" y="400.0"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="400.0"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="318.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD" id="BPMNEdge_sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD">
+        <omgdi:waypoint x="130.0" y="278.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.0" y="278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-612477E0-78BF-4DD2-9F65-27E1E17ADE2C" id="BPMNEdge_sid-612477E0-78BF-4DD2-9F65-27E1E17ADE2C">
+        <omgdi:waypoint x="610.0" y="225.0042194092827"></omgdi:waypoint>
+        <omgdi:waypoint x="707.4152542372881" y="225.41525423728814"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="op_done" id="BPMNEdge_op_done">
+        <omgdi:waypoint x="370.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="417.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="417.0" y="205.0"></omgdi:waypoint>
+        <omgdi:waypoint x="510.0" y="205.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="not_done" id="BPMNEdge_not_done">
+        <omgdi:waypoint x="330.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="302.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="302.0" y="278.0"></omgdi:waypoint>
+        <omgdi:waypoint x="275.0" y="278.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

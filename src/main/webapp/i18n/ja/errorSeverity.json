@@ -1,0 +1,12 @@
+{
+    "dtmsApp": {
+        "ErrorSeverity" : {
+            "null": "",
+            "NA": "NA",
+            "TRIVIAL": "TRIVIAL",
+            "MINOR": "MINOR",
+            "MAJOR": "MAJOR",
+            "CRITICAL": "CRITICAL"
+        }
+    }
+}

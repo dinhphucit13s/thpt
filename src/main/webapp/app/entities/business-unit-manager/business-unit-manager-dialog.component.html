@@ -1,0 +1,131 @@
+<form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBusinessUnitManagerLabel" jhiTranslate="dtmsApp.businessUnitManager.home.createOrEditLabel">Create or edit a Business Unit Manager</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.businessUnitManager.manager" for="field_manager">Manager</label>
+            <div class="col-md-9">
+                <!--<select class="form-control" id="field_manager" name="manager" [(ngModel)]="businessUnitManager.managerId"  required>
+                    <option *ngIf="!editForm.value.manager" [ngValue]="null" selected></option>
+                    <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                </select>-->
+                <ng-multiselect-dropdown
+                    style="display: -webkit-box;"
+                    id="field_manager"
+                    name="manager"
+                    [placeholder]="'Manager'"
+                    [data]="users"
+                    [(ngModel)]="selectedItems"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="onDeSelect($event)"
+                    required>
+                </ng-multiselect-dropdown>
+                <div [hidden]="checkManager">
+                    <small class="form-text text-danger"
+                           [hidden]="!(editForm.controls.manager?.errors?.required)" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.businessUnitManager.businessUnit" for="field_businessUnit">Business Unit</label>
+            <div class="col-md-9">
+                <!--<select class="form-control" id="field_businessUnit" name="businessUnit" [(ngModel)]="businessUnitManager.businessUnitId"  required>
+                    <option *ngIf="!editForm.value.businessUnit" [ngValue]="null" selected></option>
+                    <option [ngValue]="businessUnitOption.id" *ngFor="let businessUnitOption of businessunits; trackBy: trackBusinessUnitById">{{businessUnitOption.name}}</option>
+                </select>
+                <div [hidden]="!(editForm.controls.businessUnit?.dirty && editForm.controls.businessUnit?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.businessUnit?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>-->
+                <ng-multiselect-dropdown
+                    style="display: -webkit-box;"
+                    name="businessUnit"
+                    id="field_businessUnit"
+                    [placeholder]=""
+                    [data]="businessunits"
+                    [(ngModel)]="selectedBU"
+                    [settings]="dropdownSettingsBU"
+                    (onSelect)="onItemSelectBU($event)"
+                    (onDeSelect)="onDeSelectBU($event)"
+                    required>
+                </ng-multiselect-dropdown>
+                <div [hidden]="checkBusinessUnit">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.manager?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.businessUnitManager.startTime" for="field_startTime">Start Time</label>
+            <div class="col-md-9">
+                <!--<input id="field_startTime" class="form-control" name="startTime"-->
+                       <!--[(ngModel)]="businessUnitManager.startTime"-->
+                       <!--[max]="businessUnitManager.endTime"-->
+                       <!--placeholder=" hh:mm, MM/dd/yyyy "-->
+                       <!--[owlDateTimeTrigger]="startTime" [owlDateTime]="startTime" readonly/>-->
+                <!--<owl-date-time #startTime></owl-date-time>-->
+                <input
+                    id="field_startTime"
+                    class="form-control"
+                    name="startTime"
+                    type="text"
+                    mwlFlatpickr
+                    [(ngModel)]="businessUnitManager.startTime"
+                    [maxDate]="businessUnitManager.endTime"
+                    placeholder="Select Date..."
+                    dateFormat="Y/m/d"
+                    >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.businessUnitManager.endTime" for="field_endTime">End Time</label>
+            <div class="col-md-9">
+                <!--<input [disabled]="!businessUnitManager.startTime" id="field_endTime" class="form-control" name="endTime"-->
+                       <!--[(ngModel)]="businessUnitManager.endTime"-->
+                       <!--[min]="businessUnitManager.startTime"-->
+                       <!--placeholder=" hh:mm, MM/dd/yyyy "-->
+                       <!--[owlDateTimeTrigger]="endTime" [owlDateTime]="endTime" readonly/>-->
+                <!--<owl-date-time #endTime></owl-date-time>-->
+                <input
+                    id="field_endTime"
+                    class="form-control"
+                    name="endTime"
+                    type="text"
+                    mwlFlatpickr
+                    [(ngModel)]="businessUnitManager.endTime"
+                    [minDate]="businessUnitManager.startTime"
+                    placeholder="Select Date..."
+                    dateFormat="Y/m/d"
+                    >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.businessUnitManager.description" for="field_description">Description</label>
+            <div class="col-md-9">
+                    <textarea class="form-control" name="description" id="field_description"
+                              [(ngModel)]="businessUnitManager.description"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

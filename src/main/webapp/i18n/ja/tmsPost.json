@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "tmsPost" : {
+            "home": {
+                "title": "TmsPosts",
+                "createLabel": "Tms Post を追加",
+                "createOrEditLabel": "Tms Postを追加または編集",
+                "search": "Search for Tms Post"
+            },
+            "created": "A new Tms Post is created with identifier {{ param }}",
+            "updated": "A Tms Post is updated with identifier {{ param }}",
+            "deleted": "A Tms Post is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tms Post {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tms Post"
+            },
+            "content": "Content",
+            "comments": "Comments",
+            "thread": "Thread"
+        }
+    }
+}

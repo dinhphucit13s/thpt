@@ -1,0 +1,54 @@
+
+<div *ngIf="tMSCustomFieldScreenValue">
+    <h2><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.detail.title">TMS Custom Field Screen Value</span> {{tMSCustomFieldScreenValue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.value">Value</span></dt>
+        <dd>
+            <span>{{tMSCustomFieldScreenValue.value}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.text">Text</span></dt>
+        <dd>
+            <span>{{tMSCustomFieldScreenValue.text}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.purchaseOrders">Purchase Orders</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreenValue.purchaseOrdersId">
+                <a [routerLink]="['/purchase-orders', tMSCustomFieldScreenValue.purchaseOrdersId]">{{tMSCustomFieldScreenValue.purchaseOrdersId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.packages">Packages</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreenValue.packagesId">
+                <a [routerLink]="['/packages', tMSCustomFieldScreenValue.packagesId]">{{tMSCustomFieldScreenValue.packagesId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.tasks">Tasks</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreenValue.tasksId">
+                <a [routerLink]="['/tasks', tMSCustomFieldScreenValue.tasksId]">{{tMSCustomFieldScreenValue.tasksId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.tMSCustomFieldScreenValue.tmsCustomField">Tms Custom Field</span></dt>
+        <dd>
+            <div *ngIf="tMSCustomFieldScreenValue.tmsCustomFieldId">
+                <a [routerLink]="['/tms-custom-field', tMSCustomFieldScreenValue.tmsCustomFieldId]">{{tMSCustomFieldScreenValue.tmsCustomFieldId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tms-custom-field-screen-value/'+ tMSCustomFieldScreenValue.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

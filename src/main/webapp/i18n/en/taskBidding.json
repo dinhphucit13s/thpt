@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "taskBidding" : {
+            "home": {
+                "title": "Task Biddings",
+                "createLabel": "Create a new Task Bidding",
+                "createOrEditLabel": "Create or edit a Task Bidding",
+                "search": "Search for Task Bidding"
+            },
+            "created": "A new Task Bidding is created with identifier {{ param }}",
+            "updated": "A Task Bidding is updated with identifier {{ param }}",
+            "deleted": "A Task Bidding is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Task Bidding {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Bidding"
+            },
+            "biddingScope": "Bidding Scope",
+            "biddingStatus": "Bidding Status",
+            "task": "Task"
+        }
+    }
+}

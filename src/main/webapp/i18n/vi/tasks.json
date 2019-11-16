@@ -1,0 +1,75 @@
+
+{
+    "dtmsApp": {
+        "tasks" : {
+            "home": {
+                "title": "Tasks",
+                "createLabel": "Thêm mới một Tasks",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Tasks",
+                "cloneTask":"Clone Tasks {{ name }}",
+                "searchName": "Tìm Tasks",
+                "searchStatus": "Tìm Task status",
+                "searchDescription": "Tìm Description",
+                "searchAssignee": "Tìm Assignee",
+                "importTitle": "Import Tasks",
+                "import": "Import Tasks",
+                "export": "Export Tasks"
+            },
+            "created": "Một Tasks mới được tạo với định danh {{ param }}",
+            "updated": "Một Tasks cập nhật với định danh {{ param }}",
+            "imported": "Tasks imported thành công",
+            "exported": "Tasks exported thành công",
+            "deleted": "Một Tasks đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa?"
+            },
+            "detail": {
+                "title": "Tasks"
+            },
+            "name": "Name",
+            "severity": "Severity",
+            "priority": "Priority",
+            "data": "Data",
+            "fileName": "File Name",
+            "type": "Type",
+            "availability": "Availability",
+            "frame": "Frame",
+            "actualObject": "Actual Object",
+            "opStatus": "Op Status",
+            "estimateStartTime": "Estimate Start Time",
+            "estimateEndTime": "Estimate End Time",
+            "opStartTime": "Op Start Time",
+            "opEndTime": "Op End Time",
+            "review1Status": "Review 1 Status",
+            "review1StartTime": "Review 1 Start Time",
+            "review1EndTime": "Review 1 End Time",
+            "fixStatus": "Fix Status",
+            "fixStartTime": "Fix Start Time",
+            "fixEndTime": "Fix End Time",
+            "review2Status": "Review 2 Status",
+            "review2StartTime": "Review 2 Start Time",
+            "review2EndTime": "Review 2 End Time",
+            "fiStatus": "Fi Status",
+            "fiStartTime": "Fi Start Time",
+            "fiEndTime": "Fi End Time",
+            "duration": "Duration",
+            "target": "Target",
+            "errorQuantity": "Error Quantity",
+            "errorSeverity": "Error Severity",
+            "status": "Status",
+            "description": "Description",
+            "parent": "Parent",
+            "op": "Op",
+            "review1": "Review 1",
+            "review2": "Review 2",
+            "fixer": "Fixer",
+            "fi": "Fi",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "packages": "Packages",
+            "error": {
+                "importFailed": "Hệ thống không thể import Tasks. Vui lòng kiểm tra lại dữ liệu.",
+                "inUsed": "Tasks đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

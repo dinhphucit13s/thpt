@@ -1,0 +1,942 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="TuHP (generated)" id="1560741472602-1">
+        <createTable tableName="attachments">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="attachmentsPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="disk_file" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_type" type="VARCHAR(100)"/>
+            <column name="filename" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bugs_id" type="BIGINT"/>
+            <column name="issues_id" type="BIGINT"/>
+            <column name="mail_id" type="BIGINT"/>
+            <column name="notes_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-2">
+        <createTable tableName="authority_resource">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="authority_resourcePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="authority_name" type="VARCHAR(150)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permission" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-3">
+        <createTable tableName="bug_list_default">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="bug_list_defaultPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT"/>
+            <column name="business_line_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-4">
+        <createTable tableName="bugs">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="bugsPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="physical_path" type="VARCHAR(255)"/>
+            <column name="resolution" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stage" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tasks_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-5">
+        <createTable tableName="business_line">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="business_linePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-6">
+        <createTable tableName="business_unit">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="business_unitPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="LONGTEXT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-7">
+        <createTable tableName="business_unit_manager">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="business_unit_managerPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="start_time" type="TINYBLOB"/>
+            <column name="business_unit_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manager_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-8">
+        <createTable tableName="customer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="customerPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="LONGTEXT"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT"/>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-9">
+        <createTable tableName="issues">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="issuesPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="projects_id" type="BIGINT"/>
+            <column name="purchase_order_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-10">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-11">
+        <createTable tableName="jhi_entity_audit_event">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_entity_audit_eventPK"/>
+            </column>
+            <column name="action" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commit_version" type="INT"/>
+            <column name="entity_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_value" type="LONGTEXT"/>
+            <column name="modified_by" type="VARCHAR(100)"/>
+            <column name="modified_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-12">
+        <createTable tableName="jhi_persistent_audit_event">
+            <column autoIncrement="true" name="event_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_persistent_audit_eventPK"/>
+            </column>
+            <column name="event_date" type="TINYBLOB"/>
+            <column name="event_type" type="VARCHAR(255)"/>
+            <column name="principal" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-13">
+        <createTable tableName="jhi_persistent_audit_evt_data">
+            <column name="event_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-14">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="about" type="LONGTEXT"/>
+            <column name="activated" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="contract_type" type="VARCHAR(255)"/>
+            <column name="dob" type="TINYBLOB"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(6)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)"/>
+            <column name="phone" type="VARCHAR(255)"/>
+            <column name="reset_date" type="TINYBLOB"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_unit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-15">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-16">
+        <createTable tableName="login_tracking">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="login_trackingPK"/>
+            </column>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="login" type="VARCHAR(255)"/>
+            <column name="start_time" type="TINYBLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-17">
+        <createTable tableName="mail">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mailPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="jhi_body" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="jhi_from" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TINYBLOB"/>
+            <column name="subject" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-18">
+        <createTable tableName="mail_receiver">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="mail_receiverPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="jhi_from" type="VARCHAR(255)"/>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_to" type="VARCHAR(255)"/>
+            <column name="mail_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-19">
+        <createTable tableName="notes">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="notesPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="bug_id" type="BIGINT"/>
+            <column name="tasks_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-20">
+        <createTable tableName="notification">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="notificationPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="jhi_body" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_from" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="BIT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_to" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-21">
+        <createTable tableName="notification_template">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="notification_templatePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="template" type="VARCHAR(2000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-22">
+        <createTable tableName="packages">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="packagesPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="delivery" type="VARCHAR(255)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="estimate_delivery" type="TINYBLOB"/>
+            <column name="fi" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="op" type="VARCHAR(255)"/>
+            <column name="reviewer" type="VARCHAR(255)"/>
+            <column name="start_time" type="TINYBLOB"/>
+            <column name="target" type="INT"/>
+            <column name="purchase_orders_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-23">
+        <createTable tableName="project_bug_list_default">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="project_bug_list_defaultPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bug_list_default_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-24">
+        <createTable tableName="project_templates">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="project_templatesPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="image" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_content_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_line_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-25">
+        <createTable tableName="project_users">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="project_usersPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="end_date" type="TINYBLOB"/>
+            <column name="role_name" type="VARCHAR(255)"/>
+            <column name="start_date" type="TINYBLOB"/>
+            <column name="user_login" type="VARCHAR(50)"/>
+            <column name="project_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-26">
+        <createTable tableName="project_workflows">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="project_workflowsPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="activity" type="VARCHAR(255)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="entity_dto" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="input_dto" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="next_uri" type="VARCHAR(255)"/>
+            <column name="op_grid_dto" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pm_grid_dto" type="LONGTEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="step" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_templates_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-27">
+        <createTable tableName="projects">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="projectsPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="LONGTEXT"/>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TINYBLOB"/>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+            <column name="business_unit_id" type="BIGINT"/>
+            <column name="customer_id" type="BIGINT"/>
+            <column name="project_lead_id" type="BIGINT"/>
+            <column name="project_templates_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-28">
+        <createTable tableName="purchase_orders">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="purchase_ordersPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="TINYBLOB"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="project_id" type="BIGINT"/>
+            <column name="purchase_order_lead_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-29">
+        <createTable tableName="task_tracking_time">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="task_tracking_timePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="end_status" type="VARCHAR(255)"/>
+            <column name="end_time" type="TINYBLOB"/>
+            <column name="jhi_role" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_status" type="VARCHAR(255)"/>
+            <column name="start_time" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-30">
+        <createTable tableName="tasks">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tasksPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="actual_object" type="INT"/>
+            <column name="availability" type="VARCHAR(255)"/>
+            <column name="data" type="VARCHAR(255)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="duration" type="INT"/>
+            <column name="error_quantity" type="INT"/>
+            <column name="error_severity" type="VARCHAR(255)"/>
+            <column name="estimate_end_time" type="TINYBLOB"/>
+            <column name="estimate_start_time" type="TINYBLOB"/>
+            <column name="fi" type="VARCHAR(50)"/>
+            <column name="fi_end_time" type="TINYBLOB"/>
+            <column name="fi_start_time" type="TINYBLOB"/>
+            <column name="fi_status" type="VARCHAR(255)"/>
+            <column name="file_name" type="VARCHAR(500)"/>
+            <column name="fix_end_time" type="TINYBLOB"/>
+            <column name="fix_start_time" type="TINYBLOB"/>
+            <column name="fix_status" type="VARCHAR(255)"/>
+            <column name="fixer" type="VARCHAR(50)"/>
+            <column name="frame" type="INT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="op" type="VARCHAR(50)"/>
+            <column name="op_end_time" type="TINYBLOB"/>
+            <column name="op_start_time" type="TINYBLOB"/>
+            <column name="op_status" type="VARCHAR(255)"/>
+            <column name="parent" type="BIGINT"/>
+            <column name="priority" type="VARCHAR(255)"/>
+            <column name="review_1" type="VARCHAR(50)"/>
+            <column name="review_1_end_time" type="TINYBLOB"/>
+            <column name="review_1_start_time" type="TINYBLOB"/>
+            <column name="review_1_status" type="VARCHAR(255)"/>
+            <column name="review_2" type="VARCHAR(50)"/>
+            <column name="review_2_end_time" type="TINYBLOB"/>
+            <column name="review_2_start_time" type="TINYBLOB"/>
+            <column name="review_2_status" type="VARCHAR(255)"/>
+            <column name="severity" type="VARCHAR(255)"/>
+            <column name="status" type="VARCHAR(255)"/>
+            <column name="target" type="INT"/>
+            <column name="jhi_type" type="VARCHAR(255)"/>
+            <column name="packages_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-31">
+        <createTable tableName="tms_custom_field">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tms_custom_fieldPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="default_value" type="VARCHAR(255)"/>
+            <column name="description" type="LONGTEXT"/>
+            <column name="label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="possible_values" type="VARCHAR(1024)"/>
+            <column name="jhi_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="valid_regex" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-32">
+        <createTable tableName="tms_custom_field_screen">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tms_custom_field_screenPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="jhi_sequence" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_workflows_id" type="BIGINT"/>
+            <column name="tms_custom_field_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-33">
+        <createTable tableName="tms_custom_field_screen_value">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tms_custom_field_screen_valuePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="text" type="LONGTEXT"/>
+            <column name="jhi_value" type="VARCHAR(1024)"/>
+            <column name="packages_id" type="BIGINT"/>
+            <column name="purchase_orders_id" type="BIGINT"/>
+            <column name="tasks_id" type="BIGINT"/>
+            <column name="tms_custom_field_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-34">
+        <createTable tableName="tms_log_history">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="tms_log_historyPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="action" type="VARCHAR(255)"/>
+            <column name="new_value" type="LONGTEXT"/>
+            <column name="old_value" type="LONGTEXT"/>
+            <column name="packages_id" type="BIGINT"/>
+            <column name="projects_id" type="BIGINT"/>
+            <column name="purchase_orders_id" type="BIGINT"/>
+            <column name="tasks_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-35">
+        <addPrimaryKey columnNames="event_id, name" tableName="jhi_persistent_audit_evt_data"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-36">
+        <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-37">
+        <addPrimaryKey columnNames="name" constraintName="jhi_authorityPK" tableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-38">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-39">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-40">
+        <addUniqueConstraint columnNames="tms_custom_field_id" constraintName="UC_TMS_CUSTOM_FIELD_SCREENTMS_CUSTOM_FIELD_ID_COL" tableName="tms_custom_field_screen"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-41">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-42">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-43">
+        <addForeignKeyConstraint baseColumnNames="business_unit_id" baseTableName="business_unit_manager" constraintName="FK33406mgrphmoqk647huibxgnd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="business_unit"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-44">
+        <addForeignKeyConstraint baseColumnNames="business_unit_id" baseTableName="jhi_user" constraintName="FK45eqau3xhxfy7k0j4ftrxisi0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="business_unit"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-45">
+        <addForeignKeyConstraint baseColumnNames="bug_list_default_id" baseTableName="project_bug_list_default" constraintName="FK4b9qjg80ws1xtctc8l1a4id5e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bug_list_default"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-46">
+        <addForeignKeyConstraint baseColumnNames="business_unit_id" baseTableName="projects" constraintName="FK4m5q7gyhctht5gqdsr221rseq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="business_unit"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-47">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-48">
+        <addForeignKeyConstraint baseColumnNames="projects_id" baseTableName="issues" constraintName="FK4sw1nq8ppgrm5ad8ii8xjemap" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-49">
+        <addForeignKeyConstraint baseColumnNames="purchase_orders_id" baseTableName="packages" constraintName="FK5gh53i77ddng3bdtl86xlq9d3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="purchase_orders"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-50">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="projects" constraintName="FK5qk99d4prokycgj83swwcbwbq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-51">
+        <addForeignKeyConstraint baseColumnNames="tasks_id" baseTableName="tms_log_history" constraintName="FK6fp5e92wsgrrk031b3r9nuj9u" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-52">
+        <addForeignKeyConstraint baseColumnNames="tasks_id" baseTableName="tms_custom_field_screen_value" constraintName="FK77kggh179bovk89spnci8w3ag" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-53">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="purchase_orders" constraintName="FK8lqsg17te82g34rkcdkfprvys" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-54">
+        <addForeignKeyConstraint baseColumnNames="tasks_id" baseTableName="bugs" constraintName="FK93qhskar3spmm1b6s5xxlarkc" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-55">
+        <addForeignKeyConstraint baseColumnNames="business_line_id" baseTableName="project_templates" constraintName="FK94pxcjwiakkspe61m00m76avv" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="business_line"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-56">
+        <addForeignKeyConstraint baseColumnNames="tms_custom_field_id" baseTableName="tms_custom_field_screen" constraintName="FKa4tdg5n0jom56bg7a3dsngu7h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tms_custom_field"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-57">
+        <addForeignKeyConstraint baseColumnNames="tasks_id" baseTableName="notes" constraintName="FKa97h3xbfa9gsmvcra1dnd9qlb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-58">
+        <addForeignKeyConstraint baseColumnNames="tms_custom_field_id" baseTableName="tms_custom_field_screen_value" constraintName="FKaetkiclm14fka60r4ve4deq5m" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tms_custom_field"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-59">
+        <addForeignKeyConstraint baseColumnNames="purchase_order_id" baseTableName="issues" constraintName="FKbc3pmmu8g173pqqyua5vn6c8v" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="purchase_orders"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-60">
+        <addForeignKeyConstraint baseColumnNames="bug_id" baseTableName="notes" constraintName="FKbl8x9f7dpounkkwetsubd0pyh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bugs"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-61">
+        <addForeignKeyConstraint baseColumnNames="bugs_id" baseTableName="attachments" constraintName="FKc22envtwi2c17yiimnps0pc2s" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bugs"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-62">
+        <addForeignKeyConstraint baseColumnNames="purchase_orders_id" baseTableName="tms_custom_field_screen_value" constraintName="FKd486l4bgke608m1pcqdltayj8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="purchase_orders"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-63">
+        <addForeignKeyConstraint baseColumnNames="project_workflows_id" baseTableName="tms_custom_field_screen" constraintName="FKe3hw4tamq20bexxk3eh461u43" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_workflows"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-64">
+        <addForeignKeyConstraint baseColumnNames="purchase_order_lead_id" baseTableName="purchase_orders" constraintName="FKgr2cp4kbcq6g4wgjpcnqvlu51" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_users"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-65">
+        <addForeignKeyConstraint baseColumnNames="purchase_orders_id" baseTableName="tms_log_history" constraintName="FKhkytlxgfalrjfeaew3o8ioytg" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="purchase_orders"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-66">
+        <addForeignKeyConstraint baseColumnNames="mail_id" baseTableName="mail_receiver" constraintName="FKidcda0ir39kl6k8hrxmq4wtko" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="mail"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-67">
+        <addForeignKeyConstraint baseColumnNames="project_lead_id" baseTableName="projects" constraintName="FKj24y6h3vyighauh3jq91sxs6h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_users"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-68">
+        <addForeignKeyConstraint baseColumnNames="notes_id" baseTableName="attachments" constraintName="FKjwdvvloy6obdt9qprj0b8jtl0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="notes"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-69">
+        <addForeignKeyConstraint baseColumnNames="projects_id" baseTableName="tms_log_history" constraintName="FKmqyyrhgqxvihefirx0l22x66d" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-70">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="project_users" constraintName="FKn2d9w5xxgord5j4k2963p8o1g" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-71">
+        <addForeignKeyConstraint baseColumnNames="business_line_id" baseTableName="bug_list_default" constraintName="FKne47vp08spjts4jhwd1l5xed8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="business_line"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-72">
+        <addForeignKeyConstraint baseColumnNames="mail_id" baseTableName="attachments" constraintName="FKowh7crjc0eqt74fem8l3207bd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="mail"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-73">
+        <addForeignKeyConstraint baseColumnNames="project_templates_id" baseTableName="project_workflows" constraintName="FKpaqcqwsgsfhvpx29u9xj7qo05" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_templates"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-74">
+        <addForeignKeyConstraint baseColumnNames="project_templates_id" baseTableName="projects" constraintName="FKpfl82uquhpcpr24f38rb7u9gr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_templates"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-75">
+        <addForeignKeyConstraint baseColumnNames="packages_id" baseTableName="tms_log_history" constraintName="FKpxvie8e1fpu4hpwk7ne5xd85c" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="packages"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-76">
+        <addForeignKeyConstraint baseColumnNames="issues_id" baseTableName="attachments" constraintName="FKr2cabir67gckwj8hw7x5bvr5h" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="issues"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-77">
+        <addForeignKeyConstraint baseColumnNames="packages_id" baseTableName="tasks" constraintName="FKrmlk951wleio4ja2y9j40dt37" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="packages"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-78">
+        <addForeignKeyConstraint baseColumnNames="manager_id" baseTableName="business_unit_manager" constraintName="FKs1at4vkmyktidfq3neh1s0wp9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-79">
+        <addForeignKeyConstraint baseColumnNames="packages_id" baseTableName="tms_custom_field_screen_value" constraintName="FKsg12te0oo54v9phcstgbsadbt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="packages"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1560741472602-80">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="project_bug_list_default" constraintName="FKsjgyvbcstmufrk6gyh96nhrmb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+</databaseChangeLog>

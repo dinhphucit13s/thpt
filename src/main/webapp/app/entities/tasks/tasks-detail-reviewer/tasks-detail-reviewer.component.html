@@ -1,0 +1,35 @@
+<div class="row light bordered col-lg-12"
+     style="margin: auto; padding: 0px 10px 10px 10px" *ngIf="bugsInfo">
+    <div *ngIf="hasBugsReview1 > -1">
+        <jhi-tasks-detail-reviewer-content
+            [header]="'Review 1'"
+            [round]="'review1'"
+            [bugsInfo]="bugsInfo"
+            [currentUserLogin]="currentUserLogin"
+        ></jhi-tasks-detail-reviewer-content>
+    </div>
+    <div *ngIf="hasBugsReview2 > -1">
+        <jhi-tasks-detail-reviewer-content
+            [header]="'Review 2'"
+            [round]="'review2'"
+            [bugsInfo]="bugsInfo"
+            [currentUserLogin]="currentUserLogin"
+        ></jhi-tasks-detail-reviewer-content>
+    </div>
+    <div *ngIf="hasBugsFI > -1">
+        <jhi-tasks-detail-reviewer-content
+            [header]="'FI'"
+            [round]="'fi'"
+            [bugsInfo]="bugsInfo"
+            [currentUserLogin]="currentUserLogin"
+        ></jhi-tasks-detail-reviewer-content>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit"
+                (click)="previousState()"
+                class="btn btn-info" style="margin-top: 15px">
+            <span class="fa fa-arrow-left"></span><span> Back</span>
+        </button>
+    </div>
+</div>

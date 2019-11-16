@@ -1,0 +1,37 @@
+
+{
+    "dtmsApp": {
+        "purchaseOrders" : {
+            "home": {
+                "title": "PurchaseOrders",
+                "createLabel": "Purchase Orders を追加",
+                "createOrEditLabel": "Purchase Ordersを追加または編集",
+                "search": "Search for Purchase Orders"
+            },
+            "created": "A new Purchase Orders is created with identifier {{ param }}",
+            "updated": "A Purchase Orders is updated with identifier {{ param }}",
+            "deleted": "A Purchase Orders is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Purchase Orders {{ name }}を削除してもよろしいですか？",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "detail": {
+                "title": "Purchase Orders"
+            },
+            "name": "Name",
+            "status": "Status",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "project": "Project",
+            "purchaseOrderLead": "Purchase Order Lead",
+            "watcherUser": "Watcher User",
+            "delegateUser": "Delegate User",
+            "packages": "Packages",
+            "error": {
+                "inUsed": "The Purchase Order is used. The system cannot delete."
+            }
+        }
+    }
+}

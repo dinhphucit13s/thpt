@@ -1,0 +1,54 @@
+
+<div *ngIf="taskTrackingTime">
+    <h2><span jhiTranslate="dtmsApp.taskTrackingTime.detail.title">Task Tracking Time</span> {{taskTrackingTime.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.taskId">Task Id</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.taskId}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.userLogin">User Login</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.userLogin}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.role">Role</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.role}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.endTime">End Time</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.startStatus">Start Status</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.startStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.endStatus">End Status</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.endStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.taskTrackingTime.duration">Duration</span></dt>
+        <dd>
+            <span>{{taskTrackingTime.duration}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'task-tracking-time/'+ taskTrackingTime.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

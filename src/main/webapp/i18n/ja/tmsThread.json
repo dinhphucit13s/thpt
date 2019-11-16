@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "tmsThread" : {
+            "home": {
+                "title": "TmsThreads",
+                "createLabel": "Tms Thread を追加",
+                "createOrEditLabel": "Tms Threadを追加または編集",
+                "search": "Search for Tms Thread"
+            },
+            "created": "A new Tms Thread is created with identifier {{ param }}",
+            "updated": "A Tms Thread is updated with identifier {{ param }}",
+            "deleted": "A Tms Thread is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Tms Thread {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Tms Thread"
+            },
+            "title": "Title",
+            "views": "Views",
+            "answers": "Answers",
+            "closed": "Closed",
+            "status": "Status",
+            "projects": "Projects",
+            "assignee": "Assignee"
+        }
+    }
+}

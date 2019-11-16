@@ -1,0 +1,42 @@
+
+{
+    "dtmsApp": {
+        "projects" : {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Thêm mới một Projects",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Projects",
+                "search": "Tìm Projects"
+            },
+            "created": "Một Projects mới được tạo với định danh {{ param }}",
+            "updated": "Một Projects cập nhật với định danh {{ param }}",
+            "deleted": "Một Projects đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Projects {{ name }}?"
+            },
+            "detail": {
+                "title": "Projects"
+            },
+            "code": "Code",
+            "name": "Name",
+            "type": "Type",
+            "status": "Status",
+            "biddingHoldTime": "Bidding Hold Time",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "projectTemplates": "Project Templates",
+            "projectLead": "Project Lead",
+            "watcherUser": "Watcher User",
+            "delegateUser": "Delegate User",
+            "purchaseOrders": "Purchase Orders",
+            "projectUsers": "Project Users",
+            "customer": "Customer",
+            "projectBugListDefault": "Project Bug List Default",
+            "businessUnit": "Business Unit",
+            "error": {
+                "inUsed": "Project đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

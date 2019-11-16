@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "attachments" : {
+            "home": {
+                "title": "Attachments",
+                "createLabel": "Create a new Attachments",
+                "createOrEditLabel": "Create or edit a Attachments",
+                "search": "Search for Attachments"
+            },
+            "created": "A new Attachments is created with identifier {{ param }}",
+            "updated": "A Attachments is updated with identifier {{ param }}",
+            "deleted": "A Attachments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Attachments {{ id }}?"
+            },
+            "detail": {
+                "title": "Attachments"
+            },
+            "filename": "Filename",
+            "diskFile": "Disk File",
+            "fileType": "File Type",
+            "bugs": "Bugs",
+            "notes": "Notes",
+            "issues": "Issues",
+            "mail": "Mail",
+            "comment": "Comment",
+            "post": "Post"
+        }
+    }
+}

@@ -1,0 +1,203 @@
+<div style="display: grid">
+    <h2>
+        <span jhiTranslate="dtmsApp.trackingManagement.home.title">Tracking Management</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="field_project">Project </label>
+                <div class="col-md-9 input-group select2-bootstrap-prepend">
+                    <!--<select style="width: 200px" class="input-sm select2-multiple" id="field_project" name="project"
+                            [(ngModel)]="projetId" (change)="loadPurchaseOrderByProject()">
+                            <option [value]=null selected="selected">Select Project...</option>
+                            <option [ngValue]="pro.id" *ngFor="let pro of projects">
+                                {{pro.name}}
+                            </option>
+                    </select>-->
+                    <ng-select
+                        name="project"
+                        id="field_project"
+                        style="width: 200px"
+                        [items]="projects"
+                        [multiple]="false"
+                        [closeOnSelect]="true"
+                        [searchable]="true"
+                        [hideSelected]="false"
+                        bindValue="id"
+                        bindLabel="name"
+                        placeholder="Select Project..."
+                        [(ngModel)]="projetId"
+                        (change)="loadPurchaseOrderByProject()">
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" *ngIf="purchaseOrder">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="field_purchase">Purchase Order </label>
+                <div class="col-md-9 input-group select2-bootstrap-prepend">
+                    <!--<select style="width: 200px" class="input-sm select2-multiple" id="field_purchase" name="purchase"
+                            [(ngModel)]="purchaseOrderId" (change)="loadPackageByPO()"
+                            [disabled]="projetId === 'null' || projetId === undefined">
+                            <option value="0" selected="selected">Select All</option>
+                            <option [ngValue]="pu.id" *ngFor="let pu of purchaseOrder">
+                                {{pu.name}}
+                            </option>
+                    </select>-->
+                     <ng-select
+                        name="purchase"
+                        id="field_purchase"
+                        style="width: 200px"
+                        [multiple]="false"
+                        [closeOnSelect]="true"
+                        [searchable]="true"
+                        [hideSelected]="false"
+                        placeholder="Select Purchase Order..."
+                        [(ngModel)]="purchaseOrderId"
+                        (change)="loadPackageByPO()"
+                        [disabled]="projetId === null || projetId === undefined">
+                        <ng-option value="0" selected="selected">Select All</ng-option>
+                        <ng-option [value]="pu.id" *ngFor="let pu of purchaseOrder">
+                            {{pu.name}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" *ngIf="package">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="field_package">Package </label>
+                <div class="col-md-9 input-group select2-bootstrap-prepend">
+                    <!--<select style="width: 200px" class="input-sm select2-multiple" id="span_large"
+                            name="package" id="field_package"
+                            [(ngModel)]="packageId"
+                            [disabled]="purchaseOrderId==='0' || purchaseOrderId===0">
+                            <option value="0" selected="selected">Select All</option>
+                            <option [ngValue]="pack.id" *ngFor="let pack of package; trackBy: trackPackageById">
+                                {{pack.name}}
+                            </option>
+                    </select>-->
+                    <ng-select
+                        name="package"
+                        id="field_package"
+                        style="width: 200px"
+                        [multiple]="false"
+                        [closeOnSelect]="true"
+                        [searchable]="true"
+                        [hideSelected]="false"
+                        placeholder="Select Package..."
+                        [(ngModel)]="packageId"
+                        [disabled]="purchaseOrderId==='0' || purchaseOrderId===null">
+                        <ng-option value="0" selected="selected">Select All</ng-option>
+                        <ng-option [value]="pack.id" *ngFor="let pack of package; trackBy: trackPackageById">
+                            {{pack.name}}
+                        </ng-option>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button class="input-group-append btn btn-info" (click)="search()"
+                    [disabled]="(projetId === null || projetId === undefined || purchaseOrderId === null || packageId === null)">
+                <span class="fa fa-search"></span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="field_fromDate">From </label>
+                <div class="col-md-9 input-group select2-bootstrap-prepend">
+                    <div class="input-group">
+                        <input
+                            id="field_fromDate"
+                            class="form-control"
+                            style="width: 200px; height: 30px; background-color: #fff; border-color: #aaa"
+                            name="fromDate"
+                            type="text"
+                            mwlFlatpickr
+                            [maxDate]="toDate"
+                            [(ngModel)]="fromDate"
+                            placeholder="Select Date..."
+                            dateFormat="d/m/Y">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="field_toDate">To </label>
+                <div class="col-md-9 input-group select2-bootstrap-prepend">
+                    <div class="input-group">
+                        <input
+                            id="field_toDate"
+                            class="form-control"
+                            style="width: 200px; height: 30px; background-color: #fff; border-color: #aaa"
+                            name="toDate"
+                            type="text"
+                            mwlFlatpickr
+                            [minDate]="fromDate"
+                            [(ngModel)]="toDate"
+                            placeholder="Select Date..."
+                            dateFormat="d/m/Y">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="clearfix">
+        <div class="btn-group">
+            <a (click)="loadScreen(false)" class="btn btn-default"> Tracking Tasks </a>
+            <a (click)="loadScreen(true)" href="javascript:;" class="btn btn-default"> Tracking Members </a>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-10 col-sm-12">
+            <div *ngIf="!flagTag && ratioBug">
+                <div class="labelRatio" *ngIf="packageId === 'selectAllPackages'">
+                    <span> ti lệ task có bug của PO: </span>
+                    <span style="color: #f16262"> {{ ratioBug.name }} </span>
+                </div>
+                <div class="labelRatio" *ngIf="purchaseOrderId === 'selectAllPO'">
+                    <span> ti lệ task có bug của Project: </span>
+                    <span style="color: #f16262"> {{ ratioBug.name }} </span>
+                </div>
+                <div class="labelRatio" *ngIf="purchaseOrderId !== 'selectAllPO' && packageId !== 'selectAllPackages'">
+                    <span> ti lệ task có bug của Packages: </span>
+                    <span style="color: #f16262">{{ ratioBug.name }} </span>
+                </div>
+                <div class="labelRatio" *ngIf="purchaseOrderId !== 'selectAllPO' && packageId !== 'selectAllPackages'">
+                    <span> Số lượng bug trên tổng lượng task: </span>
+                    <span style="color: #f16262">{{ ratioBug.totalBug }}/{{ ratioBug.totalTasks }} ({{ ratioBug.totalTasksPerBugs }}) </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12" style="float: right">
+            <a href="" class="btn btn-success" [attr.href]="'/api/tracking-management/tasks/export?projectId='+ projetId
+            +'&purchaseOrderId='+ purchaseOrderId + '&packId='+ packageId+'&from='+fromDate+'&to='+toDate+'&userLogin='+userLoginExport"> Export </a>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive col-lg-12" style="overflow-x: unset">
+        <jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="columnDefs"
+                             [_rowData]="rowData"
+                             [dataCustomReport]="customReports.value"
+                             [_frameworkComponents]="frameworkComponents"
+                             [toolPanel]="true" [page]="page" [queryCount]="queryCount"
+                             [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+                             [dataCustomReport]="customReports.value"
+                             (loadCustomReport)="saveCustomReport($event)"
+                             [enableSave]="true"
+                             (loadPage)="loadPage($event)">
+        </jhi-data-collection>
+    </div>
+    <ngx-spinner type="line-spin-fade"></ngx-spinner>
+</div>
+
+

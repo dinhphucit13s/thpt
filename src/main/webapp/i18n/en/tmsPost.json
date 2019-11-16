@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "tmsPost" : {
+            "home": {
+                "title": "Tms Posts",
+                "createLabel": "Create a new Tms Post",
+                "createOrEditLabel": "Create or edit a Tms Post",
+                "search": "Search for Tms Post"
+            },
+            "created": "A new Tms Post is created with identifier {{ param }}",
+            "updated": "A Tms Post is updated with identifier {{ param }}",
+            "deleted": "A Tms Post is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tms Post {{ id }}?"
+            },
+            "detail": {
+                "title": "Tms Post"
+            },
+            "content": "Content",
+            "comments": "Comments",
+            "thread": "Thread"
+        }
+    }
+}

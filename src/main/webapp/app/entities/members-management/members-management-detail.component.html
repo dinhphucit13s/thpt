@@ -1,0 +1,66 @@
+<div class="page-content-wrapper" *ngIf="membersManagement">
+    <div class="row">
+        <div class="col-md-12 portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                        <span class="caption-subject font-green bold uppercase"
+                              jhiTranslate="dtmsApp.membersManagement.detail.history">MembersManagement</span>
+                </div>
+            </div>
+            <div class="profile-sidebar">
+                <div class="portlet light profile-sidebar-portlet col-md-12">
+                    <div class="profile-usertitle col-md-4">
+                        <div class="profile-usertitle-name">
+                            <span style="color:  #f16959;" jhiTranslate="dtmsApp.membersManagement.fullName">Full Name</span>
+                            <span> {{membersManagement.lastName}}</span>
+                            <span> {{membersManagement.firstName}}</span>
+                        </div>
+                        <div class="profile-usertitle-job">
+                            <span style="color:  #f16959;">Email: </span>
+                            <span> {{membersManagement.email}} </span>
+                        </div>
+                    </div>
+                    <div class="profile-usertitle col-md-4">
+                        <div class="profile-usertitle-name">
+                            <span style="color:  #f16959;" jhiTranslate="dtmsApp.membersManagement.highestRole">Highest Projects</span>
+                            <span> {{highest}}</span>
+                        </div>
+                        <div class="profile-usertitle-job" *ngIf="countProjects">
+                            <span style="color:  #f16959;" jhiTranslate="dtmsApp.membersManagement.projects">Projects</span>
+                            <span> {{ countProjects.length }} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="portlet light ">
+                            <div class="portlet-title">
+                                <div class="caption caption-md">
+                                    <i class="icon-bar-chart theme-font hide"></i>
+                                    <span
+                                        class="caption-subject font-blue-madison bold uppercase"
+                                        jhiTranslate="dtmsApp.membersManagement.historyProject">History Projects</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="displayedColumns"
+                                                     [_rowData]="rowData"
+                                                     [_frameworkComponents]="frameworkComponents"
+                                                     [toolPanel]="true" [page]="page" [queryCount]="queryCount"
+                                                     [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+                                                     (loadPage)="loadPage($event)">
+                                </jhi-data-collection>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAuthorityResourceLabel" jhiTranslate="dtmsApp.authorityResource.home.createOrEditLabel">Create or edit a Authority Resource</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.authorityResource.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name" pattern="^[A-Za-z]\w*$"
+                [(ngModel)]="role.name" required minlength="2" maxlength="100"/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+                <small class="form-text text-danger" jhiTranslate="entity.validation.patternRole"
+                       [hidden]="!editForm.controls.name?.errors?.pattern">
+                    This field does not allow white space.
+                </small>
+            </div>
+        </div>
+
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item active" translate="dtmsApp.authorityResource.resources">Role Resource <span></span></li>
+                <li class="list-group-item role-checkbox" *ngFor="let res of resources; let i = index">
+                    <span>{{ res.resource }}</span>
+                     <div class="btn-group pull-right">
+                        <label class="mt-radio">none<input type="radio" [checked] = "res.permission == 0" name="permission{{i}}" [value]="resources[i].permission" value="0"
+                        (change)="onSelectionChange(i,0)"/><span></span></label>
+                        <label class="mt-radio">view<input type="radio" [checked] = "res.permission == 1" name="permission{{i}}" [value]="resources[i].permission" value="1"
+                        (change)="onSelectionChange(i,1)"/><span></span></label>
+                        <label class="mt-radio">create<input type="radio" [checked] = "res.permission == 2" name="permission{{i}}" [value]="resources[i].permission" value="2"
+                        (change)="onSelectionChange(i,2)"/><span></span></label>
+                        <label class="mt-radio">edit<input type="radio" [checked] = "res.permission == 3" name="permission{{i}}" [value]="resources[i].permission" value="3"
+                        (change)="onSelectionChange(i,3)"/><span></span></label>
+                        <label class="mt-radio">delete<input type="radio" [checked] = "res.permission == 4" name="permission{{i}}" [value]="resources[i].permission" value="4"
+                        (change)="onSelectionChange(i,4)"/><span></span></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

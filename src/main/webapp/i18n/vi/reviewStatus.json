@@ -1,0 +1,13 @@
+{
+    "dtmsApp": {
+        "ReviewStatus" : {
+            "null": "",
+            "NA": "NA",
+            "OPEN": "OPEN",
+            "DOING": "DOING",
+            "DONE": "DONE",
+            "NOT_GOOD": "NOT_GOOD",
+            "REOPEN": "REOPEN"
+        }
+    }
+}

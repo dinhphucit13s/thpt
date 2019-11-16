@@ -1,0 +1,39 @@
+<div class="form-body border-dis" [formGroup]="group">
+    <div class="form-group">
+        <label class="col-md-3 control-label">{{field.headerName}}
+            <span *ngIf="field.properties.isRequiredField" class="required"> (*) </span>
+        </label>
+        <div class="col-md-9" *ngIf="field.inputType === 'multiple'">
+            <select class="form-control" [formControlName]="field.field" multiple>
+                <option [value]="null"></option>
+                <option *ngFor="let item of field.options" [value]="item">{{item}}</option>
+            </select>
+            <div *ngFor="let validate of field.validations">
+                <div *ngIf="validate.name">
+                    <div *ngIf="group.get(field.field).hasError(validate.name)">
+                        <div style="font-size: small; color: red"
+                             *ngIf="!isValid && isDirty && validate.name === 'required'"
+                             jhiTranslate="entity.validation.required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9" *ngIf="field.inputType === 'single'">
+            <select class="form-control" [formControlName]="field.field">
+                <option value=""></option>
+                <option *ngFor="let item of field.options" [value]="item">{{item}}</option>
+            </select>
+            <div *ngFor="let validate of field.validations">
+                <div *ngIf="validate.name">
+                    <div *ngIf="group.get(field.field).hasError(validate.name)">
+                        <div style="font-size: small; color: red"
+                             *ngIf="!isValid && isDirty && validate.name === 'required'"
+                             jhiTranslate="entity.validation.required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

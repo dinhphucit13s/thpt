@@ -1,0 +1,111 @@
+<form name="importForm" #importForm="ngForm">
+    <div class="modal-header">
+        <h2 class="modal-title">Move Tasks</h2>
+    </div>
+    <div>
+        <h4 class="modal-title tiltePackages">Option PurchaseOder and Packages</h4>
+    </div>
+    <!--Combobox PO-->
+    <div class="col-md-3" *ngIf="selectedRows.length == 0">
+        <select [disabled]="selectedRows.length == 0" class="input-sm select2-multiple classDisableCombobox" id="field_purchase" style="width: 100%" name="purchase"
+                [(ngModel)]="poChosen" (change)="onChangePO()">
+            <option selected="selected" value="">Select Purchase Order...</option>
+            <option *ngFor="let po of purchaseOrders" [value]="po.id">{{po.name}}</option>
+        </select>
+    </div>
+    <div class="col-md-3" *ngIf="selectedRows.length != 0">
+        <select [disabled]="selectedRows.length == 0" class="input-sm select2-multiple" style="width: 100%" name="purchase"
+                [(ngModel)]="poChosen" (change)="onChangePO()">
+            <option selected="selected" value="">Select Purchase Order...</option>
+            <option *ngFor="let po of purchaseOrders" [value]="po.id">{{po.name}}</option>
+        </select>
+    </div>
+    <!--Combobox Packages-->
+    <div class="col-md-3" *ngIf="selectedRows.length == 0">
+        <select [disabled]="selectedRows.length == 0" class="input-sm select2-multiple classDisableCombobox" style="width: 100%" name="packages"
+                [(ngModel)]="packageChosen">
+            <option selected="selected" value="">Select packages...</option>
+            <option *ngFor="let pac of packages" [value]="pac.id">{{pac.name}}</option>
+        </select>
+    </div>
+    <div class="col-md-3" *ngIf="selectedRows.length != 0">
+        <select [disabled]="selectedRows.length == 0" class="input-sm select2-multiple" style="width: 100%" name="packages"
+                [(ngModel)]="packageChosen">
+            <option selected="selected" value="">Select packages...</option>
+            <option *ngFor="let pac of packages" [value]="pac.id">{{pac.name}}</option>
+        </select>
+    </div>
+    <!--Record per page-->
+    <div style="padding-right: 15px; padding-left: 60px"><span>Record per page</span>
+        <select class="input-sm select2-multiple" id="select-per-page" style="margin-left: 5px" (change)="search()"
+                [(ngModel)] ="itemsPerPage" name="numberRecord">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+    <jhi-alert></jhi-alert>
+    <div class="row groupsSearch">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group w-100 mt-3">
+                            <input type="text" class="form-control" [(ngModel)]="searchName" id="searchName" name="searchName" placeholder="{{ 'dtmsApp.tasks.home.searchName' | translate }}">
+                            <!--                            <input type="text" class="form-control" [(ngModel)]="searchStatus" id="searchStatus" name="searchStatus" placeholder="{{ 'dtmsApp.tasks.home.searchStatus' | translate }}">-->
+                            <input type="text" class="form-control" [(ngModel)]="searchDescription" id="searchDescription" name="searchDescription" placeholder="{{ 'dtmsApp.tasks.home.searchDescription' | translate }}">
+                            <input type="text" class="form-control" [(ngModel)]="searchAssignee" id="searchAssignee" name="searchAssignee" placeholder="{{ 'dtmsApp.tasks.home.searchAssignee' | translate }}">
+                            <select class="form-control" name="status" [(ngModel)]="this.searchStatus" id="field_status">
+                                <option value="*">{{'dtmsApp.TaskStatus.null' | translate}}</option>
+                                <option value="NA">{{'dtmsApp.TaskStatus.NA' | translate}}</option>
+                                <option value="OPEN">{{'dtmsApp.TaskStatus.OPEN' | translate}}</option>
+                            </select>
+                            <input
+                                id="field_fromDate"
+                                class="form-control"
+                                style="width: 200px; height: 34px; background-color: #fff; border-color: #aaa"
+                                name="fromDate"
+                                type="text"
+                                mwlFlatpickr
+                                [maxDate]="toDate"
+                                [(ngModel)]="fromDate"
+                                placeholder="From Date..."
+                                dateFormat="d/m/Y">
+                            <input
+                                id="field_toDate"
+                                class="form-control"
+                                style="width: 200px; height: 34px; background-color: #fff; border-color: #aaa"
+                                name="toDate"
+                                type="text"
+                                mwlFlatpickr
+                                [minDate]="fromDate"
+                                [(ngModel)]="toDate"
+                                placeholder="To Date..."
+                                dateFormat="d/m/Y">
+                            <button class="input-group-append btn btn-info" (click)="search()">
+                                <span class="fa fa-search"></span>
+                            </button>
+                            <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="searchName || searchStatus !== '*' || searchDescription || searchAssignee || fromDate || toDate">
+                                <span class="fa fa-trash-o"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--List task Search-->
+    <jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [toolPanel]="true"
+                         [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount" (loadAuthorities)="getSelectedRow($event)"
+                         [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)"></jhi-data-collection>
+
+    <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal" (click)="back()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button [disabled]="selectedRows.length == 0 || packageChosen == '' || poChosen == '' " class="btn btn-primary" (click)="moveTasks()">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.move">Save</span>
+        </button>
+    </div>
+</form>

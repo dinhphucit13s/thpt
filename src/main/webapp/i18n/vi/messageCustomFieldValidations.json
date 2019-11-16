@@ -1,0 +1,14 @@
+
+{
+    "dtmsApp": {
+        "messageCustomFieldValidations" : {
+            "message": {
+                "maxLength": "Độ dài tối đa là {{ validator }} ký tự?",
+                "minLength": "Độ dài tối thiểu là {{ validator }} ký tự?",
+                "max": "Giá trị lớn nhất là {{ validator }}!",
+                "min": "Giá trị nhỏ nhất là {{ validator }}!",
+                "pattern": "Định dạng mẫu là {{ validator }}!"
+            }
+        }
+    }
+}

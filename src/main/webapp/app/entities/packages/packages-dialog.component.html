@@ -1,0 +1,19 @@
+<div class="form">
+    <div style="text-align:center">
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" id="myPackagesLabel" jhiTranslate="dtmsApp.packages.home.createOrEditLabel">Create or edit a Packages</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;</button>
+        </div>
+    </div>
+    <div #child></div>
+
+    <div class="modal-footer" *ngIf="form">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="form.form.invalid || isSaving" class="btn btn-primary" (click)="save()">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</div>

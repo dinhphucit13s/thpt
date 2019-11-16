@@ -1,0 +1,61 @@
+
+<div *ngIf="projectWorkflows">
+    <h2><span jhiTranslate="dtmsApp.projectWorkflows.detail.title">Project Workflows</span> {{projectWorkflows.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.name">Name</span></dt>
+        <dd>
+            <span>{{projectWorkflows.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.step">Step</span></dt>
+        <dd>
+            <span>{{projectWorkflows.step}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.inputDTO">Input DTO</span></dt>
+        <dd>
+            <span>{{projectWorkflows.inputDTO}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.opGridDTO">Op Grid DTO</span></dt>
+        <dd>
+
+            <span>{{projectWorkflows.opGridDTO}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.pmGridDTO">Pm Grid DTO</span></dt>
+        <dd>
+            <span>{{projectWorkflows.pmGridDTO}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.nextURI">Next URI</span></dt>
+        <dd>
+            <span>{{projectWorkflows.nextURI}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.description">Description</span></dt>
+        <dd>
+            <span>{{projectWorkflows.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.activity">Activity</span></dt>
+        <dd>
+            <span>{{projectWorkflows.activity}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.projectWorkflows.projectTemplates">Project Templates</span></dt>
+        <dd>
+            <div *ngIf="projectWorkflows.projectTemplatesId">
+                <a [routerLink]="['/project-templates', projectWorkflows.projectTemplatesId]">{{projectWorkflows.projectTemplatesName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'project-workflows/'+ projectWorkflows.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

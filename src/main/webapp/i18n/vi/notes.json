@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "notes" : {
+            "home": {
+                "title": "Notes",
+                "createLabel": "Thêm mới một Notes",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Notes",
+                "search": "Tìm Notes"
+            },
+            "created": "Một Notes mới được tạo với định danh {{ param }}",
+            "updated": "Một Notes cập nhật với định danh {{ param }}",
+            "deleted": "Một Notes đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Notes {{ id }}?"
+            },
+            "detail": {
+                "title": "Notes"
+            },
+            "description": "Description",
+            "attachment": "Attachment",
+            "tasks": "Tasks",
+            "bug": "Bug"
+        }
+    }
+}

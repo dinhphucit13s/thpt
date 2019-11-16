@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomFieldScreenValue" : {
+            "home": {
+                "title": "TMSCustomFieldScreenValues",
+                "createLabel": "TMS Custom Field Screen Value を追加",
+                "createOrEditLabel": "TMS Custom Field Screen Valueを追加または編集",
+                "search": "Search for TMS Custom Field Screen Value"
+            },
+            "created": "A new TMS Custom Field Screen Value is created with identifier {{ param }}",
+            "updated": "A TMS Custom Field Screen Value is updated with identifier {{ param }}",
+            "deleted": "A TMS Custom Field Screen Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "TMS Custom Field Screen Value {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "TMS Custom Field Screen Value"
+            },
+            "value": "Value",
+            "text": "Text",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks",
+            "tmsCustomField": "Tms Custom Field"
+        }
+    }
+}

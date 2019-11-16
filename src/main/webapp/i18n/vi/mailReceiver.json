@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "mailReceiver" : {
+            "home": {
+                "title": "Mail Receivers",
+                "createLabel": "Thêm mới một Mail Receiver",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Mail Receiver",
+                "search": "Tìm Mail Receiver"
+            },
+            "created": "Một Mail Receiver mới được tạo với định danh {{ param }}",
+            "updated": "Một Mail Receiver cập nhật với định danh {{ param }}",
+            "deleted": "Một Mail Receiver đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Mail Receiver {{ id }}?"
+            },
+            "detail": {
+                "title": "Mail Receiver"
+            },
+            "from": "From",
+            "to": "To",
+            "status": "Status",
+            "mail": "Mail"
+        }
+    }
+}

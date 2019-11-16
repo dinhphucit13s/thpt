@@ -1,0 +1,104 @@
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-lg-12">
+        <div class="portlet light bordered" *ngIf="projects">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span jhiTranslate="dtmsApp.projects.detail.title">Projects</span>
+                </div>
+            </div>
+            <div class="portlet-body dataTables_wrapper">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <tr>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.name">Code</span> :
+                                <span>{{projects.name}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.projectTemplates">Project Templates</span> :
+                                <span>{{projects.projectTemplatesName}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.projectLead">projectLead</span> :
+                                <span>{{projects.projectLeadUserLogin}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.code">Code</span> :
+                                <span>{{projects.code}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.type">Type</span> :
+                                <span jhiTranslate="{{'dtmsApp.ProjectType.' + projects.type}}">{{projects.type}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.status">Status</span> :
+                                <span jhiTranslate="{{'dtmsApp.ProjectStatus.' + projects.status}}">{{projects.status}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.customer">Customer</span>
+                                <div *ngIf="projects.customerId">
+                                    <a [routerLink]="['/customer', projects.customerId]">{{projects.customerName}}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.startTime">Start Time</span> :
+                                <span>{{projects.startTime | date:'medium'}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.endTime">End Time</span>
+                                <span>{{projects.endTime | date:'medium'}}</span>
+                            </td>
+                            <td>
+                                <span class="title" jhiTranslate="dtmsApp.projects.description">Description</span> :
+                                <span>{{projects.description}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button *ngIf="this.isEdit"
+                    type="button"
+                    [routerLink]="['/', { outlets: { popup: 'projects/'+ projects.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+    <br><br>
+    <div class="col-lg-12">
+        <ngb-tabset class="tabbable-line " type="pills">
+            <ngb-tab>
+                <ng-template ngbTabTitle>
+                    <span jhiTranslate="global.menu.entities.statistic" class="title">Statistic</span>
+                </ng-template>
+                <ng-template ngbTabContent>
+                    <jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [_gridOptions]="gridOptions" [_frameworkComponents]="frameworkComponents"
+                                         [page]="page" [queryCount]="queryCount" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems"
+                                         (loadPage)="loadPage($event)"></jhi-data-collection>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab>
+                <ng-template ngbTabTitle >
+                    <span jhiTranslate="dtmsApp.projectUsers.home.title">Project Users</span>
+                </ng-template>
+                <ng-template ngbTabContent>
+                    <jhi-project-users-list></jhi-project-users-list>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+</div>

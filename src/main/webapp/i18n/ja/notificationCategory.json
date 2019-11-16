@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "NotificationCategory" : {
+            "null": "",
+            "TASK": "TASK",
+            "REASSIGNED_TASK": "REASSIGNED TASK"
+        }
+    }
+}

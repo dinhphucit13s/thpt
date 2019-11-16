@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "projectBugListDefault" : {
+            "home": {
+                "title": "Project Bug List Defaults",
+                "createLabel": "Create a new Project Bug List Default",
+                "createOrEditLabel": "Create or edit a Project Bug List Default",
+                "search": "Search for Project Bug List Default"
+            },
+            "created": "A new Project Bug List Default is created with identifier {{ param }}",
+            "updated": "A Project Bug List Default is updated with identifier {{ param }}",
+            "deleted": "A Project Bug List Default is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Bug List Default have Bug Code: {{ code }}?"
+            },
+            "detail": {
+                "title": "Project Bug List Default"
+            },
+            "bugName": "Bug Description",
+            "code": "Code",
+            "project": "Project",
+            "bugListDefault": "Bug List Default"
+        }
+    }
+}

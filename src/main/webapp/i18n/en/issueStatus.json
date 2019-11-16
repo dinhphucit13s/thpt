@@ -1,0 +1,12 @@
+{
+    "dtmsApp": {
+        "IssueStatus" : {
+            "null": "",
+            "NA": "NA",
+            "REVIEWING": "REVIEWING",
+            "ACCEPTED": "ACCEPTED",
+            "REJECTED": "REJECTED",
+            "DUPPLICATED": "DUPPLICATED"
+        }
+    }
+}

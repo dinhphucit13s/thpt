@@ -1,0 +1,15 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.allocation.detail.title">Allocation</span>
+    </h2>
+</div>
+<jhi-data-collection [_columnDef]="displayedColumns" [_rowData]="rowData" [toolPanel]="true"
+                     [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount"
+                     [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+
+</jhi-data-collection>
+<button type="submit"
+        (click)="previousState()"
+        class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+</button>

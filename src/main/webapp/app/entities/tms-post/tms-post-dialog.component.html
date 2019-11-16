@@ -1,0 +1,40 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="saveAnswer()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTmsPostLabel" jhiTranslate="dtmsApp.tmsPost.home.createOrEditLabel">Create or edit a Tms Post</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="margin-top-10">
+            <label><b>Content</b></label>
+            <textarea name="content" [(ngModel)]="tmsPost.content" class="form-control" style="resize: vertical" rows="5" placeholder="Content Q&A"
+                      [ngStyle]="{'border-left': !tmsPost.content || tmsPost.content === 0 ? '5px solid red': '1px solid #c2cad8'}"></textarea>
+        </div>
+        <div class="margin-top-10" style="display: flex">
+            <div style="width: auto; float: left">
+                <input type="file" multiple name="field_image" (change)="onFileChange($event, tmsPost)"
+                       id="attach_feedback"/>
+                <label class="fa fa-paperclip" for="attach_feedback"><span> Add Attachments</span></label>
+            </div>
+            <div *ngIf="tmsPost.attachments && tmsPost.attachments.length > 0" class="col-lg-12 col-md-12 col-sm-12 pr-0" style="float: left; flex-grow: 1;">
+                <div style="border: 1px dashed #c4ccdf;padding: 5px 15px 5px 15px;display: grid">
+          <span *ngFor="let attachment of tmsPost.attachments" style="margin-right: 10px">
+            <span class="fa fa-file-o" style="margin-right: 3px"></span>
+            <a>{{attachment.filename}};</a>
+            <span class="fa fa-times text-danger" style="cursor: pointer" (click)="removeAttachment(attachment)"></span>
+          </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="clear()">
+        <span class="fa fa-ban"></span><span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+        <button class="btn btn-primary" type="submit" [disabled]="detech()">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

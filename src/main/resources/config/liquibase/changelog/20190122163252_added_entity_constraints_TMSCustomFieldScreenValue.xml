@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TMSCustomFieldScreenValue.
+    -->
+    <changeSet id="20190122163252-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="purchase_orders_id"
+                                 baseTableName="tms_custom_field_screen_value"
+                                 constraintName="fk_tmscustom_field_screen_value_purchase_orders_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="purchase_orders"/>
+
+        <addForeignKeyConstraint baseColumnNames="packages_id"
+                                 baseTableName="tms_custom_field_screen_value"
+                                 constraintName="fk_tmscustom_field_screen_value_packages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="packages"/>
+
+        <addForeignKeyConstraint baseColumnNames="tasks_id"
+                                 baseTableName="tms_custom_field_screen_value"
+                                 constraintName="fk_tmscustom_field_screen_value_tasks_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tasks"/>
+
+        <addForeignKeyConstraint baseColumnNames="tms_custom_field_screen_id"
+                                 baseTableName="tms_custom_field_screen_value"
+                                 constraintName="fk_tmscustom_field_screen_value_tms_custom_field_screen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tms_custom_field_screen"/>
+
+    </changeSet>
+</databaseChangeLog>

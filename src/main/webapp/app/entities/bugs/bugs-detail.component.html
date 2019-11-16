@@ -1,0 +1,52 @@
+
+<div *ngIf="bugs">
+    <h2><span jhiTranslate="dtmsApp.bugs.detail.title">Bugs</span> {{bugs.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.bugs.description">Description</span></dt>
+        <dd>
+            <span>{{bugs.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.code">Code</span></dt>
+        <dd>
+            <span>{{bugs.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.stage">Stage</span></dt>
+        <dd>
+            <span>{{bugs.stage}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dtmsApp.BugStatus.' + bugs.status}}">{{bugs.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.resolution">Resolution</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dtmsApp.BugResolution.' + bugs.resolution}}">{{bugs.resolution}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.physicalPath">Physical Path</span></dt>
+        <dd>
+            <span>{{bugs.physicalPath}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.bugs.tasks">Tasks</span></dt>
+        <dd>
+            <div *ngIf="bugs.tasksId">
+                <a [routerLink]="['/tasks', bugs.tasksId]">{{bugs.tasksName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'bugs/'+ bugs.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

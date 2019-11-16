@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "businessUnit" : {
+            "home": {
+                "title": "Business Units",
+                "createLabel": "Thêm mới một Business Unit",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Business Unit",
+                "search": "Tìm Business Unit"
+            },
+            "created": "Một Business Unit mới được tạo với định danh {{ param }}",
+            "updated": "Một Business Unit cập nhật với định danh {{ param }}",
+            "deleted": "Một Business Unit đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Business Unit {{ name }}?",
+                "warningMessage": "Ràng buộc với dữ liệu con! không thể xóa {{ name }}"
+            },
+            "detail": {
+                "title": "Business Unit"
+            },
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "error": {
+                "inUsed": "Business Unit đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="ds8_task_processing" name="DS 8 TASK PROCESSING" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="op" name="OPERATOR" activiti:candidateGroups="OPERATOR">
+      <extensionElements>
+        <modeler:group-info-name-OPERATOR xmlns:modeler="http://activiti.com/modeler"><![CDATA[OPERATOR]]></modeler:group-info-name-OPERATOR>
+        <modeler:activiti-idm-candidate-group xmlns:modeler="http://activiti.com/modeler"><![CDATA[true]]></modeler:activiti-idm-candidate-group>
+        <modeler:initiator-can-complete xmlns:modeler="http://activiti.com/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD" sourceRef="startEvent1" targetRef="op"></sequenceFlow>
+    <exclusiveGateway id="check_opstatus" name="Check OP Status"></exclusiveGateway>
+    <endEvent id="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39"></endEvent>
+    <sequenceFlow id="task_cancel1" name="DONE or CANCEL" sourceRef="check_opstatus" targetRef="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status == "TASK_CANCEL" || status== "DONE"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7459EE28-7289-402C-8838-36FC453182D0" sourceRef="op" targetRef="check_opstatus"></sequenceFlow>
+    <sequenceFlow id="not_done" name="NOT DONE" sourceRef="check_opstatus" targetRef="op">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${status != "DONE"&&status != "TASK_CANCEL"}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_ds8taskprocessing">
+    <bpmndi:BPMNPlane bpmnElement="ds8taskprocessing" id="BPMNPlane_ds8taskprocessing">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="90.0" y="160.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="op" id="BPMNShape_op">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="check_opstatus" id="BPMNShape_check_opstatus">
+        <omgdc:Bounds height="40.0" width="40.0" x="480.0" y="155.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39" id="BPMNShape_sid-CD2C2F39-60A1-44B6-AB9C-2F4D88DE9C39">
+        <omgdc:Bounds height="28.0" width="28.0" x="1020.0" y="165.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-7459EE28-7289-402C-8838-36FC453182D0" id="BPMNEdge_sid-7459EE28-7289-402C-8838-36FC453182D0">
+        <omgdi:waypoint x="265.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="480.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="task_cancel1" id="BPMNEdge_task_cancel1">
+        <omgdi:waypoint x="519.8513011152417" y="175.14869888475837"></omgdi:waypoint>
+        <omgdi:waypoint x="1020.0003927509399" y="178.89513402809692"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD" id="BPMNEdge_sid-B5332E12-93FA-4F5D-8B15-9605A9FC3DAD">
+        <omgdi:waypoint x="120.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="165.0" y="175.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="not_done" id="BPMNEdge_not_done">
+        <omgdi:waypoint x="500.5" y="155.5"></omgdi:waypoint>
+        <omgdi:waypoint x="500.5" y="84.0"></omgdi:waypoint>
+        <omgdi:waypoint x="215.0" y="84.0"></omgdi:waypoint>
+        <omgdi:waypoint x="215.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,107 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectTemplates",
+            "otherEntityName": "projectTemplates",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "projectLead",
+            "otherEntityName": "projectUsers",
+            "otherEntityField": "userLogin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "purchaseOrders",
+            "otherEntityName": "purchaseOrders",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projectUsers",
+            "otherEntityName": "projectUsers",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "projectBugListDefault",
+            "otherEntityName": "projectBugListDefault",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipName": "businessUnit",
+            "otherEntityName": "businessUnit",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "ProjectType",
+            "fieldValues": "NA,MAINTENANCE,BODY_SHOPPING"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ProjectStatus",
+            "fieldValues": "OPEN,RUNNING,CLOSED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "biddingHoldTime",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190122163245",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "projects",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "javadoc": "The Projects entity."
+}

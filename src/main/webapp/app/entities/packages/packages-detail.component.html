@@ -1,0 +1,68 @@
+
+<div *ngIf="packages">
+    <h2><span jhiTranslate="dtmsApp.packages.detail.title">Packages</span> {{packages.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.packages.name">Name</span></dt>
+        <dd>
+            <span>{{packages.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.op">Op</span></dt>
+        <dd>
+            <span>{{packages.op}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.reviewer">Reviewer</span></dt>
+        <dd>
+            <span>{{packages.reviewer}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.fi">Fi</span></dt>
+        <dd>
+            <span>{{packages.fi}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.delivery">Delivery</span></dt>
+        <dd>
+            <span>{{packages.delivery}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.estimateDelivery">Estimate Delivery</span></dt>
+        <dd>
+            <span>{{packages.estimateDelivery | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.target">Target</span></dt>
+        <dd>
+            <span>{{packages.target}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{packages.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.endTime">End Time</span></dt>
+        <dd>
+            <span>{{packages.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.description">Description</span></dt>
+        <dd>
+            <span>{{packages.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.packages.purchaseOrders">Purchase Orders</span></dt>
+        <dd>
+            <div *ngIf="packages.purchaseOrdersId">
+                <a [routerLink]="['/purchase-orders', packages.purchaseOrdersId]">{{packages.purchaseOrdersName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'packages/'+ packages.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

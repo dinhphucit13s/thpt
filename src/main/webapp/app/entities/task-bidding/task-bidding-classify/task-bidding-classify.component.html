@@ -1,0 +1,48 @@
+<div class="row margin-top-15">
+    <div class="col-sm-12">
+        <div class="col-md-2">
+            <select class="input-sm select2-multiple" id="field_project" name="project" style="width: 100%"
+            [(ngModel)]="projectChosen" (change)="onChangeProject()">
+                <option value="">Select Project...</option>
+                <option *ngFor="let project of projectList" [value]="project.id">{{project.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select class="input-sm select2-multiple" id="field_purchase" name="purchaseOrder" style="width: 100%"
+            [(ngModel)]="poChosen" (change)="onChangePO()">
+                <option *ngFor="let po of purchaseOrdersList" [value]="po.id">{{po.name}}</option>
+            </select>
+        </div>
+        <div class="col-md-2" *ngIf="packageList.length > 0">
+            <select class="input-sm select2-multiple" id="field_package" name="package" style="width: 100%"
+            [(ngModel)]="packageChosen">
+                <option *ngFor="let package of packageList" [value]="package.id">{{package.name}}</option>
+            </select>
+        </div>
+        <div style="height: 30px;display: flex; align-items: center;">
+            <div style="padding-left: 15px; padding-right: 15px">
+                <button class="input-group-append btn btn-info rounded-4" [disabled]="projectChosen === ''" (click)="loadDataBidding()"><span class="fa fa-search"></span> Search
+                </button>
+            </div>
+            <div style="padding-right: 15px; padding-left: 15px"><span>Record per page</span>
+                <select class="input-sm select2-multiple" name="numberRecord" style="margin-left: 5px"
+                [(ngModel)]="itemsPerPage">
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div style="width: 100%; display: flex; justify-content: flex-end">
+            <button class="btn btn-info rounded-4" [routerLink]="['/', { outlets: { popup: 'tasks-bidding-unassign'} }]"
+                    [disabled]="selectedRows.length === 0"><span class="fa fa-undo"></span> Un-Bidding</button>
+        </div>
+        <div class="margin-top-10">
+            <jhi-data-collection [_columnDef]="columnDefsArg" [isRowSelectable]="isRowSelectable" [_rowData]="taskBiddings" [toolPanel]="true"
+                                 [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount" (loadAuthorities)="getSelectedRow($event)"
+                                 [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)"></jhi-data-collection>
+        </div>
+    </div>
+</div>

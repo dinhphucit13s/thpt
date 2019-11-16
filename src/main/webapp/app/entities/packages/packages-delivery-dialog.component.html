@@ -1,0 +1,19 @@
+<form name="deliveryForm" (ngSubmit)="confirmDelivery(packages.id)">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="dtmsApp.packages.deliveryConfirm.title">Confirm Delivery Package</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <p jhiTranslate="dtmsApp.packages.deliveryConfirm.question" translateValues="{name: '{{packages.name}}'}">Are you sure you want to delivery this Package?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success" *ngIf="!errorMessage">
+            <span class="fa fa-check-circle"></span>&nbsp;<span jhiTranslate="entity.action.delivery">Delivery</span>
+        </button>
+    </div>
+</form>

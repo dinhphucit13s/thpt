@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "PositionMonitoring" : {
+            "null": "",
+            "PROJECT": "PROJECT",
+            "PURCHASE_ORDER": "PURCHASE_ORDER"
+        }
+    }
+}

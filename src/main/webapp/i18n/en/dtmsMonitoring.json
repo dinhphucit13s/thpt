@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "dtmsMonitoring" : {
+            "home": {
+                "title": "Dtms Monitorings",
+                "createLabel": "Create a new Dtms Monitoring",
+                "createOrEditLabel": "Create or edit a Dtms Monitoring",
+                "search": "Search for Dtms Monitoring"
+            },
+            "created": "A new Dtms Monitoring is created with identifier {{ param }}",
+            "updated": "A Dtms Monitoring is updated with identifier {{ param }}",
+            "deleted": "A Dtms Monitoring is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dtms Monitoring {{ id }}?"
+            },
+            "detail": {
+                "title": "Dtms Monitoring"
+            },
+            "position": "Position",
+            "positionId": "Position Id",
+            "role": "Role",
+            "members": "Members"
+        }
+    }
+}

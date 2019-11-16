@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ProjectTemplates.
+    -->
+    <changeSet id="20190122163243-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="business_line_id"
+                                 baseTableName="project_templates"
+                                 constraintName="fk_project_templates_business_line_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="business_line"/>
+
+    </changeSet>
+</databaseChangeLog>

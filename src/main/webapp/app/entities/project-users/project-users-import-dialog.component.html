@@ -1,0 +1,60 @@
+<form name="importForm" (ngSubmit)="import()" #importForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="dtmsApp.projectUsers.home.importTitle">Import Project Users</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <input type="file" required class="form-control" name="package" id="package" (change)="onFileChange($event)" accept=".xlsx" />
+        <!--<progress-bar [progress]="100" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">-->
+        <!--</progress-bar>-->
+        <!--<div *ngIf="listContentProgress.length > 0" class="progress-bar-import" [ngStyle]="{'background-color': listContentProgress.length !== totalFileImport ? '#FFFFFF' :  '#1F9FFF'}">
+            <div class="progress-animated" *ngFor="let progress of listContentProgress" [style.width]="'calc(' + 100/ totalFileImport + '%)'"></div>
+        </div>
+        <div class="progress-import-content margin-top-10" style="max-height: 400px; overflow: auto">
+            <div *ngFor="let packageProgress of listProjectUsers" [innerHTML]="packageProgress"></div>
+            <div *ngFor="let progress of listContentProgress" [innerHTML]="progress"></div>
+        </div>-->
+
+        <div *ngIf="isImportDone" style="max-height: 400px; overflow: auto">
+            <hr>
+            <div>
+                <span jhiTranslate="dtmsApp.projectUsers.import.success" translateValues="{quantity: '{{successList.length}}'}">
+                    <b>Nhập thành công {{successList.length}} thành viên vào dự án.</b>
+                </span>
+            </div>
+            <div *ngIf="existingList.length > 0">
+                <span jhiTranslate="dtmsApp.projectUsers.import.existing" translateValues="{quantity: '{{existingList.length}}'}">
+                    <b>Không nhập {{existingList.length}} thành viên vào dự án đã tồn tại trong dự án.</b>
+                </span>
+                <ul>
+                    <li *ngFor="let projectUser of existingList">
+                        <span>{{projectUser.userLogin}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="notExistingList.length > 0">
+                <span jhiTranslate="dtmsApp.projectUsers.import.notExisting" translateValues="{quantity: '{{notExistingList.length}}'}">
+                    <b>Không nhập {{notExistingList.length}} thành viên vào dự án vì tên đăng nhập không tồn tại trong hệ thống.</b>
+                </span>
+                <ul>
+                    <li *ngFor="let projectUser of notExistingList">
+                        <span>{{projectUser.userLogin}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button *ngIf="!isImportDone" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button *ngIf="!isImportDone" type="submit" [disabled]="importForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+        <button *ngIf="isImportDone" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.close">Close</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<!-- <jhi-page-ribbon></jhi-page-ribbon> -->
+<div [class.page-wrapper]="isAuthenticated()">
+    <router-outlet name="navbar" *ngIf="isAuthenticated()"></router-outlet>
+    <div [class.page-container]="isAuthenticated()">
+        <div [class.page-sidebar-wrapper]="isAuthenticated()" *ngIf="isAuthenticated()">
+            <jhi-sidebar></jhi-sidebar>
+        </div>
+        <div [class.page-content-wrapper]="isAuthenticated()">
+            <div [class.page-content]="isAuthenticated()">
+                <router-outlet></router-outlet>
+                <router-outlet name="popup"></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

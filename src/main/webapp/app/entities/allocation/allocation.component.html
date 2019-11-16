@@ -1,0 +1,44 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.allocation.home.title">Allocation</span>
+        <a *ngIf="this.permission > 1" class="btn btn-default btn-sm" [attr.href]="'api/allocation/export?projectId=' + selectedOptions"><span
+            class="fa fa-cloud-download"></span>
+            <span jhiTranslate="dtmsApp.allocation.home.export">
+                Export Members Management
+            </span>
+        </a>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.allocation.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear(selectedOptions)" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+</div>
+<!--<mat-form-field>
+    <mat-select (selectionChange)="showMemberByUserId($event.value)" [(ngModel)]="selectedOptions">
+        <mat-option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</mat-option>
+    </mat-select>
+</mat-form-field>-->
+
+<select class="input-group select2-multiple" [(ngModel)]="selectedOptions" (change)="showMemberByUserId($event.target.value)" style="height: 30px; width: 200px">
+    <option value="0">Select Project...</option>
+    <option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</option>
+</select>
+</br>
+<jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [toolPanel]="true"
+                     [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount"
+                     [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+
+</jhi-data-collection>

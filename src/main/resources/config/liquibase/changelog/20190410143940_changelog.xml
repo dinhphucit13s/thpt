@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="TuHP (generated)" id="1554907204998-1">
+        <createTable tableName="projects_bug_list_defaults">
+            <column name="projects_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bug_list_defaults_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1554907204998-2">
+        <addColumn tableName="projects">
+            <column name="customer_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1554907204998-3">
+        <addPrimaryKey columnNames="projects_id, bug_list_defaults_id" tableName="projects_bug_list_defaults"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1554907204998-4">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="projects" constraintName="FK5qk99d4prokycgj83swwcbwbq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="customer"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1554907204998-5">
+        <addForeignKeyConstraint baseColumnNames="bug_list_defaults_id" baseTableName="projects_bug_list_defaults" constraintName="FK9pk3udtc2quegft4b0hfjal4o" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bug_list_default"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1554907204998-6">
+        <addForeignKeyConstraint baseColumnNames="projects_id" baseTableName="projects_bug_list_defaults" constraintName="FKrf7ybfr4q0xk31el1gedm3xfx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+</databaseChangeLog>

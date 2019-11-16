@@ -1,0 +1,35 @@
+.item-qa-body {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #ebebeb;
+}
+
+.avatar {
+    width: 6rem;
+    height: 6rem;
+    min-width: 6rem;
+    min-height: 6rem;
+    background: #ced4da no-repeat center/cover;
+    box-shadow: 1px 1px 1px 1px #ebebeb;
+}
+
+.list-count {
+    border: 1px solid #ebebeb;
+    height: 6rem
+}
+
+.list-count-item {
+    border-bottom: 1px solid #ebebeb;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777777;
+}
+
+a {
+    font-weight: unset;
+    color: #337ab7 !important;
+}

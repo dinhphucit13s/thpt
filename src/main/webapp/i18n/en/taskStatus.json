@@ -1,0 +1,14 @@
+{
+    "dtmsApp": {
+        "TaskStatus" : {
+            "null": "Search for Task Status",
+            "NA": "NA",
+            "OPEN": "OPEN",
+            "DOING": "DOING",
+            "DONE": "DONE",
+            "PENDING": "PENDING",
+            "CANCEL": "CANCEL",
+            "CLOSED": "CLOSED"
+        }
+    }
+}

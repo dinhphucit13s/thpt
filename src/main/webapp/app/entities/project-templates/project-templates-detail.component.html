@@ -1,0 +1,77 @@
+<div class="row" style="margin-top:20px;">
+    <div class="col-lg-12">
+        <div class="portlet light bordered" *ngIf="projectTemplates">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green bold uppercase">PROJECT TEMPLATES DETAIL</span>
+                </div>
+            </div>
+            <div class="portlet-body dataTables_wrapper">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 150px;" >Name</th>
+                            <th>Detail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.projectTemplates.name">Name</span>
+                            </td>
+                            <td>
+                                <span>{{projectTemplates.name}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.projectTemplates.image">Image</span>
+                            </td>
+                            <td>
+                                <div *ngIf="projectTemplates.image">
+                                    <a (click)="openFile(projectTemplates.imageContentType, projectTemplates.image)">
+                                        <img [src]="'data:' + projectTemplates.imageContentType + ';base64,' + projectTemplates.image" style="max-width: 100%;" alt="projectTemplates image"/>
+                                    </a>
+                                    {{projectTemplates.imageContentType}}, {{byteSize(projectTemplates.image)}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.businessLine.description">Description</span>
+                            </td>
+                            <td>
+                                <span>{{projectTemplates.description}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span jhiTranslate="dtmsApp.projectTemplates.businessLine">Business Line</span>
+                            </td>
+                            <td>
+                                <div *ngIf="projectTemplates.businessLineId">
+                                    <a [routerLink]="['/business-line', projectTemplates.businessLineId]">{{projectTemplates.businessLineName}}</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/', { outlets: { popup: 'project-templates/'+ projectTemplates.id + '/edit'} }]"
+                    replaceUrl="true"
+                    queryParamsHandling="merge"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

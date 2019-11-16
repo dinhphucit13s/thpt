@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "customer" : {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Customer を追加",
+                "createOrEditLabel": "Customerを追加または編集",
+                "search": "Search for Customer"
+            },
+            "created": "A new Customer is created with identifier {{ param }}",
+            "updated": "A Customer is updated with identifier {{ param }}",
+            "deleted": "A Customer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Customer {{ name }}を削除してもよろしいですか？",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "code": "Code",
+            "name": "Name",
+            "status": "Status",
+            "description": "Description",
+            "type": "Type",
+            "error": {
+                "inUsed": "The Customer is used. The system cannot delete."
+            }
+        }
+    }
+}

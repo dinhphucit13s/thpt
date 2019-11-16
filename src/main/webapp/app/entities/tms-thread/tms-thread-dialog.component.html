@@ -1,0 +1,79 @@
+<form class="create-qa-form" (submit)="saveNewQA()">
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIssuesLabel">Create Q&A</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="mat-typography">
+        <div><label><b>Title</b></label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="questionAndAnswer.title" placeholder="Title Q&A"
+                   [ngStyle]="{'border-left': !questionAndAnswer.title || questionAndAnswer.title.length === 0 ? '5px solid red': '1px solid #c2cad8'}">
+        </div>
+        <div class="margin-top-10">
+            <label><b>Content</b></label>
+            <textarea name="content" [(ngModel)]="questionAndAnswer.posts[0].content" class="form-control" style="resize: vertical" rows="5" placeholder="Content Q&A"
+                      [ngStyle]="{'border-left': !questionAndAnswer.posts[0].content || questionAndAnswer.posts[0].content === 0 ? '5px solid red': '1px solid #c2cad8'}"></textarea>
+        </div>
+            <div class="margin-top-10" style="display: flex">
+                <div style="width: auto; float: left">
+                    <input type="file" multiple name="field_image" (change)="onFileChange($event, questionAndAnswer)"
+                           id="attach_feedback"/>
+                    <label class="fa fa-paperclip" for="attach_feedback"><span> Add Attachments</span></label>
+                </div>
+                <div *ngIf="questionAndAnswer.posts[0].attachments && questionAndAnswer.posts[0].attachments.length > 0" class="col-lg-12 col-md-12 col-sm-12 pr-0" style="float: left; flex-grow: 1;">
+                    <div style="border: 1px dashed #c4ccdf;padding: 5px 15px 5px 15px;display: grid">
+          <span *ngFor="let attachment of questionAndAnswer.posts[0].attachments" style="margin-right: 10px">
+            <span class="fa fa-file-o" style="margin-right: 3px"></span>
+            <a>{{attachment.filename}};</a>
+            <span class="fa fa-times text-danger" style="cursor: pointer" (click)="removeAttachment(attachment)"></span>
+          </span>
+                    </div>
+                </div>
+            </div>
+        <div>
+            <label class="margin-top-10"><b>Status</b></label>
+        </div>
+        <div style="padding-left: 2px">
+            <label class="mt-radio">
+                <input id="rd_status_public" type="radio" ng-reflect-model="true" class="ng-untouched ng-pristine"
+                       name="status" value="PUBLIC" [(ngModel)]='questionAndAnswer.status' [checked]="true"><span></span>
+            </label>
+            <label for="rd_status_public">Public</label>
+            &nbsp;&nbsp;
+            <label class="mt-radio">
+                <input id="rd_status_private" type="radio" ng-reflect-model="true" class="ng-untouched ng-pristine"
+                       value="PRIVATE" name="status" [(ngModel)]='questionAndAnswer.status'><span></span>
+            </label>
+            <label for="rd_status_private">Private</label>
+        </div>
+        <div class="margin-top-10">
+            <label><b>Assignee</b></label>
+            <div [ngStyle]="{'border-left': !questionAndAnswer.assigneeId || questionAndAnswer.assigneeId === 0 ? '5px solid red': '1px solid #c2cad8'}">
+                <ng-multiselect-dropdown
+                    style="display: -webkit-box;"
+                    id="field_manager"
+                    name="manager"
+                    [placeholder]="'Assignee'"
+                    [data]="users"
+                    [settings]="dropdownSettings"
+                    (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="onDeSelect($event)"
+                >
+                </ng-multiselect-dropdown>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button mat-button type="submit" [disabled]="detech()">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+        <button mat-button type="button" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+    </div>
+</form>
+

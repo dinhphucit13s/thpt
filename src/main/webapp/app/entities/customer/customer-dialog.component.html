@@ -1,0 +1,88 @@
+<form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title text-center text-uppercase" id="myCustomerLabel" jhiTranslate="dtmsApp.customer.home.createOrEditLabel">Create or edit a Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.customer.code" for="field_code">Code</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="code" id="field_code"
+                    [(ngModel)]="customer.code" required minlength="2" maxlength="20"/>
+                <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                       This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.code?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                       This field is required to be at least 2 characters.
+                    </small>
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.code?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                       This field cannot be longer than 20 characters.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.customer.name" for="field_name">Name</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="name" id="field_name"
+                    [(ngModel)]="customer.name" required minlength="2" maxlength="100"/>
+                <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                       This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                       This field is required to be at least 2 characters.
+                    </small>
+                    <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                       This field cannot be longer than 100 characters.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.customer.type" for="field_type">Type</label>
+            <div class="col-md-9">
+                <select class="form-control" name="type" [(ngModel)]="customer.type" id="field_type" >
+                    <option value="KEY">{{'dtmsApp.CustomerType.KEY' | translate}}</option>
+                    <option value="NORMAL">{{'dtmsApp.CustomerType.NORMAL' | translate}}</option>
+                    <option value="POC">{{'dtmsApp.CustomerType.POC' | translate}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.customer.status" for="field_status">Status</label>
+            <div class="col-md-9">
+                <label class="mt-checkbox">
+                    <input id="field_status" name="status" type="checkbox" ng-reflect-model="true" class="ng-untouched ng-pristine"
+                           [checked]="customer.status"
+                           [(ngModel)]="customer.status"><span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.customer.description" for="field_description">Description</label>
+            <div class="col-md-9">
+                    <textarea class="form-control" name="description" id="field_description"
+                              [(ngModel)]="customer.description"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

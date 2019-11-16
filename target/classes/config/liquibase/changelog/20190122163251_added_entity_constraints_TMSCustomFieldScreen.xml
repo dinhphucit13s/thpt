@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity TMSCustomFieldScreen.
+    -->
+    <changeSet id="20190122163251-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tms_custom_field_id"
+                                 baseTableName="tms_custom_field_screen"
+                                 constraintName="fk_tmscustom_field_screen_tms_custom_field_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tms_custom_field"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_workflows_id"
+                                 baseTableName="tms_custom_field_screen"
+                                 constraintName="fk_tmscustom_field_screen_project_workflows_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project_workflows"/>
+
+    </changeSet>
+</databaseChangeLog>

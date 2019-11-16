@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "tMSLogHistory" : {
+            "home": {
+                "title": "TMS Log Histories",
+                "createLabel": "Thêm mới một TMS Log History",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật TMS Log History",
+                "search": "Tìm TMS Log History"
+            },
+            "created": "Một TMS Log History mới được tạo với định danh {{ param }}",
+            "updated": "Một TMS Log History cập nhật với định danh {{ param }}",
+            "deleted": "Một TMS Log History đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa TMS Log History {{ id }}?"
+            },
+            "detail": {
+                "title": "TMS Log History"
+            },
+            "action": "Action",
+            "oldValue": "Old Value",
+            "newValue": "New Value",
+            "projects": "Projects",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks"
+        }
+    }
+}

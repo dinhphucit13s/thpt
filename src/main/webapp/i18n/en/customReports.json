@@ -1,0 +1,24 @@
+
+{
+    "dtmsApp": {
+        "customReports" : {
+            "home": {
+                "title": "Comments",
+                "createLabel": "Create a new Custom Report",
+                "createOrEditLabel": "Create or edit a Custom Report",
+                "search": "Search for Custom Report"
+            },
+            "created": "Custom Reports is change",
+            "updated": "Custom Reports is change",
+            "deleted": "A Comments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Comments?"
+            },
+            "detail": {
+                "title": "Comments"
+            },
+            "content": "Content",
+            "post": "Post"
+        }
+    }
+}

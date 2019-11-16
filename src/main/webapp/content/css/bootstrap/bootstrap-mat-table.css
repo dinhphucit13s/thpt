@@ -1,0 +1,20 @@
+/*css for material*/
+.matview-container {
+    height: auto;
+    width: 100%;
+    overflow: auto;
+}
+
+.view-table {
+    width: 100%;
+}
+
+.mat-table-sticky:first-child {
+    border-right: 1px solid #e0e0e0;
+}
+
+.view-table, th, td {
+    padding: 10px;
+    vertical-align: bottom;
+    width: auto;
+}

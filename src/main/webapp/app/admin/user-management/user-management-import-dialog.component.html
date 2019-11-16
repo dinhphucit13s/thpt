@@ -1,0 +1,22 @@
+<form name="importForm" (ngSubmit)="import()" #importForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="userManagement.home.importTitle">Import New User</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+            <!--<label class="form-control-label" jhiTranslate="akaRpaApp.packages.title">Package</label>-->
+            <input type="file" required class="form-control" name="package" id="package" (change)="onFileChange($event)" accept=".xlsx" />
+        <!--<progress-bar [progress]="100" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">-->
+        <!--</progress-bar>-->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="importForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

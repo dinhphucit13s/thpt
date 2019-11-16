@@ -1,0 +1,69 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "task",
+            "otherEntityName": "tasks",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "userLogin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "role",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "startStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duration",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "biddingScope",
+            "fieldType": "BiddingScope",
+            "fieldValues": "NA, BU, PUBLIC"
+        }
+    ],
+    "changelogDate": "20190801095908",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "task_bidding_tracking_time",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll",
+    "enableEntityAudit": true
+}

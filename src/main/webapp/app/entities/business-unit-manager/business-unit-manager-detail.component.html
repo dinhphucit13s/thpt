@@ -1,0 +1,44 @@
+
+<div *ngIf="businessUnitManager">
+    <h2><span jhiTranslate="dtmsApp.businessUnitManager.detail.title">Business Unit Manager</span> {{businessUnitManager.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.businessUnitManager.manager">Manager</span></dt>
+        <dd>
+            {{businessUnitManager.managerLogin}}
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.businessUnitManager.businessUnit">Business Unit</span></dt>
+        <dd>
+            <div *ngIf="businessUnitManager.businessUnitId">
+                <a [routerLink]="['/business-unit', businessUnitManager.businessUnitId]">{{businessUnitManager.businessUnitName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.businessUnitManager.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{businessUnitManager.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.businessUnitManager.endTime">End Time</span></dt>
+        <dd>
+            <span>{{businessUnitManager.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.businessUnitManager.description">Description</span></dt>
+        <dd>
+            <span>{{businessUnitManager.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'business-unit-manager/'+ businessUnitManager.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

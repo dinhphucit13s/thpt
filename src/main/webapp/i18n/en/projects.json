@@ -1,0 +1,42 @@
+
+{
+    "dtmsApp": {
+        "projects" : {
+            "home": {
+                "title": "Projects",
+                "createLabel": "Create a new Projects",
+                "createOrEditLabel": "Create or edit a Projects",
+                "search": "Search for Projects"
+            },
+            "created": "A new Projects is created with identifier {{ param }}",
+            "updated": "A Projects is updated with identifier {{ param }}",
+            "deleted": "A Projects is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Projects name {{ name }}?"
+            },
+            "detail": {
+                "title": "Projects"
+            },
+            "code": "Code",
+            "name": "Name",
+            "type": "Type",
+            "status": "Status",
+            "biddingHoldTime": "Bidding Hold Time",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "projectTemplates": "Project Templates",
+            "projectLead": "Project Lead",
+            "watcherUser": "Watcher User",
+            "delegateUser": "Delegate User",
+            "purchaseOrders": "Purchase Orders",
+            "projectUsers": "Project Users",
+            "customer": "Customer",
+            "projectBugListDefault": "Project Bug List Default",
+            "businessUnit": "Business Unit",
+            "error": {
+                "inUsed": "The Project is used. The system cannot delete."
+            }
+        }
+    }
+}

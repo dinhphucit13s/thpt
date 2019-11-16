@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "TaskPriority" : {
+            "null": "",
+            "NORMAL": "NORMAL",
+            "MEDIUM": "MEDIUM",
+            "HIGH": "HIGH"
+        }
+    }
+}

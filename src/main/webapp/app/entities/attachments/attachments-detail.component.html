@@ -1,0 +1,70 @@
+
+<div *ngIf="attachments">
+    <h2><span jhiTranslate="dtmsApp.attachments.detail.title">Attachments</span> {{attachments.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.attachments.filename">Filename</span></dt>
+        <dd>
+            <span>{{attachments.filename}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.diskFile">Disk File</span></dt>
+        <dd>
+            <span>{{attachments.diskFile}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.fileType">File Type</span></dt>
+        <dd>
+            <span>{{attachments.fileType}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.bugs">Bugs</span></dt>
+        <dd>
+            <div *ngIf="attachments.bugsId">
+                <a [routerLink]="['/bugs', attachments.bugsId]">{{attachments.bugsDescription}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.notes">Notes</span></dt>
+        <dd>
+            <div *ngIf="attachments.notesId">
+                <a [routerLink]="['/notes', attachments.notesId]">{{attachments.notesDescription}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.issues">Issues</span></dt>
+        <dd>
+            <div *ngIf="attachments.issuesId">
+                <a [routerLink]="['/issues', attachments.issuesId]">{{attachments.issuesName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.mail">Mail</span></dt>
+        <dd>
+            <div *ngIf="attachments.mailId">
+                <a [routerLink]="['/mail', attachments.mailId]">{{attachments.mailId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.comment">Comment</span></dt>
+        <dd>
+            <div *ngIf="attachments.commentId">
+                <a [routerLink]="['/comments', attachments.commentId]">{{attachments.commentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.attachments.post">Post</span></dt>
+        <dd>
+            <div *ngIf="attachments.postId">
+                <a [routerLink]="['/tms-post', attachments.postId]">{{attachments.postId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'attachments/'+ attachments.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

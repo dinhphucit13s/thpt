@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "loginTracking" : {
+            "home": {
+                "title": "Login Trackings",
+                "createLabel": "Thêm mới một Login Tracking",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Login Tracking",
+                "search": "Tìm Login Tracking"
+            },
+            "created": "Một Login Tracking mới được tạo với định danh {{ param }}",
+            "updated": "Một Login Tracking cập nhật với định danh {{ param }}",
+            "deleted": "Một Login Tracking đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Login Tracking {{ id }}?"
+            },
+            "detail": {
+                "title": "Login Tracking"
+            },
+            "login": "Login",
+            "startTime": "Start Time",
+            "endTime": "End Time"
+        }
+    }
+}

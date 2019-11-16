@@ -1,0 +1,34 @@
+
+<div *ngIf="notificationTemplate">
+    <h2><span jhiTranslate="dtmsApp.notificationTemplate.detail.title">Notification Template</span> {{notificationTemplate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.notificationTemplate.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dtmsApp.NotificationCategory.' + notificationTemplate.type}}">{{notificationTemplate.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.notificationTemplate.template">Template</span></dt>
+        <dd>
+            <span>{{notificationTemplate.template}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.notificationTemplate.description">Description</span></dt>
+        <dd>
+            <span>{{notificationTemplate.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'notification-template/'+ notificationTemplate.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

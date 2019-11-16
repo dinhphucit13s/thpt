@@ -1,0 +1,54 @@
+
+<div *ngIf="purchaseOrders">
+    <h2><span jhiTranslate="dtmsApp.purchaseOrders.detail.title">Purchase Orders</span> {{purchaseOrders.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.name">Name</span></dt>
+        <dd>
+            <span>{{purchaseOrders.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.status">Status</span></dt>
+        <dd>
+            <span jhiTranslate="{{'dtmsApp.PurchaseOrderStatus.' + purchaseOrders.status}}">{{purchaseOrders.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{purchaseOrders.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.endTime">End Time</span></dt>
+        <dd>
+            <span>{{purchaseOrders.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.description">Description</span></dt>
+        <dd>
+            <span>{{purchaseOrders.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.project">Project</span></dt>
+        <dd>
+            <div *ngIf="purchaseOrders.projectId">
+                <a [routerLink]="['/projects', purchaseOrders.projectId]">{{purchaseOrders.projectName}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.purchaseOrders.purchaseOrderLead">Purchase Order Lead</span></dt>
+        <dd>
+            <div *ngIf="purchaseOrders.purchaseOrderLeadId">
+                <a [routerLink]="['/project-users', purchaseOrders.purchaseOrderLeadId]">{{purchaseOrders.purchaseOrderLeadUserLogin}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'purchase-orders/'+ purchaseOrders.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

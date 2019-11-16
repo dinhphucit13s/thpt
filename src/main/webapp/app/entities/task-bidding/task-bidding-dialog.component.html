@@ -1,0 +1,61 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTaskBiddingLabel" jhiTranslate="dtmsApp.taskBidding.home.createOrEditLabel">Assign a Task </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!taskBidding.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="taskBidding.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.taskBidding.biddingScope" for="field_biddingScope">Bidding Scope</label>
+            <select class="form-control" name="biddingScope" [(ngModel)]="taskBidding.biddingScope" id="field_biddingScope"  required>
+                <option value="PROJECT">{{'dtmsApp.BiddingScope.PROJECT' | translate}}</option>
+                <option value="BU">{{'dtmsApp.BiddingScope.BU' | translate}}</option>
+                <option value="PUBLIC">{{'dtmsApp.BiddingScope.PUBLIC' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.biddingScope?.dirty && editForm.controls.biddingScope?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.biddingScope?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.taskBidding.biddingStatus" for="field_biddingStatus">Bidding Status</label>
+            <select class="form-control" name="biddingStatus" [(ngModel)]="taskBidding.biddingStatus" id="field_biddingStatus"  required>
+                <option value="NA">{{'dtmsApp.BiddingStatus.NA' | translate}}</option>
+                <option value="HOLDING">{{'dtmsApp.BiddingStatus.HOLDING' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.BiddingStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.BiddingStatus.DONE' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.biddingStatus?.dirty && editForm.controls.biddingStatus?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.biddingStatus?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.taskBidding.task" for="field_task">Task</label>
+            <select class="form-control" id="field_task" name="task" [(ngModel)]="taskBidding.task.id" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tasksOption.id" *ngFor="let tasksOption of tasks; trackBy: trackTasksById">{{tasksOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

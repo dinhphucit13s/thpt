@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity PurchaseOrders.
+    -->
+    <changeSet id="20190122163247-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="project_templates_id"
+                                 baseTableName="purchase_orders"
+                                 constraintName="fk_purchase_orders_project_templates_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project_templates"/>
+        
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="purchase_orders"
+                                 constraintName="fk_purchase_orders_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projects"/>
+
+        <addForeignKeyConstraint baseColumnNames="purchase_order_lead_id"
+                                 baseTableName="purchase_orders"
+                                 constraintName="fk_purchase_orders_purchase_order_lead_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project_users"/>
+
+    </changeSet>
+</databaseChangeLog>

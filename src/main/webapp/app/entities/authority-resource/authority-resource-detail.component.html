@@ -1,0 +1,34 @@
+
+<div *ngIf="authorityResource">
+    <h2><span jhiTranslate="dtmsApp.authorityResource.detail.title">Authority Resource</span> {{authorityResource.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dtmsApp.authorityResource.name">Name</span></dt>
+        <dd>
+            <span>{{authorityResource.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.authorityResource.permission">Permission</span></dt>
+        <dd>
+            <span>{{authorityResource.permission}}</span>
+        </dd>
+        <dt><span jhiTranslate="dtmsApp.authorityResource.authorityName">Authority Name</span></dt>
+        <dd>
+            <span>{{authorityResource.authorityName}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'authority-resource/'+ authorityResource.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "CustomerType" : {
+            "null": "",
+            "KEY": "KEY",
+            "NORMAL": "NORMAL",
+            "POC": "POC"
+        }
+    }
+}

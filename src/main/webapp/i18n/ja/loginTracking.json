@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "loginTracking" : {
+            "home": {
+                "title": "LoginTrackings",
+                "createLabel": "Login Tracking を追加",
+                "createOrEditLabel": "Login Trackingを追加または編集",
+                "search": "Search for Login Tracking"
+            },
+            "created": "A new Login Tracking is created with identifier {{ param }}",
+            "updated": "A Login Tracking is updated with identifier {{ param }}",
+            "deleted": "A Login Tracking is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Login Tracking {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Login Tracking"
+            },
+            "login": "Login",
+            "startTime": "Start Time",
+            "endTime": "End Time"
+        }
+    }
+}

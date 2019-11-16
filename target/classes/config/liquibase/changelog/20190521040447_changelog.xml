@@ -1,0 +1,181 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="TuHP (generated)" id="1558411500459-1">
+        <dropForeignKeyConstraint baseTableName="act_ru_identitylink" constraintName="ACT_FK_ATHRZ_PROCEDEF"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-2">
+        <dropForeignKeyConstraint baseTableName="act_ge_bytearray" constraintName="ACT_FK_BYTEARR_DEPL"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-3">
+        <dropForeignKeyConstraint baseTableName="act_ru_event_subscr" constraintName="ACT_FK_EVENT_EXEC"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-4">
+        <dropForeignKeyConstraint baseTableName="act_ru_execution" constraintName="ACT_FK_EXE_PARENT"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-5">
+        <dropForeignKeyConstraint baseTableName="act_ru_execution" constraintName="ACT_FK_EXE_PROCDEF"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-6">
+        <dropForeignKeyConstraint baseTableName="act_ru_execution" constraintName="ACT_FK_EXE_PROCINST"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-7">
+        <dropForeignKeyConstraint baseTableName="act_ru_execution" constraintName="ACT_FK_EXE_SUPER"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-8">
+        <dropForeignKeyConstraint baseTableName="act_ru_identitylink" constraintName="ACT_FK_IDL_PROCINST"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-9">
+        <dropForeignKeyConstraint baseTableName="act_ru_job" constraintName="ACT_FK_JOB_EXCEPTION"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-10">
+        <dropForeignKeyConstraint baseTableName="act_id_membership" constraintName="ACT_FK_MEMB_GROUP"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-11">
+        <dropForeignKeyConstraint baseTableName="act_id_membership" constraintName="ACT_FK_MEMB_USER"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-12">
+        <dropForeignKeyConstraint baseTableName="act_re_model" constraintName="ACT_FK_MODEL_DEPLOYMENT"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-13">
+        <dropForeignKeyConstraint baseTableName="act_re_model" constraintName="ACT_FK_MODEL_SOURCE"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-14">
+        <dropForeignKeyConstraint baseTableName="act_re_model" constraintName="ACT_FK_MODEL_SOURCE_EXTRA"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-15">
+        <dropForeignKeyConstraint baseTableName="act_ru_task" constraintName="ACT_FK_TASK_EXE"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-16">
+        <dropForeignKeyConstraint baseTableName="act_ru_task" constraintName="ACT_FK_TASK_PROCDEF"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-17">
+        <dropForeignKeyConstraint baseTableName="act_ru_task" constraintName="ACT_FK_TASK_PROCINST"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-18">
+        <dropForeignKeyConstraint baseTableName="act_ru_identitylink" constraintName="ACT_FK_TSKASS_TASK"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-19">
+        <dropForeignKeyConstraint baseTableName="act_ru_variable" constraintName="ACT_FK_VAR_BYTEARRAY"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-20">
+        <dropForeignKeyConstraint baseTableName="act_ru_variable" constraintName="ACT_FK_VAR_EXE"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-21">
+        <dropForeignKeyConstraint baseTableName="act_ru_variable" constraintName="ACT_FK_VAR_PROCINST"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-22">
+        <dropUniqueConstraint constraintName="ACT_UNIQ_PROCDEF" tableName="act_re_procdef"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-23">
+        <dropUniqueConstraint constraintName="PROC_INST_ID_" tableName="act_hi_procinst"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-24">
+        <dropTable tableName="act_evt_log"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-25">
+        <dropTable tableName="act_ge_bytearray"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-26">
+        <dropTable tableName="act_ge_property"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-27">
+        <dropTable tableName="act_hi_actinst"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-28">
+        <dropTable tableName="act_hi_attachment"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-29">
+        <dropTable tableName="act_hi_comment"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-30">
+        <dropTable tableName="act_hi_detail"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-31">
+        <dropTable tableName="act_hi_identitylink"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-32">
+        <dropTable tableName="act_hi_procinst"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-33">
+        <dropTable tableName="act_hi_taskinst"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-34">
+        <dropTable tableName="act_hi_varinst"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-35">
+        <dropTable tableName="act_id_group"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-36">
+        <dropTable tableName="act_id_info"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-37">
+        <dropTable tableName="act_id_membership"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-38">
+        <dropTable tableName="act_id_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-39">
+        <dropTable tableName="act_re_deployment"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-40">
+        <dropTable tableName="act_re_model"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-41">
+        <dropTable tableName="act_re_procdef"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-42">
+        <dropTable tableName="act_ru_event_subscr"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-43">
+        <dropTable tableName="act_ru_execution"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-44">
+        <dropTable tableName="act_ru_identitylink"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-45">
+        <dropTable tableName="act_ru_job"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-46">
+        <dropTable tableName="act_ru_task"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-47">
+        <dropTable tableName="act_ru_variable"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-48">
+        <dropColumn columnName="parent_id" tableName="notes"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-49">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="availability" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-50">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="fi_status" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-51">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="fix_status" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-52">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="op_status" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-53">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="priority" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-54">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="review_1_status" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-55">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="review_2_status" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-56">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="severity" tableName="tasks"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-57">
+        <dropDefaultValue columnDataType="boolean" columnName="status" tableName="customer"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-58">
+        <addNotNullConstraint columnDataType="boolean" columnName="status" tableName="jhi_user"/>
+        <dropDefaultValue columnDataType="boolean" columnName="status" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1558411500459-59">
+        <dropDefaultValue columnDataType="varchar(255)" columnName="status" tableName="tasks"/>
+    </changeSet>
+</databaseChangeLog>

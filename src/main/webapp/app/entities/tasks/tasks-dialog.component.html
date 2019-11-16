@@ -1,0 +1,362 @@
+<!--<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTasksLabel" jhiTranslate="dtmsApp.tasks.home.createOrEditLabel">Create or edit a Tasks</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!tasks.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="tasks.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="tasks.name" required maxlength="255"/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                   This field cannot be longer than 255 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.severity" for="field_severity">Severity</label>
+            <select class="form-control" name="severity" [(ngModel)]="tasks.severity" id="field_severity" >
+                <option value="NORMAL">{{'dtmsApp.TaskSeverity.NORMAL' | translate}}</option>
+                <option value="MEDIUM">{{'dtmsApp.TaskSeverity.MEDIUM' | translate}}</option>
+                <option value="HIGH">{{'dtmsApp.TaskSeverity.HIGH' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.priority" for="field_priority">Priority</label>
+            <select class="form-control" name="priority" [(ngModel)]="tasks.priority" id="field_priority" >
+                <option value="NORMAL">{{'dtmsApp.TaskPriority.NORMAL' | translate}}</option>
+                <option value="MEDIUM">{{'dtmsApp.TaskPriority.MEDIUM' | translate}}</option>
+                <option value="HIGH">{{'dtmsApp.TaskPriority.HIGH' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.data" for="field_data">Data</label>
+            <input type="text" class="form-control" name="data" id="field_data"
+                [(ngModel)]="tasks.data" maxlength="255"/>
+            <div [hidden]="!(editForm.controls.data?.dirty && editForm.controls.data?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.data?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                   This field cannot be longer than 255 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fileName" for="field_fileName">File Name</label>
+            <input type="text" class="form-control" name="fileName" id="field_fileName"
+                [(ngModel)]="tasks.fileName" maxlength="500"/>
+            <div [hidden]="!(editForm.controls.fileName?.dirty && editForm.controls.fileName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fileName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 500 }">
+                   This field cannot be longer than 500 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="tasks.type" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.availability" for="field_availability">Availability</label>
+            <select class="form-control" name="availability" [(ngModel)]="tasks.availability" id="field_availability" >
+                <option value="NA">{{'dtmsApp.TaskAvailability.NA' | translate}}</option>
+                <option value="OK">{{'dtmsApp.TaskAvailability.OK' | translate}}</option>
+                <option value="NO_OBJECT">{{'dtmsApp.TaskAvailability.NO_OBJECT' | translate}}</option>
+                <option value="NO_SCOPE">{{'dtmsApp.TaskAvailability.NO_SCOPE' | translate}}</option>
+                <option value="REWORK">{{'dtmsApp.TaskAvailability.REWORK' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.frame" for="field_frame">Frame</label>
+            <input type="number" class="form-control" name="frame" id="field_frame"
+                [(ngModel)]="tasks.frame" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.actualObject" for="field_actualObject">Actual Object</label>
+            <input type="number" class="form-control" name="actualObject" id="field_actualObject"
+                [(ngModel)]="tasks.actualObject" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.opStatus" for="field_opStatus">Op Status</label>
+            <select class="form-control" name="opStatus" [(ngModel)]="tasks.opStatus" id="field_opStatus" >
+                <option value="NA">{{'dtmsApp.OPStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.OPStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.OPStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.OPStatus.DONE' | translate}}</option>
+                <option value="CANCEL">{{'dtmsApp.OPStatus.CANCEL' | translate}}</option>
+                <option value="REWORK">{{'dtmsApp.OPStatus.REWORK' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.estimateStartTime" for="field_estimateStartTime">Estimate Start Time</label>
+            <div class="d-flex">
+                <input id="field_estimateStartTime" type="datetime-local" class="form-control" name="estimateStartTime" [(ngModel)]="tasks.estimateStartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.estimateEndTime" for="field_estimateEndTime">Estimate End Time</label>
+            <div class="d-flex">
+                <input id="field_estimateEndTime" type="datetime-local" class="form-control" name="estimateEndTime" [(ngModel)]="tasks.estimateEndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.opStartTime" for="field_opStartTime">Op Start Time</label>
+            <div class="d-flex">
+                <input id="field_opStartTime" type="datetime-local" class="form-control" name="opStartTime" [(ngModel)]="tasks.opStartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.opEndTime" for="field_opEndTime">Op End Time</label>
+            <div class="d-flex">
+                <input id="field_opEndTime" type="datetime-local" class="form-control" name="opEndTime" [(ngModel)]="tasks.opEndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review1Status" for="field_review1Status">Review 1 Status</label>
+            <select class="form-control" name="review1Status" [(ngModel)]="tasks.review1Status" id="field_review1Status" >
+                <option value="NA">{{'dtmsApp.ReviewStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.ReviewStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.ReviewStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.ReviewStatus.DONE' | translate}}</option>
+                <option value="NOT_GOOD">{{'dtmsApp.ReviewStatus.NOT_GOOD' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review1StartTime" for="field_review1StartTime">Review 1 Start Time</label>
+            <div class="d-flex">
+                <input id="field_review1StartTime" type="datetime-local" class="form-control" name="review1StartTime" [(ngModel)]="tasks.review1StartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review1EndTime" for="field_review1EndTime">Review 1 End Time</label>
+            <div class="d-flex">
+                <input id="field_review1EndTime" type="datetime-local" class="form-control" name="review1EndTime" [(ngModel)]="tasks.review1EndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fixStatus" for="field_fixStatus">Fix Status</label>
+            <select class="form-control" name="fixStatus" [(ngModel)]="tasks.fixStatus" id="field_fixStatus" >
+                <option value="NA">{{'dtmsApp.FixStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.FixStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.FixStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.FixStatus.DONE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fixStartTime" for="field_fixStartTime">Fix Start Time</label>
+            <div class="d-flex">
+                <input id="field_fixStartTime" type="datetime-local" class="form-control" name="fixStartTime" [(ngModel)]="tasks.fixStartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fixEndTime" for="field_fixEndTime">Fix End Time</label>
+            <div class="d-flex">
+                <input id="field_fixEndTime" type="datetime-local" class="form-control" name="fixEndTime" [(ngModel)]="tasks.fixEndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review2Status" for="field_review2Status">Review 2 Status</label>
+            <select class="form-control" name="review2Status" [(ngModel)]="tasks.review2Status" id="field_review2Status" >
+                <option value="NA">{{'dtmsApp.ReviewStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.ReviewStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.ReviewStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.ReviewStatus.DONE' | translate}}</option>
+                <option value="NOT_GOOD">{{'dtmsApp.ReviewStatus.NOT_GOOD' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review2StartTime" for="field_review2StartTime">Review 2 Start Time</label>
+            <div class="d-flex">
+                <input id="field_review2StartTime" type="datetime-local" class="form-control" name="review2StartTime" [(ngModel)]="tasks.review2StartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review2EndTime" for="field_review2EndTime">Review 2 End Time</label>
+            <div class="d-flex">
+                <input id="field_review2EndTime" type="datetime-local" class="form-control" name="review2EndTime" [(ngModel)]="tasks.review2EndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fiStatus" for="field_fiStatus">Fi Status</label>
+            <select class="form-control" name="fiStatus" [(ngModel)]="tasks.fiStatus" id="field_fiStatus" >
+                <option value="NA">{{'dtmsApp.FIStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.FIStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.FIStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.FIStatus.DONE' | translate}}</option>
+                <option value="NOT_GOOD">{{'dtmsApp.FIStatus.NOT_GOOD' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fiStartTime" for="field_fiStartTime">Fi Start Time</label>
+            <div class="d-flex">
+                <input id="field_fiStartTime" type="datetime-local" class="form-control" name="fiStartTime" [(ngModel)]="tasks.fiStartTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fiEndTime" for="field_fiEndTime">Fi End Time</label>
+            <div class="d-flex">
+                <input id="field_fiEndTime" type="datetime-local" class="form-control" name="fiEndTime" [(ngModel)]="tasks.fiEndTime"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.duration" for="field_duration">Duration</label>
+            <input type="number" class="form-control" name="duration" id="field_duration"
+                [(ngModel)]="tasks.duration" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.target" for="field_target">Target</label>
+            <input type="number" class="form-control" name="target" id="field_target"
+                [(ngModel)]="tasks.target" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.errorQuantity" for="field_errorQuantity">Error Quantity</label>
+            <input type="number" class="form-control" name="errorQuantity" id="field_errorQuantity"
+                [(ngModel)]="tasks.errorQuantity" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.errorSeverity" for="field_errorSeverity">Error Severity</label>
+            <select class="form-control" name="errorSeverity" [(ngModel)]="tasks.errorSeverity" id="field_errorSeverity" >
+                <option value="NA">{{'dtmsApp.ErrorSeverity.NA' | translate}}</option>
+                <option value="TRIVIAL">{{'dtmsApp.ErrorSeverity.TRIVIAL' | translate}}</option>
+                <option value="MINOR">{{'dtmsApp.ErrorSeverity.MINOR' | translate}}</option>
+                <option value="MAJOR">{{'dtmsApp.ErrorSeverity.MAJOR' | translate}}</option>
+                <option value="CRITICAL">{{'dtmsApp.ErrorSeverity.CRITICAL' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.status" for="field_status">Status</label>
+            <select class="form-control" name="status" [(ngModel)]="tasks.status" id="field_status" >
+                <option value="NA">{{'dtmsApp.TaskStatus.NA' | translate}}</option>
+                <option value="OPEN">{{'dtmsApp.TaskStatus.OPEN' | translate}}</option>
+                <option value="DOING">{{'dtmsApp.TaskStatus.DOING' | translate}}</option>
+                <option value="DONE">{{'dtmsApp.TaskStatus.DONE' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.description" for="field_description">Description</label>
+            <textarea class="form-control" name="description" id="field_description"
+                [(ngModel)]="tasks.description" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.parent" for="field_parent">Parent</label>
+            <input type="number" class="form-control" name="parent" id="field_parent"
+                [(ngModel)]="tasks.parent" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.op" for="field_op">Op</label>
+            <input type="text" class="form-control" name="op" id="field_op"
+                [(ngModel)]="tasks.op" maxlength="50" />
+            <div [hidden]="!(editForm.controls.op?.dirty && editForm.controls.op?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.op?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                    This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review1" for="field_review1">Review 1</label>
+            <input type="text" class="form-control" name="review1" id="field_review1"
+                [(ngModel)]="tasks.review1" maxlength="50"/>
+            <div [hidden]="!(editForm.controls.review1?.dirty && editForm.controls.review1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.review1?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.review2" for="field_review2">Review 2</label>
+            <input type="text" class="form-control" name="review2" id="field_review2"
+                [(ngModel)]="tasks.review2" maxlength="50"/>
+            <div [hidden]="!(editForm.controls.review2?.dirty && editForm.controls.review2?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.review2?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fixer" for="field_fixer">Fixer</label>
+            <input type="text" class="form-control" name="fixer" id="field_fixer"
+                [(ngModel)]="tasks.fixer" maxlength="50"/>
+            <div [hidden]="!(editForm.controls.fixer?.dirty && editForm.controls.fixer?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fixer?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.fi" for="field_fi">Fi</label>
+            <input type="text" class="form-control" name="fi" id="field_fi"
+                [(ngModel)]="tasks.fi" maxlength="50"/>
+            <div [hidden]="!(editForm.controls.fi?.dirty && editForm.controls.fi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fi?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+
+        &lt;!&ndash;<div class="form-group">
+            <label class="form-control-label" jhiTranslate="dtmsApp.tasks.packages" for="field_packages">Packages</label>
+            <select class="form-control" id="field_packages" name="packages" [(ngModel)]="tasks.packagesId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="packagesOption.id" *ngFor="let packagesOption of packages; trackBy: trackPackagesById">{{packagesOption.name}}</option>
+            </select>
+        </div>&ndash;&gt;
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>-->
+
+<div class="form">
+    <div style="text-align:center">
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" jhiTranslate="dtmsApp.tasks.home.createOrEditLabel">Create or edit a Tasks</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;</button>
+        </div>
+    </div>
+    <div #child></div>
+    <div class="modal-footer" *ngIf="form">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="form.form.invalid || isSaving || detechDuration()" class="btn btn-primary" (click)="save()">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</div>

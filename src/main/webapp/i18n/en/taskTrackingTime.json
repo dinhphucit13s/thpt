@@ -1,0 +1,33 @@
+
+{
+    "dtmsApp": {
+        "taskTrackingTime" : {
+            "home": {
+                "title": "Task Tracking Times",
+                "createLabel": "Create a new Task Tracking Time",
+                "createOrEditLabel": "Create or edit a Task Tracking Time",
+                "search": "Search for Task Tracking Time"
+            },
+            "created": "A new Task Tracking Time is created with identifier {{ param }}",
+            "updated": "A Task Tracking Time is updated with identifier {{ param }}",
+            "deleted": "A Task Tracking Time is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Task Tracking Time {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Tracking Time"
+            },
+            "taskId": "Task Id",
+            "userLogin": "User Login",
+            "role": "Role",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "startStatus": "Start Status",
+            "endStatus": "End Status",
+            "duration": "Duration",
+            "error": {
+                "inUsed": "The Task Tracking Time is used. The system cannot delete."
+            }
+        }
+    }
+}

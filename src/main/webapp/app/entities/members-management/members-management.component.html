@@ -1,0 +1,94 @@
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.membersManagement.home.title">MembersManagement</span>
+        <a *ngIf="this.permission > 1" class="btn btn-default btn-sm" [attr.href]="this.exportLink"><span
+            class="fa fa-cloud-download"></span>
+            <span jhiTranslate="dtmsApp.membersManagement.home.export">
+                Export Members Management
+            </span>
+        </a>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <!--<div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'dtmsApp.membersManagement.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear(selectedOptions)" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>-->
+    <br/>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="input-group select2-bootstrap-prepend">
+                    <label class="col-md-3 control-label" for="field_project">Project </label>
+                    <select style="width: 200px" class="input-sm select2-multiple" id="field_project" name="project"
+                            [(ngModel)]="projectId" (change)="loadPurchaseOrderByProject()">
+                        <option [value]=null selected>Select Project...</option>
+                        <option [ngValue]="pro.id" *ngFor="let pro of projects">
+                            {{pro.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" *ngIf="purchaseOrder">
+            <div class="form-group">
+                <div class="input-group select2-bootstrap-prepend">
+                    <label class="col-md-3 control-label" for="field_purchase">Purchase Order </label>
+                    <select style="width: 200px" class="input-sm select2-multiple" id="field_purchase" name="purchase"
+                            [(ngModel)]="purchaseOrderId" (change)="loadPackageByPO()"
+                            [disabled]="projectId === 'null' || projectId === undefined">
+                        <option [value]=null disabled>Select Purchase...</option>
+                        <option value="selectAllPO">Select All</option>
+                        <option [ngValue]="pu.id" *ngFor="let pu of purchaseOrder">
+                            {{pu.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" *ngIf="packages">
+            <div class="form-group">
+                <div class="input-group select2-bootstrap-prepend">
+                    <label class="col-md-3 control-label" for="package" style="width: 80px">Package </label>
+                    <select style="width: 200px" class="input-sm select2-multiple" id="span_large"
+                            name="package" id="package"
+                            [(ngModel)]="packageId"
+                            [disabled]="purchaseOrderId===null || purchaseOrderId==='selectAllPO'">
+                        <option [value]=null selected="selected" disabled>Select Package...</option>
+                        <option value="selectAllPackages">Select All</option>
+                        <option [ngValue]="pack.id" *ngFor="let pack of packages">
+                            {{pack.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="input-group-append btn btn-info" (click)="loadListMember()"
+                    [disabled]="(projectId === 'null' || projectId === undefined)">
+                <span class="fa fa-search"></span>
+            </button>
+        </div>
+    </div>
+</div>
+<!--<mat-form-field>
+    <mat-select (selectionChange)="showMemberByUserId($event.value)" [(ngModel)]="selectedOptions">
+        <mat-option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</mat-option>
+    </mat-select>
+</mat-form-field>-->
+<jhi-data-collection [_columnDef]="columnDefsArg" [_rowData]="rowData" [toolPanel]="true"
+                     [_frameworkComponents]="frameworkComponents" [page]="page" [queryCount]="queryCount"
+                     [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+</jhi-data-collection>

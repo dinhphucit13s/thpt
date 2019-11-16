@@ -1,0 +1,12 @@
+{
+    "dtmsApp": {
+        "TaskAvailability" : {
+            "null": "",
+            "NA": "NA",
+            "OK": "OK",
+            "NO_OBJECT": "NO_OBJECT",
+            "NO_SCOPE": "NO_SCOPE",
+            "REWORK": "REWORK"
+        }
+    }
+}

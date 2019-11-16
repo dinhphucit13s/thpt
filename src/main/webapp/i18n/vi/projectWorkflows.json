@@ -1,0 +1,42 @@
+
+{
+    "dtmsApp": {
+        "projectWorkflows" : {
+            "home": {
+                "title": "biểu mẫu",
+                "createLabel": "Thêm biểu mẫu",
+                "createOrEditLabel": "Quản lý biểu mẫu",
+                "search": "Tìm biểu mẫu",
+                "export": "Xuất Excel"
+            },
+            "created": "Một biểu mẫu mới được tạo với định danh {{ param }}",
+            "updated": "Một biểu mẫu cập nhật với định danh {{ param }}",
+            "deleted": "Một biểu mẫu đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa biểu mẫu {{ id }}?"
+            },
+            "detail": {
+                "title": "biểu mẫu"
+            },
+            "name": "Name",
+            "step": "Step",
+            "inputDTO": "Input DTO",
+            "opGridDTO": "Op Grid DTO",
+            "pmGridDTO": "Pm Grid DTO",
+            "nextURI": "Next URI",
+            "activity": "Qui trình thực hiện Task",
+            "description": "Description",
+            "projectTemplates": "Project Templates",
+            "editDialog": {
+                "title": "Tên trường",
+                "showOnOP": "Hiển thị trên màn hình OP",
+                "showOnPM": "Hiển thị trên màn hình PM",
+                "requiredField": "Trường bắt buộc",
+                "purchaseOrder": "Purchase Order",
+                "package": "Package",
+                "task": "Task",
+                "actions": "Actions"
+            }
+        }
+    }
+}

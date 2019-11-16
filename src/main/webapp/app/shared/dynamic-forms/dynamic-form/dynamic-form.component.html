@@ -1,0 +1,6 @@
+<div class="portlet-body form">
+    <form class="form-horizontal" [formGroup]="form">
+        <div *ngFor="let field of fields;" jhiDynamicField [field]="field" [group]="form">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "ProjectStatus" : {
+            "null": "",
+            "OPEN": "OPEN",
+            "RUNNING": "RUNNING",
+            "CLOSED": "CLOSED"
+        }
+    }
+}

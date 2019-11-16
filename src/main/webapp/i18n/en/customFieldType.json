@@ -1,0 +1,18 @@
+{
+    "dtmsApp": {
+        "CustomFieldType" : {
+            "null": "",
+            "STRING": "STRING",
+            "NUMERIC": "NUMERIC",
+            "FLOAT": "FLOAT",
+            "ENUMERATION": "ENUMERATION",
+            "EMAIL": "EMAIL",
+            "CHECKBOX": "CHECKBOX",
+            "DATE": "DATE",
+            "RADIO": "RADIO",
+            "TEXTAREA": "TEXTAREA",
+            "LIST": "LIST",
+            "MULTI_SELECTION_LIST": "MULTI_SELECTION_LIST"
+        }
+    }
+}

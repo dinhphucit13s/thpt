@@ -1,0 +1,40 @@
+.feedback-form{
+    min-width: 700px;
+}
+
+[type="file"] + label {
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #6CC0CF;
+    border-radius: 4px !important;
+    color: #ffffff;
+    background-color: #6CC0CF;
+    margin-bottom: 0;
+}
+
+[type="file"] + label span {
+    font: 400 14px/20px Roboto,"Helvetica Neue",sans-serif !important;
+}
+
+[type="file"] + label:hover {
+    border: 1px solid #337AB7;
+    background-color: #337AB7;
+}
+
+[type="file"]:disabled + label {
+    opacity: 0.4;
+}
+
+[type="file"]:enabled + label {
+    cursor: pointer;
+}
+
+[type="file"]:enabled + label:active {
+    text-shadow: 2px 2px 5px #a0a0a0;
+}
+[type="file"] {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}

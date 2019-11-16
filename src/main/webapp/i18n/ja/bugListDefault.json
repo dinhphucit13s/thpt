@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "bugListDefault" : {
+            "home": {
+                "title": "BugListDefaults",
+                "createLabel": "Bug List Default を追加",
+                "createOrEditLabel": "Bug List Defaultを追加または編集",
+                "search": "Search for Bug List Default"
+            },
+            "created": "A new Bug List Default is created with identifier {{ param }}",
+            "updated": "A Bug List Default is updated with identifier {{ param }}",
+            "deleted": "A Bug List Default is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bug List Default {{ code }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Bug List Default"
+            },
+            "description": "Description",
+            "status": "Status",
+            "businessLine": "Business Line",
+            "error": {
+                "inUsed": "The Bug List Default is used. The system cannot delete."
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+
+{
+    "dtmsApp": {
+        "projectUsers" : {
+            "home": {
+                "title": "Quản lý thành viên",
+                "createLabel": "Thêm mới một thành viên",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật thành viên",
+                "search": "Tìm thành viên",
+                "importTitle": "Import Project Users"
+            },
+            "created": "Một thành viên mới được thêm vào dự án với định danh {{ param }}",
+            "updated": "Một thành viên được cập nhật với định danh {{ param }}",
+            "deleted": "Một thành viên đã xóa khỏi dự án với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa thành viên {{ id }}?"
+            },
+            "detail": {
+                "title": "Danh sách thành viên trong dự án"
+            },
+            "userLogin": "Thành viên",
+            "roleName": "Chức vụ",
+            "startDate": "Ngày bắt đầu",
+            "endDate": "Ngày kết thúc",
+            "effortPlan": "Effort Plan",
+            "project": "Dự án",
+            "editDialog": {
+                "login": "Login",
+                "pm": "Project Manager",
+                "teamlead": "Team Lead",
+                "operator": "Operator",
+                "reviewer": "Reviewer",
+                "fi": "FI"
+            },
+            "imported": "Project Users mới đã được import thành công",
+            "import": {
+                "success": "Nhập thành công {{ quantity }} thành viên vào dự án.",
+                "existing": "Không nhập {{ quantity }} thành viên vào dự án đã tồn tại trong dự án.",
+                "notExisting": "Không nhập {{ quantity }} thành viên vào dự án vì tên đăng nhập không tồn tại trong hệ thống."
+            },
+            "error": {
+                "importFailed": "Hệ thống không thể import Project Users. Vui lòng kiểm tra lại dữ liệu.",
+                "inUsed": "Project User đang được sử dụng. Hệ thống không thể xóa."
+            },
+            "validation": {
+                "patternNumber": "Giá trị số nhập vào không hợp lệ"
+            }
+        }
+    }
+}

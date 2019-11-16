@@ -1,0 +1,79 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tmsCustomFieldScreenValue",
+            "otherEntityName": "tMSCustomFieldScreenValue",
+            "otherEntityRelationshipName": "packages"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "purchaseOrders",
+            "otherEntityName": "purchaseOrders",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tasks",
+            "otherEntityName": "tasks",
+            "otherEntityRelationshipName": "packages"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "op",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reviewer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "delivery",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "estimateDelivery",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "target",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190122163248",
+    "javadoc": "The Packages entity.",
+    "entityTableName": "packages",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "enableEntityAudit": true
+}

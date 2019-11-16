@@ -1,0 +1,9 @@
+{
+    "dtmsApp": {
+        "ThreadStatus" : {
+            "null": "",
+            "OPEN": "OPEN",
+            "CLOSE": "CLOSE"
+        }
+    }
+}

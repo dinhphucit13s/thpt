@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Tasks.
+    -->
+    <changeSet id="20190122163249-1" author="jhipster">
+        <createTable tableName="tasks">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="severity" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="priority" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="file_name" type="varchar(2000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="availability" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="frame" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="actual_object" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="op_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="estimate_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="estimate_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="op_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="op_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_1_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_1_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_1_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fix_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fix_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fix_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_2_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_2_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_2_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fi_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fi_start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fi_end_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="duration" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="target" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="error_quantity" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="error_severity" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="description" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="parent" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="op" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_1" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="review_2" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fixer" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fi" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="packages_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="tasks" columnName="estimate_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="estimate_end_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="op_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="op_end_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="review_1_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="review_1_end_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="fix_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="fix_end_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="review_2_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="review_2_end_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="fi_start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="tasks" columnName="fi_end_time" columnDataType="datetime"/>
+
+    </changeSet>
+
+    <!-- Added the entity audit columns -->
+    <changeSet id="20190122163249-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="tasks">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

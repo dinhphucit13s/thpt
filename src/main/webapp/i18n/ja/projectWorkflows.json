@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "projectWorkflows" : {
+            "home": {
+                "title": "ProjectWorkflows",
+                "createLabel": "Project Workflows を追加",
+                "createOrEditLabel": "Project Workflowsを追加または編集",
+                "search": "Search for Project Workflows"
+            },
+            "created": "A new Project Workflows is created with identifier {{ param }}",
+            "updated": "A Project Workflows is updated with identifier {{ param }}",
+            "deleted": "A Project Workflows is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Project Workflows {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Project Workflows"
+            },
+            "name": "Name",
+            "step": "Step",
+            "inputDTO": "Input DTO",
+            "opGridDTO": "Op Grid DTO",
+            "pmGridDTO": "Pm Grid DTO",
+            "nextURI": "Next URI",
+            "description": "Description",
+            "activity": "Process Flow",
+            "projectTemplates": "Project Templates"
+        }
+    }
+}

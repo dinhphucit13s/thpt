@@ -1,0 +1,78 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomField" : {
+            "home": {
+                "title": "TMS Custom Fields",
+                "createLabel": "Create a new TMS Custom Field",
+                "createOrEditLabel": "Create or edit a TMS Custom Field",
+                "search": "Search for TMS Custom Field"
+            },
+            "created": "A new TMS Custom Field is created with identifier {{ param }}",
+            "updated": "A TMS Custom Field is updated with identifier {{ param }}",
+            "deleted": "A TMS Custom Field is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete TMS Custom Field {{ name }}?"
+            },
+            "detail": {
+                "title": "TMS Custom Field"
+            },
+            "properties": {
+                "headerName": "Field Name",
+                "type": "Type",
+                "value": "value Default",
+                "urlOption": "Url Option",
+                "reuseData": "Reuse Data",
+                "options": "Options Value",
+                "hideDynamicField": "Hide DynamicField",
+                "width": "Width",
+                "sort": "Sort",
+                "cellStyle": "Background Color",
+                "color": "Color",
+                "checkboxSelection": "Check box Selection",
+                "headerCheckboxSelection": "Header Checkbox Selection",
+                "sortAble": "Sortable",
+                "editAble": "Edit Cell",
+                "hide": "Hide View",
+                "pinned": "Pinned",
+                "displayPosition": "Display Position",
+                "sortByPosition": "Sort By Position",
+                "validations": "Validations",
+                "name": "Name",
+                "validator": "Validator",
+                "message": "Message"
+            },
+            "typeField": {
+                "string": "STRING",
+                "numeric": "NUMERIC",
+                "float": "FLOAT",
+                "enumeration": "ENUMERATION",
+                "email": "EMAIL",
+                "password": "PASSWORD",
+                "checkbox": "CHECKBOX",
+                "short_date": "SHORT_DATE",
+                "long_date": "LONG_DATE",
+                "radio": "RADIO",
+                "texarea": "TEXTAREA",
+                "list": "LIST",
+                "validations": "Validations",
+                "pattern": "Pattern",
+                "multi_selection_list": "MULTI_SELECTION_LIST"
+            },
+            "titleValidate": {
+                "pattern": "Pattern",
+                "max": "Max",
+                "min": "Min",
+                "maxLength": "MaxLength",
+                "minLength": "MinLength"
+            },
+            "messageValidate": {
+            },
+            "entity": "Entity",
+            "description": "Description",
+            "error": {
+                "inUsed": "The TMS Custom Field is used. The system cannot delete."
+            }
+        }
+    }
+}

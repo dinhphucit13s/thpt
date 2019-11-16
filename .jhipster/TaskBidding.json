@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "task",
+            "otherEntityName": "tasks",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "biddingScope",
+            "fieldType": "BiddingScope",
+            "fieldValues": "PROJECT, BU, PUBLIC",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "biddingStatus",
+            "fieldType": "BiddingStatus",
+            "fieldValues": "NA, HOLDING, DOING, DONE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20190801094539",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "task_bidding",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination",
+    "enableEntityAudit": true
+}

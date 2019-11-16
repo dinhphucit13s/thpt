@@ -1,0 +1,11 @@
+{
+    "dtmsApp": {
+        "BiddingStatus" : {
+            "null": "",
+            "NA": "NA",
+            "HOLDING": "HOLDING",
+            "DOING": "DOING",
+            "DONE": "DONE"
+        }
+    }
+}

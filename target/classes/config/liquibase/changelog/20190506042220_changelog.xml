@@ -1,0 +1,91 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="TuHP (generated)" id="1557116555877-1">
+        <createTable tableName="project_bug_list_default">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="project_bug_list_defaultPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TINYBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TINYBLOB"/>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bug_list_default_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-2">
+        <addColumn tableName="notes">
+            <column name="bug_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-3">
+        <addColumn tableName="bugs">
+            <column name="code" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-4">
+        <addColumn tableName="task_tracking_time">
+            <column name="end_status" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-5">
+        <addColumn tableName="bugs">
+            <column name="physical_path" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-6">
+        <addColumn tableName="bugs">
+            <column name="resolution" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-7">
+        <addColumn tableName="bugs">
+            <column name="stage" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-8">
+        <addColumn tableName="task_tracking_time">
+            <column name="start_status" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-9">
+        <addColumn tableName="bugs">
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-10">
+        <addForeignKeyConstraint baseColumnNames="bug_list_default_id" baseTableName="project_bug_list_default" constraintName="FK4b9qjg80ws1xtctc8l1a4id5e" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bug_list_default"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-11">
+        <addForeignKeyConstraint baseColumnNames="bug_id" baseTableName="notes" constraintName="FKbl8x9f7dpounkkwetsubd0pyh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="bugs"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-12">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="project_bug_list_default" constraintName="FKsjgyvbcstmufrk6gyh96nhrmb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="projects"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-34">
+        <dropForeignKeyConstraint baseTableName="projects_bug_list_defaults" constraintName="FK9pk3udtc2quegft4b0hfjal4o"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-35">
+        <dropForeignKeyConstraint baseTableName="projects_bug_list_defaults" constraintName="FKrf7ybfr4q0xk31el1gedm3xfx"/>
+    </changeSet>
+    <changeSet author="TuHP (generated)" id="1557116555877-62">
+        <dropTable tableName="projects_bug_list_defaults"/>
+    </changeSet>
+</databaseChangeLog>

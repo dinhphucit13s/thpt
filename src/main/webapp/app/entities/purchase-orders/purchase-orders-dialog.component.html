@@ -1,0 +1,225 @@
+<div class="portlet-body form">
+    <form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center text-uppercase" id="myPurchaseOrdersLabel"
+                jhiTranslate="dtmsApp.purchaseOrders.home.createOrEditLabel">Create or edit a Purchase Orders</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                    (click)="clear()">&times;
+            </button>
+        </div>
+
+        <div class="form-body">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.name"
+                       for="field_name">Name</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           [(ngModel)]="purchaseOrders.name" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.name?.errors?.maxlength"
+                               jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                            This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.status"
+                       for="field_status">Status</label>
+                <div class="col-md-9">
+                    <select class="form-control" name="status" [(ngModel)]="purchaseOrders.status" id="field_status">
+                        <option value="OPEN">{{'dtmsApp.PurchaseOrderStatus.OPEN' | translate}}</option>
+                        <option value="PROCESSING">{{'dtmsApp.PurchaseOrderStatus.PROCESSING' | translate}}</option>
+                        <option value="DELIVERED">{{'dtmsApp.PurchaseOrderStatus.DELIVERED' | translate}}</option>
+                        <option value="CANCEL">{{'dtmsApp.PurchaseOrderStatus.CANCEL' | translate}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.startTime" for="field_startTime">Start
+                    Time</label>
+                <div class="col-md-9">
+                    <!--<input id="field_startTime" class="form-control" name="startTime"-->
+                           <!--[(ngModel)]="purchaseOrders.startTime"-->
+                           <!--[max]="purchaseOrders.endTime"-->
+                           <!--placeholder=" hh:mm, MM/dd/yyyy "-->
+                           <!--[owlDateTimeTrigger]="startTime" [owlDateTime]="startTime" readonly/>-->
+                    <!--<owl-date-time #startTime></owl-date-time>-->
+                    <input
+                        id="field_startTime"
+                        class="form-control"
+                        name="startTime"
+                        type="text"
+                        mwlFlatpickr
+                        [enableTime]="true"
+                        [(ngModel)]="purchaseOrders.startTime"
+                        [maxDate]="purchaseOrders.endTime"
+                        placeholder="Select Date..."
+                        dateFormat="Y/m/d H:i">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.endTime" for="field_endTime">End
+                    Time</label>
+                <div class="col-md-9">
+                    <!--<input [disabled]="!purchaseOrders.startTime" id="field_endTime" class="form-control" name="endTime"-->
+                           <!--[(ngModel)]="purchaseOrders.endTime"-->
+                           <!--[min]="purchaseOrders.startTime"-->
+                           <!--placeholder=" hh:mm, MM/dd/yyyy "-->
+                           <!--[owlDateTimeTrigger]="endTime" [owlDateTime]="endTime" readonly/>-->
+                    <!--<owl-date-time #endTime></owl-date-time>-->
+                    <input
+                        id="field_endTime"
+                        class="form-control"
+                        name="endTime"
+                        type="text"
+                        mwlFlatpickr
+                        [enableTime]="true"
+                        [(ngModel)]="purchaseOrders.endTime"
+                        [minDate]="purchaseOrders.startTime"
+                        placeholder="Select Date..."
+                        dateFormat="Y/m/d H:i">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.projectTemplates"
+                       for="field_projectTemplates">Project Templates</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_projectTemplates" name="projectTemplates"
+                            [(ngModel)]="projects.projectTemplatesId" required>
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectTemplatesOption.id"
+                                *ngFor="let projectTemplatesOption of projecttemplates; trackBy: trackProjectTemplatesById">
+                            {{projectTemplatesOption.name}}
+                        </option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.projectTemplatesId?.dirty && editForm.controls.projectTemplatesId?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.projectTemplatesId?.errors?.required"
+                               jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>-->
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="projectTemplates"
+                        id="field_projectTemplates"
+                        [data]="projecttemplates"
+                        [(ngModel)]="selectedTemplates"
+                        [settings]="dropdownSettingsTemplates"
+                        (onSelect)="onItemSelectTemplates($event)"
+                        (onDeSelect)="onDeSelectTemplates($event)"
+                        >
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.purchaseOrderLead"
+                       for="field_purchaseOrderLead">Purchase Order Lead</label>
+                <div class="col-md-9">
+                    <!--<select class="form-control" id="field_purchaseOrderLead" name="purchaseOrderLead"
+                            [(ngModel)]="purchaseOrders.purchaseOrderLeadId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectUsersOption.id"
+                                *ngFor="let projectUsersOption of projectusers; trackBy: trackProjectUsersById">
+                            {{projectUsersOption.userLogin}}
+                        </option>
+                    </select>-->
+                    <ng-multiselect-dropdown
+                        name="purchaseOrderLead"
+                        id="field_purchaseOrderLead"
+                        [data]="projectusers"
+                        [(ngModel)]="selectedPOLead"
+                        [settings]="dropdownSettingsPOLead"
+                        (onSelect)="onItemSelectPOLead($event)"
+                        (onDeSelect)="onDeSelectPOLead($event)"
+                        style="display: -webkit-box;">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.projects.delegateUser"
+                       for="field_dedicatedUser">Delegate User</label>
+                <div class="col-md-9">
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="dedicatedUser"
+                        id="field_dedicatedUser"
+                        [data]="listAccountDedicated"
+                        [(ngModel)]="purchaseOrders.dedicatedUsersPO"
+                        [settings]="dropdownSettingsDedicatedUser"
+                        (onSelect)="onItemSelectDedicatedUser($event)"
+                        (onDeSelect)="onDeSelectDedicatedUser($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.watcherUser"
+                       for="field_watcherUser">Watcher User</label>
+                <div class="col-md-9">
+                    <ng-multiselect-dropdown
+                        style="display: -webkit-box;"
+                        name="watcherUser"
+                        id="field_watcherUser"
+                        [data]="listAccountWatcher"
+                        [(ngModel)]="purchaseOrders.watcherUsersPO"
+                        [settings]="dropdownSettingsWatcherUser"
+                        (onSelect)="onItemSelectWatcherUser($event)"
+                        (onDeSelect)="onDeSelectWatcherUser($event)">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"
+                       for="field_description">Review 1 Ratio (%)</label>
+                <div class="col-md-9">
+                    <input type="number" class="form-control" name="review1Ratio" min="0" max="100" [(ngModel)]="review1Ratio"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"
+                       for="field_description">Review 2 Ratio (%)</label>
+                <div class="col-md-9">
+                    <input type="number" class="form-control" name="review2Ratio" min="0" max="100" [(ngModel)]="review2Ratio"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label"
+                       for="field_description">FI Ratio (%)</label>
+                <div class="col-md-9">
+                    <input type="number" class="form-control" name="fiRatio" min="0" max="100" [(ngModel)]="fiRatio"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label" jhiTranslate="dtmsApp.purchaseOrders.description"
+                       for="field_description">Description</label>
+                <div class="col-md-9">
+                    <textarea class="form-control" name="description" id="field_description"
+                          [(ngModel)]="purchaseOrders.description"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!--<div #child></div>-->
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+                <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>
+.

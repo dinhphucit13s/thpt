@@ -1,0 +1,198 @@
+{
+    "global": {
+        "title": "DTMS",
+        "browsehappy": "Bạn đang sử dụng một trình duyệt <strong>quá cũ</strong>. Vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt</a> của bạn để có trải nghiệm tốt nhất.",
+        "menu": {
+            "home": "Trang chủ",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "entities": {
+                "main": "Thực thể",
+                "authorityResource": "Authority Resource",
+                "businessLine": "Business Line",
+                "projectTemplates": "Project Templates",
+                "projectWorkflows": "Project Workflows",
+                "projects": "Projects",
+                "projectUsers": "Project Users",
+                "purchaseOrders": "Purchase Orders",
+                "membersManagement":"Members Management",
+                "allocation": "Allocation",
+                "effort": "Effort",
+                "trackingManagement":"Tracking Management",
+                "packages": "Packages",
+                "tasks": "Tasks",
+                "tmsCustomField": "TMS Custom Field",
+                "tmsCustomFieldScreen": "TMS Custom Field Screen",
+                "tmsCustomFieldScreenValue": "TMS Custom Field Screen Value",
+                "issues": "Issues",
+                "feedBack": "Feed Back",
+                "viewFeedBack": "View Feed Back",
+                "tmsLogHistory": "TMS Log History",
+                "notes": "Notes",
+                "activity": "Process Flow",
+                "statistic": "Thống kê",
+                "taskTrackingTime": "Task Tracking Time",
+                "customer": "Customer",
+                "bugListDefault": "Bug List Default",
+                "bugs": "Bugs",
+                "attachments": "Attachments",
+                "projectBugListDefault": "Project Bug List Default",
+                "loginTracking": "Login Tracking",
+                "notificationTemplate": "Notification Template",
+                "notification": "Notification",
+                "mail": "Mail",
+                "mailReceiver": "Mail Receiver",
+                "businessUnit": "Business Unit",
+                "businessUnitManager": "Business Unit Manager",
+                "tmsThread": "Tms Thread",
+                "tmsPost": "Tms Post",
+                "comments": "Comments",
+                "taskBidding": "Bidding Management",
+                "taskBiddingTrackingTime": "Task Bidding Tracking Time",
+                "dtmsMonitoring": "Dtms Monitoring",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+            },
+            "account": {
+                "main": "Tài khoản",
+                "settings": "Cài đặt",
+                "password": "Mật khẩu",
+                "sessions": "Phiên đăng nhập",
+                "login": "Đăng nhập",
+                "logout": "Đăng xuất",
+                "register": "Đăng ký"
+            },
+            "admin": {
+                "main": "Quản trị",
+                "projectMonitoring": "Giám sát dự án",
+                "userManagement": "Quản lý tài khoản",
+                "tracker": "Theo dõi người dùng",
+                "metrics": "Số liệu",
+                "health": "Tình trạng",
+                "configuration": "Cấu hình",
+                "logs": "Ghi logs",
+                "audits": "Kiểm duyệt",
+                "apidocs": "API",
+                "database": "Cơ sở dữ liệu",
+                "entity-audit": "Entity Audit",
+                "elasticsearch-reindex": "Reindex Elasticsearch",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+            },
+            "language": "VI"
+        },
+        "form": {
+            "username": "Tên tài khoản",
+            "username.placeholder": "Nhập tên tài khoản của bạn",
+            "newpassword": "Mật khẩu mới",
+            "newpassword.placeholder": "Nhập mật khẩu mới",
+            "confirmpassword": "Xác nhận mật khẩu mới",
+            "confirmpassword.placeholder": "Nhập lại mật khẩu mới",
+            "email": "Email",
+            "email.placeholder": "Nhập email của bạn"
+        },
+        "messages": {
+            "info": {
+                "authenticated": {
+                    "prefix": "Nếu bạn muốn ",
+                    "link": "đăng nhập",
+                    "suffix": ", bạn có thể thử với tài khoản mặc định:<br/>- Quản trị viên (tài khoản=\"admin\" và mật khẩu=\"admin\") <br/>- Người dùng (tài khoản=\"user\" và mật khẩu=\"user\")."
+                },
+                "register": {
+                    "noaccount": "Bạn vẫn chưa có tài khoản?",
+                    "link": "Đăng ký tài khoản mới"
+                }
+            },
+            "error": {
+                "dontmatch": "Xác nhận mật khẩu không khớp!"
+            },
+            "validate": {
+                "newpassword": {
+                    "required": "Bạn phải nhập mật khẩu.",
+                    "minlength": "Mật khẩu phải có ít nhất 4 ký tự.",
+                    "maxlength": "Mật khẩu không được vượt quá 50 ký tự.",
+                    "strength": "Độ mạnh của mật khẩu:"
+                },
+                "confirmpassword": {
+                    "required": "Bạn phải nhập lại mật khẩu để xác nhận.",
+                    "minlength": "Mật khẩu phải có ít nhất 4 ký tự.",
+                    "maxlength": "Mật khẩu không được vượt quá 50 ký tự."
+                },
+                "email": {
+                    "required": "Bạn phải nhập email.",
+                    "invalid": "Email bạn nhập không hợp lệ.",
+                    "minlength": "Email phải có ít nhất 5 ký tự.",
+                    "maxlength": "Email không được vượt quá 50 ký tự."
+                }
+            }
+        },
+        "field": {
+            "id": "ID"
+        },
+        "ribbon": {
+            "dev":"Phát triển"
+        },
+        "item-count": "Showing {{first}} - {{second}} of {{total}} items."
+    },
+    "entity": {
+        "action": {
+            "addblob": "Thêm nội dung",
+            "addimage": "Thêm ảnh",
+            "back": "Quay lại",
+            "cancel": "Hủy",
+            "delete": "Xóa",
+            "edit": "Sửa",
+            "assign": "Chỉ định",
+            "clone": "Clone",
+            "open": "Mở",
+            "save": "Lưu",
+            "changes": "Thay đổi",
+            "send": "Gửi",
+            "view": "Xem",
+            "resetPassword": "Reset",
+            "viewMember": "Xem Thành Viên",
+            "close": "Đóng",
+            "delivery": "Delivery",
+            "move": "Chuyển Tasks"
+        },
+        "detail": {
+            "field": "Trường",
+            "value": "Giá trị"
+        },
+        "delete": {
+            "title": "Xác nhận hành động xóa"
+        },
+        "clone": {
+            "title": "Xác nhận hành động Clone",
+            "titleclone": "Hoạt động sao chép Tasks",
+            "titleclonemodal": "Lựa chọn PurchaseOder và Packages"
+        },
+        "validation": {
+            "exists": "Trường này đã tồn tại",
+            "required": "Trường này bắt buộc phải nhập.",
+            "minlength": "Trường này phải có ít nhất {{ min }} ký tự.",
+            "maxlength": "Trường này không được vượt quá {{ max }} ký tự.",
+            "min": "Trường này phải lớn hơn {{ min }}.",
+            "max": "Trường này phải nhỏ hơn {{ max }}.",
+            "minbytes": "Dung lượng trường này phải lớn hơn {{ min }} bytes.",
+            "maxbytes": "Dung lượng trường này phải nhỏ hơn {{ max }} bytes.",
+            "pattern": "Trường này phải theo định dạng {{ pattern }}.",
+            "number": "Trường này phải là một số.",
+            "datetimelocal": "Trường này phải là định dạng thời gian.",
+            "patternNumber": "Trường này chỉ chứa ký tự số.",
+            "wrongFormat": "Vui lòng nhập đúng định dạng",
+            "optionPurcharse": "Bạn phải chọn giá trị purchase order",
+            "optionPackages": "Bạn phải chọn giá trị Package",
+            "optionAction": "Bạn phải chọn hành động sao chép"
+
+        }
+    },
+    "error": {
+        "internalServerError": "Lỗi máy chủ nội bộ",
+        "server.not.reachable": "Không tìm thấy máy chủ",
+        "url.not.found": "Không tìm thấy",
+        "NotNull": "Trường {{ fieldName }} không được để trống!",
+        "Size": "Trường {{ fieldName }} không nằm trong giới hạn tối thiểu/tối đa!",
+        "userexists": "Tên đăng nhập đã được sử dụng!",
+        "emailexists": "Email đã được sử dụng!",
+        "idexists": "Thêm mới {{ entityName }} không được trùng với định danh đã tồn tại"
+    },
+    "footer": "Đây là chân trang của bạn"
+}

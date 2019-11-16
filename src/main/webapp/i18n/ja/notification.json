@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "notification" : {
+            "home": {
+                "title": "Notifications",
+                "createLabel": "Notification を追加",
+                "createOrEditLabel": "Notificationを追加または編集",
+                "search": "Search for Notification"
+            },
+            "created": "A new Notification is created with identifier {{ param }}",
+            "updated": "A Notification is updated with identifier {{ param }}",
+            "deleted": "A Notification is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Notification {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Notification"
+            },
+            "from": "From",
+            "to": "To",
+            "body": "Body",
+            "status": "Status"
+        }
+    }
+}

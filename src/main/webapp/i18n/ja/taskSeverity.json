@@ -1,0 +1,10 @@
+{
+    "dtmsApp": {
+        "TaskSeverity" : {
+            "null": "",
+            "NORMAL": "NORMAL",
+            "MEDIUM": "MEDIUM",
+            "HIGH": "HIGH"
+        }
+    }
+}

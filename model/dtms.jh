@@ -1,0 +1,270 @@
+/**
+ * The AuthorityResource entity.
+ */
+entity AuthorityResource {
+	name String maxlength(255) required,
+    permission Integer required,
+    authorityName String maxlength(150)
+}
+
+/**
+ * The BusinessLine entity.
+ */
+entity BusinessLine {
+	name String maxlength(255) required,
+   	description TextBlob
+}
+
+/**
+ * The Projects entity.
+ */
+entity ProjectTemplates {
+	name String maxlength(255) required,
+    image ImageBlob required,
+    description TextBlob
+}
+
+/**
+ * The Projects entity.
+ */
+entity ProjectWorkflows {
+	name String maxlength(255) required,
+	step Integer required,
+	inputDTO TextBlob required,
+    opGridDTO TextBlob required,
+    pmGridDTO TextBlob required,
+    nextURI String maxlength(255),
+    description TextBlob
+}
+
+/**
+ * The Projects entity.
+ */
+entity Projects {
+	code String maxlength(20) required,
+	name String maxlength(100) required,
+    type ProjectType, 
+	status ProjectStatus required,
+    startTime Instant,
+    endTime Instant,
+    description TextBlob
+}
+
+entity ProjectUsers {
+	userLogin String maxlength(50),
+    roleName ProjectRoles
+}
+
+enum ProjectRoles{
+	PM, TEAMLEAD, OPERATION, REVIEWER, FI
+}
+
+enum ProjectStatus{
+	OPEN, RUNNING, CLOSED
+}
+
+enum ProjectType{
+	NA, MAINTENANCE, BODY_SHOPPING
+}
+
+/**
+ * The Purchase Order entity.
+ */
+entity PurchaseOrders {
+	name String maxlength(255) required,
+	status PurchaseOrderStatus,
+    startTime Instant,
+    endTime Instant,
+    description TextBlob
+}
+
+enum PurchaseOrderStatus{
+	OPEN, PROCESSING, DELIVERED, CANCEL
+}
+
+/**
+ * The Packages entity.
+ */
+entity Packages {
+	name String maxlength(255) required,
+	op String,
+    reviewer String,
+    fi String,
+    delivery String,
+    estimateDelivery Instant,
+    target Integer,
+    startTime Instant,
+    endTime Instant,
+    description TextBlob
+}
+
+/**
+ * The Task entity.
+ */
+entity Tasks {
+	name String maxlength(255) required,
+    severity TaskSeverity,
+    priority TaskPriority,
+    data String maxlength(255),
+    fileName String maxlength(500),
+    type String,
+    availability TaskAvailability,
+    frame Integer,
+    actualObject Integer,
+	opStatus OPStatus,
+    opEstimateStartTime Instant,
+    opEstimateEndTime Instant,
+    opStartTime Instant,
+    opEndTime Instant,
+    review1Status ReviewStatus,
+    review1StartTime Instant,
+    review1EndTime Instant,
+    fixStatus FixStatus,
+    fixStartTime Instant,
+    fixEndTime Instant,
+    review2Status ReviewStatus,
+    review2StartTime Instant,
+    review2EndTime Instant,
+    fiStatus FIStatus,
+    fiStartTime Instant,
+    fiEndTime Instant,
+    duration Integer,
+    target Integer,
+    errorQuantity Integer,
+    errorSeverity ErrorSeverity,
+    status TaskStatus,
+    description TextBlob,
+    parent Long
+}
+
+/**
+ * The TMSCustomField entity.
+ */
+entity TMSCustomField{
+	name String required maxlength(255),
+    type CustomFieldType required,
+    defaultValue String maxlength(255),
+    possibleValues String maxlength(1024),
+    validRegex String maxlength(255), 
+    description TextBlob
+}
+
+/**
+ * The TMSCustomFieldScreen entity.
+ */
+entity TMSCustomFieldScreen{
+	sequence Integer required
+}
+
+/**
+ * The TMSCustomFieldScreenValue entity.
+ */
+entity TMSCustomFieldScreenValue{
+	value String maxlength(1024),
+    text TextBlob
+}
+
+
+enum CustomFieldType{
+	STRING, NUMERIC, FLOAT, ENUMERATION, EMAIL, CHECKBOX, DATE, RADIO, TEXTAREA, LIST, MULTI_SELECTION_LIST
+}
+
+enum ErrorSeverity{
+	NA, TRIVIAL, MINOR, MAJOR, CRITICAL
+}
+
+enum OPStatus{
+	NA, OPEN, DOING, DONE, CANCEL, REWORK
+}
+
+enum ReviewStatus{
+	NA, OPEN, DOING, DONE, NOT_GOOD
+}
+
+enum FIStatus{
+	NA, OPEN, DOING, DONE, NOT_GOOD
+}
+
+enum FixStatus{
+	NA, OPEN, DOING, DONE
+}
+
+enum TaskStatus{
+	NA, OPEN, DOING, DONE
+}
+
+enum TaskAvailability{
+	NA, OK, NO_OBJECT, NO_SCOPE, REWORK
+}
+
+enum TaskSeverity{
+	NORMAL, MEDIUM, HIGH
+}
+
+enum TaskPriority{
+	NORMAL, MEDIUM, HIGH
+}
+
+/**
+ * The Issues entity.
+ */
+entity Issues {
+	name String maxlength(255) required,
+   	description String maxlength(1000)
+}
+
+entity TMSLogHistory{
+	action String maxlength(255),
+	oldValue TextBlob,
+    newValue TextBlob
+}
+
+entity Notes{
+	description TextBlob,
+    attachment String maxlength(1024)
+}
+/*
+*relationship ManyToMany{
+*    ProjectUsers{projectUser(login)} to User
+*}
+*/
+
+relationship ManyToOne{
+	ProjectTemplates{businessLine(name)} to BusinessLine,
+	ProjectWorkflows{projectTemplates(name)} to ProjectTemplates,
+	Projects{projectTemplates(name)} to ProjectTemplates{project(name)},
+    Projects{projectLead(userLogin)} to ProjectUsers,
+	PurchaseOrders{project(name)} to Projects{purchaseOrders(name)},
+    PurchaseOrders{PurchaseOrderLead(userLogin)} to ProjectUsers,
+    Packages{purchaseOrders(name)} to PurchaseOrders{packages(name)},
+    Tasks{packages(name)} to Packages{tasks(name)},
+    Tasks{op(userLogin)} to ProjectUsers,
+    Tasks{reviewer1(userLogin)} to ProjectUsers,
+    Tasks{reviewer2(userLogin)} to ProjectUsers,
+    Tasks{fixer(userLogin)} to ProjectUsers,
+    Tasks{fi(userLogin)} to ProjectUsers,
+    Issues{purchaseOrder(name)} to PurchaseOrders,
+    TMSCustomFieldScreen{projectWorkflows(name)} to ProjectWorkflows,
+    TMSCustomFieldScreenValue{tmsCustomField} to TMSCustomField,
+    TMSLogHistory{projects(name)} to Projects,
+    TMSLogHistory{purchaseOrders(name)} to PurchaseOrders,
+    TMSLogHistory{packages(name)} to Packages,
+    TMSLogHistory{tasks(name)} to Tasks,
+    Notes{tasks(name)} to Tasks,
+    ProjectUsers{project(name)} to Projects{projectUsers(userLogin)}
+}
+
+relationship OneToOne{
+	TMSCustomFieldScreen{tmsCustomField} to TMSCustomField
+}
+
+relationship OneToMany{
+    PurchaseOrders{tmsCustomFieldScreenValue} to TMSCustomFieldScreenValue,
+    Packages{tmsCustomFieldScreenValue} to TMSCustomFieldScreenValue,
+    Tasks{tmsCustomFieldScreenValue} to TMSCustomFieldScreenValue
+}
+// Set pagination options
+paginate * with pagination
+dto * with mapstruct
+service * with serviceClass
+filter *

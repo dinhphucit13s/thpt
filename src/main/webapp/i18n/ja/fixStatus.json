@@ -1,0 +1,16 @@
+{
+    "dtmsApp": {
+        "FixStatus" : {
+            "null": "",
+            "NA": "NA",
+            "OPEN": "OPEN",
+            "DOING": "DOING",
+            "DONE": "DONE",
+            "REOPEN": "REOPEN",
+            "PENDING": "PENDING",
+            "CANCEL": "CANCEL",
+            "RE_ASSIGN": "RE ASSIGN OP",
+            "RE_ASSIGN_REVIEW1": "RE ASSIGN REVIEW1"
+        }
+    }
+}

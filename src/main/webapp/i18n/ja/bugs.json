@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "bugs" : {
+            "home": {
+                "title": "Bugs",
+                "createLabel": "Bugs を追加",
+                "createOrEditLabel": "Bugsを追加または編集",
+                "search": "Search for Bugs"
+            },
+            "created": "A new Bugs is created with identifier {{ param }}",
+            "updated": "A Bugs is updated with identifier {{ param }}",
+            "deleted": "A Bugs is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Bugs {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Bugs"
+            },
+            "description": "Description",
+            "code": "Code",
+            "stage": "Stage",
+            "status": "Status",
+            "resolution": "Resolution",
+            "physicalPath": "Physical Path",
+            "tasks": "Tasks",
+            "notes": "Notes"
+        }
+    }
+}

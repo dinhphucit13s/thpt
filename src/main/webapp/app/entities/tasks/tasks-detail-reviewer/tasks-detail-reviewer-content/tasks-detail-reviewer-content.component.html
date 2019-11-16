@@ -1,0 +1,84 @@
+<div class="col-md-12 margin-top-10 pl-0 pr-0">
+    <div class="panel panel-default panel-review">
+        <a class="btn btn-no-border collapse-header" data-toggle="collapse" href="#collapse_{{round}}" aria-expanded="true">
+            <span class="header-span">{{header}}</span>
+            <span class="header-indicator"></span>
+        </a>
+        <div id="collapse_{{round}}" class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+
+                <div *ngFor="let bug of bugsInfo;index as index;">
+                    <div class="col-lg-12 col-md-12 margin-top-10 padding-tb-10 pnl-bug">
+                        <div class="col-lg-2 col-md-2">
+                            <div class="row-center">
+                                <div class="avatar" style="margin: auto; background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)"></div>
+                                <div style="text-align: center"><span>{{bug.createdBy}}</span></div>
+                            </div>
+                            <p style="margin: 5px 0">Status: {{bug.status}}</p>
+                            <p style="margin: 5px 0">Resolution: {{bug.resolution}}</p>
+                            <a (click)="getAndShowAttachment(bug)">{{bug.attachments.length}}
+                                Attachments</a>
+                        </div>
+                        <div class="col-lg-10 col-md-10 pl-0 pr-0">
+                            <div class="row col-lg-12 col-md-12 pr-0">
+                                <div class="col-lg-12 col-md-12 pr-0">
+                                    <div class="over-content-bug">
+                                        <div class="col-lg-12 col-md-12 pr-0 pl-0" style="display: flex; align-items: flex-start">
+                                            <div class="col-lg-1 col-md-11 pr-0 pl-0">
+                                                <div>
+                                                    <span>Bug {{bug.code}}:</span>
+                                                </div>
+                                                <div>
+                                                    <span>Iteration :{{bug.iteration}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-11 col-md-11 pl-0">
+                                                <span style="margin-left: 5px">{{bug.description}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-offset-1 col-md-offset-1 col-lg-11 col-md-11 pl-0 pr-0" style="display: flex; align-items: flex-start">
+                                            <span style="margin-left: 5px">{{bug.physicalPath}}</span>
+                                        </div>
+                                    </div>
+                                    <a *ngIf="!bug.notes || bug.notes.length < 1" (click)="showPanelComment(bug)">Add Comment</a>
+                                    <div *ngIf="!bug.mediaType.isToggleComment && bug.notes.length > 0" class="col-lg-12 pr-0 pl-0 hr-panel"><span style="cursor: pointer"
+                                                                                                                                                   class="bold toggle-comment" [ngStyle]="{'background-color': bug.stage !== stage ? '#f4f7f0' : '#E1F7FF' }" (click)="toggleComment(bug)">Show Comments</span></div>
+                                    <div *ngIf="bug.mediaType.isToggleComment && bug.notes.length > 0" class="col-lg-12 pr-0 pl-0 hr-panel"><span style="cursor: pointer"
+                                                                                                                                                  class="bold toggle-comment" [ngStyle]="{'background-color': bug.stage !== stage ? '#f4f7f0' : '#E1F7FF' }" (click)="toggleComment(bug)">Hide Comments</span></div>
+                                    <div *ngIf="bug.mediaType.isToggleComment" class="col-lg-12 pr-0">
+                                        <div class="">
+                                            <div *ngFor="let note of bug.notes" class="col-lg-12 pr-0 comment">
+                                                <div class="row-comment margin-top-10">
+                                                    <div class="avatar avatar-sm"
+                                                         style="background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)">
+                                                    </div>
+                                                    <div>
+                                                        <span style="margin-left: 5px">{{note.createdBy}}: </span><span>{{note.description}}</span>
+                                                        <span *ngIf="note.attachments.length > 0" class="col-lg-12 pl-0" style="margin-left: 5px">
+                                            <a (click)="getAndShowAttachmentOfNotes(note)">{{note.attachments.length}} Attachments</a>
+                                        </span>
+                                                        <span class="col-lg-12 col-md-12 pl-0"><span style="opacity: 0.6; font-size: 12px; margin-left: 5px">Added a comment - {{formatDate(note.createdDate)}}</span>
+                                            <a class="add-comment" (click)="showPanelComment(bug)">Add Comment</a></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="bug.mediaType.isComment" class="row margin-top-10 col-lg-12 col-md-12" onload="showPanelComment(bug)">
+                                        <div class="col-lg-12" style="padding-left: 30px;">
+                                            <textarea #txtArea matInput id="comment" name="comment" style="width: 100%; margin-top: 10px" [(ngModel)]="bug.mediaType.commentAdd"></textarea>
+                                            <input name="comment" type="file" id="attach_{{bug.id}}" multiple (change)="onFileChange($event, bug)" accept="image/*">
+                                            <!--<div id="textarea" contenteditable></div>-->
+                                            <button type="button" class="btn btn-info" (click)="saveComment(bug)" > Add comments</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

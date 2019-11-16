@@ -1,0 +1,30 @@
+
+{
+    "dtmsApp": {
+        "projectTemplates" : {
+            "home": {
+                "title": "Project Templates",
+                "createLabel": "Create a new Project Templates",
+                "createOrEditLabel": "Create or edit a Project Templates",
+                "search": "Search for Project Templates"
+            },
+            "created": "A new Project Templates is created with identifier {{ param }}",
+            "updated": "A Project Templates is updated with identifier {{ param }}",
+            "deleted": "A Project Templates is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Templates {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Templates"
+            },
+            "name": "Name",
+            "image": "Image",
+            "description": "Description",
+            "businessLine": "Business Line",
+            "project": "Project",
+            "error": {
+                "inUsed": "The Project Templates is used. The system cannot delete."
+            }
+        }
+    }
+}

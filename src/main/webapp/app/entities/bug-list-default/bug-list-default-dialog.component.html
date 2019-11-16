@@ -1,0 +1,77 @@
+<form class="form-horizontal" name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title text-center text-uppercase" id="myBugListDefaultLabel" jhiTranslate="dtmsApp.bugListDefault.home.createOrEditLabel">Create or edit a Bug List Default</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="form-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.bugListDefault.businessLine" for="field_businessLine">Business Line</label>
+            <div class="col-md-9">
+               <!-- <select class="form-control" id="field_businessLine" name="businessLine" [(ngModel)]="bugListDefault.businessLineId" >
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="businessLineOption.id" *ngFor="let businessLineOption of businessLines; trackBy: trackBusinessLineById">{{businessLineOption.name}}</option>
+                </select>-->
+                <ng-multiselect-dropdown
+                    style="display: -webkit-box;"
+                    name="businessLine"
+                    id="field_businessLine"
+                    [placeholder]=""
+                    [data]="businessLines"
+                    [(ngModel)]="selectedBL"
+                    [settings]="dropdownSettingsBL"
+                    (onSelect)="onItemSelectBL($event)"
+                    (onDeSelect)="onDeSelectBL($event)"
+                    required>
+                </ng-multiselect-dropdown>
+                <div [hidden]="checkBusinessLine">
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.businessLine?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.bugListDefault.status"
+                   for="field_status">Status</label>
+            <div class="col-md-9">
+                <label class="mt-checkbox">
+                    <input id="field_status" name="status" type="checkbox" ng-reflect-model="true" class="ng-untouched ng-pristine"
+                           [checked]="bugListDefault.status"
+                           [(ngModel)]="bugListDefault.status"><span></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3 control-label" jhiTranslate="dtmsApp.bugListDefault.description"
+                   for="field_description">Description</label>
+            <div class="col-md-9">
+                <textarea class="form-control" name="description" id="field_description" #textForm="ngModel"
+                          [(ngModel)]="bugListDefault.description" minlength="10" required></textarea>
+                <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.controls.description?.errors?.minlength" jhiTranslate="entity.validation.minlength"
+                           translateValues="{min: 10}">
+                        This field is longer than 10 characters.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

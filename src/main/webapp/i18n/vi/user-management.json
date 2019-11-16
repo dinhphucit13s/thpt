@@ -1,0 +1,54 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "Tài khoản",
+            "createLabel": "Tạo tài khoản mới",
+            "createOrEditLabel": "Tạo hoặc sửa tài khoản",
+            "import": "Import tài khoản mới",
+            "importTitle": "Import Tài Khoản Mới",
+            "resetPassword": "Reset Password"
+        },
+        "created": "Một tài khoản mới đã được tạo với định danh {{ param }}",
+        "updated": "Một tài khoản đã được cập nhật với định danh {{ param }}",
+        "deleted": "Một tài khoản đã bị xóa với định danh {{ param }}",
+        "note": "(*)  Nếu không nhập mật khẩu mới thì mặc định mật khẩu sẽ là 1324",
+        "delete": {
+            "question": "Bạn có chắc chắn muốn xóa tài khoản {{ login }}?"
+        },
+        "detail": {
+            "title": "Tài khoản"
+        },
+        "login": "Tên đăng nhập",
+        "firstName": "Tên",
+        "lastName": "Họ",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "confirmPassword": "Nhập lại mật khẩu",
+        "dob": "Ngày sinh",
+        "phone": "Số điện thoại",
+        "workingLocation": "Nơi làm việc",
+        "about": "Thông tin bổ sung",
+        "activated": "Kích hoạt",
+        "deactivated": "Khóa",
+        "profiles": "Các quyền",
+        "langKey": "Ngôn ngữ",
+        "businessUnit":"Đơn Vị",
+        "contractType":"Loại Hợp Đồng",
+        "fullTime":"Toàn Thời Gian",
+        "partTime":"Bán Thời Gian",
+        "createdBy": "Người tạo",
+        "createdDate": "Ngày tạo",
+        "lastModifiedBy": "Người sửa",
+        "lastModifiedDate": "Ngày sửa",
+        "confirmPass": "Đặt lại mật khẩu mới"
+    },
+    "dtmsApp": {
+        "User Management": {
+            "imported": "Tài khoản mới đã được tạo thành công",
+            "error": {
+                "importFailed": "Hệ thống không thể import Users. Vui lòng kiểm tra lại dữ liệu.",
+                "inUsed": "User đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

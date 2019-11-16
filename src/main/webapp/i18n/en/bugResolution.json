@@ -1,0 +1,12 @@
+{
+    "dtmsApp": {
+        "BugResolution" : {
+            "null": "",
+            "NA": "NA",
+            "FIXED": "FIXED",
+            "WILL_NOT_FIX": "WILL_NOT_FIX",
+            "CAN_NOT_REPRODUCE": "CAN_NOT_REPRODUCE",
+            "CANCEL": "CANCEL"
+        }
+    }
+}

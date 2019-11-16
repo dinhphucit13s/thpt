@@ -1,0 +1,19 @@
+<form name="editForm" (ngSubmit)="confirmCloneTasks()" #editForm="ngForm">
+    <div class="modal-header">
+        <h4>Xác nhận Clone tasks</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <p>Bạn có muốn Clone tasks các tasks đã chọn?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" class="btn btn-success">
+            <span class="fa fa-submit"></span>&nbsp;<span>Confirm</span>
+        </button>
+    </div>
+</form>

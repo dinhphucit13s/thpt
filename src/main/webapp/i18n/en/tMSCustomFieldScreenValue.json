@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "tMSCustomFieldScreenValue" : {
+            "home": {
+                "title": "TMS Custom Field Screen Values",
+                "createLabel": "Create a new TMS Custom Field Screen Value",
+                "createOrEditLabel": "Create or edit a TMS Custom Field Screen Value",
+                "search": "Search for TMS Custom Field Screen Value"
+            },
+            "created": "A new TMS Custom Field Screen Value is created with identifier {{ param }}",
+            "updated": "A TMS Custom Field Screen Value is updated with identifier {{ param }}",
+            "deleted": "A TMS Custom Field Screen Value is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete TMS Custom Field Screen Value {{ id }}?"
+            },
+            "detail": {
+                "title": "TMS Custom Field Screen Value"
+            },
+            "value": "Value",
+            "text": "Text",
+            "purchaseOrders": "Purchase Orders",
+            "packages": "Packages",
+            "tasks": "Tasks",
+            "tmsCustomField": "Tms Custom Field"
+        }
+    }
+}

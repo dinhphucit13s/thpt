@@ -1,0 +1,28 @@
+
+{
+    "dtmsApp": {
+        "bugListDefault" : {
+            "home": {
+                "title": "Bug List Defaults",
+                "createLabel": "Thêm mới một Bug List Default",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Bug List Default",
+                "search": "Tìm Bug List Default"
+            },
+            "created": "Một Bug List Default mới được tạo với định danh {{ param }}",
+            "updated": "Một Bug List Default cập nhật với định danh {{ param }}",
+            "deleted": "Một Bug List Default đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Bug List Default {{ name }}?"
+            },
+            "detail": {
+                "title": "Bug List Default"
+            },
+            "description": "Description",
+            "status": "Status",
+            "businessLine": "Business Line",
+            "error": {
+                "inUsed": "Bug List Default đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

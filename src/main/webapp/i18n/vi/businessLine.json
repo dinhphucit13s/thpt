@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "businessLine" : {
+            "home": {
+                "title": "Business Lines",
+                "createLabel": "Thêm mới một Business Line",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Business Line",
+                "search": "Tìm Business Line"
+            },
+            "created": "Một Business Line mới được tạo với định danh {{ param }}",
+            "updated": "Một Business Line cập nhật với định danh {{ param }}",
+            "deleted": "Một Business Line đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Business Line {{ name }}?"
+            },
+            "detail": {
+                "title": "Business Line"
+            },
+            "name": "Name",
+            "description": "Description",
+            "error": {
+                "inUsed": "Business Line đang được sử dụng. Hệ thống không thể xóa."
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+{
+    "dtmsApp": {
+        "businessLine" : {
+            "home": {
+                "title": "BusinessLines",
+                "createLabel": "Business Line を追加",
+                "createOrEditLabel": "Business Lineを追加または編集",
+                "search": "Search for Business Line"
+            },
+            "created": "A new Business Line is created with identifier {{ param }}",
+            "updated": "A Business Line is updated with identifier {{ param }}",
+            "deleted": "A Business Line is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Business Line {{ name }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Business Line"
+            },
+            "name": "Name",
+            "description": "Description",
+            "error": {
+                "inUsed": "The Business Line is used. The system cannot delete."
+            }
+        }
+    }
+}

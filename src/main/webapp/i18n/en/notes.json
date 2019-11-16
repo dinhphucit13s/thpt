@@ -1,0 +1,26 @@
+
+{
+    "dtmsApp": {
+        "notes" : {
+            "home": {
+                "title": "Notes",
+                "createLabel": "Create a new Notes",
+                "createOrEditLabel": "Create or edit a Notes",
+                "search": "Search for Notes"
+            },
+            "created": "A new Notes is created with identifier {{ param }}",
+            "updated": "A Notes is updated with identifier {{ param }}",
+            "deleted": "A Notes is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Notes {{ id }}?"
+            },
+            "detail": {
+                "title": "Notes"
+            },
+            "description": "Description",
+            "attachment": "Attachment",
+            "tasks": "Tasks",
+            "bug": "Bug"
+        }
+    }
+}

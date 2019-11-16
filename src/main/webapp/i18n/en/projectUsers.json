@@ -1,0 +1,50 @@
+
+{
+    "dtmsApp": {
+        "projectUsers" : {
+            "home": {
+                "title": "Project Users",
+                "createLabel": "Create a new Project Users",
+                "createOrEditLabel": "Create or edit a Project Users",
+                "search": "Search for Project Users",
+                "importTitle": "Import Project Users"
+            },
+            "created": "A new Project Users is created with identifier {{ param }}",
+            "updated": "A Project Users is updated with identifier {{ param }}",
+            "deleted": "A Project Users is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Project Users {{ id }}?"
+            },
+            "detail": {
+                "title": "Project Users"
+            },
+            "userLogin": "User Login",
+            "roleName": "Role",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "effortPlan": "Effort Plan",
+            "project": "Project",
+            "editDialog": {
+                "login": "Login",
+                "pm": "Project Manager",
+                "teamlead": "Team Lead",
+                "operator": "Operator",
+                "reviewer": "Reviewer",
+                "fi": "FI"
+            },
+            "imported": "Project Users is imported success",
+            "import": {
+                "success": "Imported success {{ quantity }} user(s) to project.",
+                "existing": "Did not import {{ quantity }} user(s) to project because user is existing in project.",
+                "notExisting": "Did not import {{ quantity }} user(s) to project because user is not existing in system."
+            },
+            "error": {
+                "importFailed": "The system cannot import Project Users successfully. Please check your file data.",
+                "inUsed": "The Project User is used. The system cannot delete."
+            },
+            "validation": {
+                "patternNumber": "Invalid numeric input value"
+            }
+        }
+    }
+}

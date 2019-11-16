@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "taskBidding" : {
+            "home": {
+                "title": "Task Biddings",
+                "createLabel": "Thêm mới một Task Bidding",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Task Bidding",
+                "search": "Tìm Task Bidding"
+            },
+            "created": "Một Task Bidding mới được tạo với định danh {{ param }}",
+            "updated": "Một Task Bidding cập nhật với định danh {{ param }}",
+            "deleted": "Một Task Bidding đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Task Bidding {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Bidding"
+            },
+            "biddingScope": "Bidding Scope",
+            "biddingStatus": "Bidding Status",
+            "task": "Task"
+        }
+    }
+}

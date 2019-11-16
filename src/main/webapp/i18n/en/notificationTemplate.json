@@ -1,0 +1,25 @@
+
+{
+    "dtmsApp": {
+        "notificationTemplate" : {
+            "home": {
+                "title": "Notification Templates",
+                "createLabel": "Create a new Notification Template",
+                "createOrEditLabel": "Create or edit a Notification Template",
+                "search": "Search for Notification Template"
+            },
+            "created": "A new Notification Template is created with identifier {{ param }}",
+            "updated": "A Notification Template is updated with identifier {{ param }}",
+            "deleted": "A Notification Template is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Notification Template {{ id }}?"
+            },
+            "detail": {
+                "title": "Notification Template"
+            },
+            "type": "Type",
+            "template": "Template",
+            "description": "Description"
+        }
+    }
+}

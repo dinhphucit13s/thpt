@@ -1,0 +1,104 @@
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a (click)="navigateToPO()">{{projectName}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a (click)="navigateToPackage()" >{{purchaseOrderName}}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>{{packageName}}</span>
+        </li>
+    </ul>
+</div>
+<div>
+    <h2>
+        <span jhiTranslate="dtmsApp.tasks.home.title">Tasks</span>
+        <button *ngIf="this.permission > 1" class="btn btn-primary float-right jh-create-entity create-tasks" (click)="onClickDialogTask(packageId)">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="dtmsApp.tasks.home.createLabel">
+            Create new Tasks
+            </span>
+        </button>
+        <button *ngIf="this.permission > 1" class="btn btn-primary float-right jh-create-entity import-task" [routerLink]="['/', { outlets: { popup: 'tasks/'+ packageId + '/import'} }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="dtmsApp.tasks.home.import">
+            Import
+            </span>
+        </button>
+        <a *ngIf="this.permission > 1" class="btn btn-default btn-sm"
+           [attr.href]="'api/tasks/export?packageId='+packageId+'&taskName='+searchName+'&taskStatus='+searchStatus+'&assignee='+searchAssignee+'&description='+searchDescription+'&from='+fromDate+'&to='+toDate">
+            <span class="fa fa-cloud-download"></span>
+            <span jhiTranslate="dtmsApp.tasks.home.export">
+                Export Tasks
+            </span>
+        </a>
+        <button *ngIf="this.permission > 1" class="btn btn-primary float-right" (click)="onClickTaskMove(packageId)">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down">
+            Move Tasks
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form name="searchForm" class="form-inline">
+                        <div class="input-group w-100 mt-3">
+                            <input type="text" class="form-control" [(ngModel)]="searchName" id="searchName" name="searchName" placeholder="{{ 'dtmsApp.tasks.home.searchName' | translate }}">
+<!--                            <input type="text" class="form-control" [(ngModel)]="searchStatus" id="searchStatus" name="searchStatus" placeholder="{{ 'dtmsApp.tasks.home.searchStatus' | translate }}">-->
+                            <input type="text" class="form-control" [(ngModel)]="searchDescription" id="searchDescription" name="searchDescription" placeholder="{{ 'dtmsApp.tasks.home.searchDescription' | translate }}">
+                            <input type="text" class="form-control" [(ngModel)]="searchAssignee" id="searchAssignee" name="searchAssignee" placeholder="{{ 'dtmsApp.tasks.home.searchAssignee' | translate }}">
+                            <select class="form-control" name="status" [(ngModel)]="this.searchStatus" id="field_status">
+                                <option value="*">{{'dtmsApp.TaskStatus.null' | translate}}</option>
+                                <option value="NA">{{'dtmsApp.TaskStatus.NA' | translate}}</option>
+                                <option value="OPEN">{{'dtmsApp.TaskStatus.OPEN' | translate}}</option>
+                                <option value="DOING">{{'dtmsApp.TaskStatus.DOING' | translate}}</option>
+                                <option value="DONE">{{'dtmsApp.TaskStatus.DONE' | translate}}</option>
+                                <option value="CANCEL">{{'dtmsApp.TaskStatus.CANCEL' | translate}}</option>
+                                <option value="PENDING">{{'dtmsApp.TaskStatus.PENDING' | translate}}</option>
+                                <option value="CLOSED">{{'dtmsApp.TaskStatus.CLOSED' | translate}}</option>
+                            </select>
+                            <input
+                                id="field_fromDate"
+                                class="form-control"
+                                style="width: 200px; height: 34px; background-color: #fff; border-color: #aaa"
+                                name="fromDate"
+                                type="text"
+                                mwlFlatpickr
+                                [maxDate]="toDate"
+                                [(ngModel)]="fromDate"
+                                placeholder="From Date..."
+                                dateFormat="d/m/Y">
+                            <input
+                                id="field_toDate"
+                                class="form-control"
+                                style="width: 200px; height: 34px; background-color: #fff; border-color: #aaa"
+                                name="toDate"
+                                type="text"
+                                mwlFlatpickr
+                                [minDate]="fromDate"
+                                [(ngModel)]="toDate"
+                                placeholder="To Date..."
+                                dateFormat="d/m/Y">
+                            <button class="input-group-append btn btn-info" (click)="search()">
+                                <span class="fa fa-search"></span>
+                            </button>
+                            <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="searchName || searchStatus !== '*' || searchDescription || searchAssignee || fromDate || toDate">
+                                <span class="fa fa-trash-o"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+</div>
+<jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="displayedColumns" [_rowData]="rowData" [_frameworkComponents]="frameworkComponents"
+                     [toolPanel]="true" [page]="page" [queryCount]="queryCount" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+</jhi-data-collection>

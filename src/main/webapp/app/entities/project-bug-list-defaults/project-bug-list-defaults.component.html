@@ -1,0 +1,35 @@
+<div>
+    <h2>
+		<span>Project
+			Bug List Defaults</span>
+        <button
+            *ngIf="this.permission > 1"
+            class="btn btn-primary float-right"
+            [routerLink]="['/', { outlets: { popup: 'project-bug-list-defaults-add/'+ projectId + '/' + projectName } }]"
+            replaceUrl="true" type="submit"><span class="fa fa-plus"></span>
+            <span> Create new bug defaults to project</span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch"
+                           id="currentSearch" name="currentSearch">
+                    <button class="input-group-append btn btn-info"
+                            (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()"
+                            *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<jhi-data-collection [_gridOptions]="gridOptions" [_columnDef]="columnDefsArg" [_rowData]="rowData" [_frameworkComponents]="frameworkComponents"
+                     [toolPanel]="true" [page]="page" [queryCount]="queryCount" [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" (loadPage)="loadPage($event)">
+</jhi-data-collection>

@@ -1,0 +1,71 @@
+<div style="display: flow-root">
+    <div>
+        <mat-form-field *ngIf="projects">
+            <mat-select [(ngModel)]="projectId" (selectionChange)="changeFilter()">
+                <mat-option *ngFor="let pro of projects" [value]="pro.id">{{pro.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="btn btn-primary float-right jh-create-entity" style="margin-left: 10px" [routerLink]="['/', { outlets: { popup: ['tms-thread-new', projectId] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down">
+              Create new Q&A
+            </span>
+        </button>
+    </div>
+    <jhi-alert></jhi-alert>
+
+    <div>
+        <div><span>Filter </span>
+            <select [(ngModel)]="filter" (change)="changeFilter()">
+                <option value="all">All</option>
+                <option value="reportByMe">Create by me</option>
+                <option value="assignToMe">Assign to me</option>
+            </select>
+        </div>
+    </div>
+    <div class="margin-top-15">
+        <div *ngIf="!listThread || listThread.length === 0" class="col-lg-12 col-md-12 item-qa-body" style="height: 92px; display: flex; justify-content: center; align-items: center">
+            <span>No row to show</span>
+        </div>
+        <div class="col-lg-12 col-md-12 item-qa-body" *ngFor="let thread of listThread">
+            <div style="display: flex">
+                <div class="avatar" style="background-image: url(http://otopark.org.tr/yonetim/dosya/69223ad460eyalcin.jpg)"></div>
+                <div class="" style="flex-grow: 1; padding-right: 15px; padding-left: 15px">
+                    <div><a (click)="updateViewsOfThread(thread.id)" [routerLink]="['../tms-thread', thread.id]" ><span style="font-size: 20px">{{thread.title}}</span></a></div>
+                    <div class="margin-top-10"><span class="fa fa-paper-plane"></span>
+                        &nbsp;<span>{{thread.createdBy}} asked question in {{thread.createdDate | date: 'MMM dd,yyyy'}}</span>
+                    </div>
+                </div>
+                <div style="padding-right: 30px; display: flex; flex-direction: column; white-space: nowrap">
+                    <div *ngIf="!thread.closed"><span class="fa fa-check-circle" style="color: #78f542"></span>&nbsp;<span>In-progress</span></div>
+                    <div *ngIf="thread.closed"><span class="fa fa-lock" style="color: #fa2323"></span>&nbsp;<span>Closed</span></div>
+                    <div style="padding-top: 3px"><span>Assign to: {{thread.assigneeUserLogin}}</span></div>
+                </div>
+                <div style="display: flex">
+                    <div class="list-count">
+                        <div class="list-count-item">
+                            <span>{{thread.views}}</span>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <span *ngIf="thread.views > 1">Views</span>
+                            <span *ngIf="thread.views <= 1">View</span>
+                        </div>
+                    </div>
+                    <div class="list-count" style="margin-left: 15px">
+                        <div class="list-count-item">
+                            <span>{{thread.answers - 1}}</span>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <span *ngIf="thread.answers - 1 > 1">Answers</span>
+                            <span *ngIf="thread.answers - 1 <= 1">Answer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="totalItems > 20" class="row justify-content-center">
+        <ngb-pagination class="col-lg-12" [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+    </div>
+</div>
+<ngx-spinner type="line-spin-fade"></ngx-spinner>

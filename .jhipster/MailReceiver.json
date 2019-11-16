@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "mail",
+            "otherEntityName": "mail",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "subject"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "from",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "to",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20190605080054",
+    "javadoc": "The MailReceiver entity.",
+    "dto": "mapstruct",
+    "service": "serviceClass",
+    "entityTableName": "mail_receiver",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll",
+    "enableEntityAudit": true
+}

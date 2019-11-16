@@ -1,0 +1,29 @@
+
+{
+    "dtmsApp": {
+        "tmsThread" : {
+            "home": {
+                "title": "Tms Threads",
+                "createLabel": "Thêm mới một Tms Thread",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Tms Thread",
+                "search": "Tìm Tms Thread"
+            },
+            "created": "Một Tms Thread mới được tạo với định danh {{ param }}",
+            "updated": "Một Tms Thread cập nhật với định danh {{ param }}",
+            "deleted": "Một Tms Thread đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Tms Thread {{ id }}?"
+            },
+            "detail": {
+                "title": "Tms Thread"
+            },
+            "title": "Title",
+            "views": "Views",
+            "answers": "Answers",
+            "closed": "Closed",
+            "status": "Status",
+            "projects": "Projects",
+            "assignee": "Assignee"
+        }
+    }
+}

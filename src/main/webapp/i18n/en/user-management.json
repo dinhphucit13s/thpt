@@ -1,0 +1,55 @@
+{
+    "userManagement": {
+        "home": {
+            "title": "Users",
+            "createLabel": "Create a new user",
+            "createOrEditLabel": "Create or edit a user",
+            "import": "Import new user",
+            "importTitle": "Import New User",
+            "resetPassword": "Reset Password"
+        },
+        "created": "A new user is created with identifier {{ param }}",
+        "updated": "An user is updated with identifier {{ param }}",
+        "imported": "A new user is created",
+        "deleted": "An user is deleted with identifier {{ param }}",
+        "note": "(*)  If enter password, set password default is 1234",
+        "delete": {
+            "question": "Are you sure you want to delete user {{ login }}?"
+        },
+        "detail": {
+            "title": "User"
+        },
+        "login": "Login",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "dob": "Date of Birth",
+        "phone": "Phone Number",
+        "workingLocation": "Working Location",
+        "about": "About",
+        "activated": "Activated",
+        "deactivated": "Deactivated",
+        "profiles": "Profiles",
+        "langKey": "Language",
+        "businessUnit":"Business Unit",
+        "contractType":"Contract Type",
+        "fullTime":"Full Time",
+        "partTime":"Part Time",
+        "createdBy": "Created by",
+        "createdDate": "Created date",
+        "lastModifiedBy": "Modified by",
+        "lastModifiedDate": "Modified date",
+        "confirmPass": "New password confirmation"
+    },
+    "dtmsApp": {
+        "User Management": {
+            "imported": "Tài khoản mới đã được tạo thành công",
+            "error": {
+                "importFailed": "The system cannot import Tasks successfully. Please check your file data.",
+                "inUsed": "The User is used. The system cannot delete."
+            }
+        }
+    }
+}

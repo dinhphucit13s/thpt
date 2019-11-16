@@ -1,0 +1,33 @@
+
+{
+    "dtmsApp": {
+        "mail" : {
+            "home": {
+                "title": "Mail",
+                "createLabel": "Thêm mới một Mail",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Mail",
+                "search": "Tìm Mail"
+            },
+            "created": "Một Mail mới được tạo với định danh {{ param }}",
+            "updated": "Một Mail cập nhật với định danh {{ param }}",
+            "deleted": "Một Mail đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Mail {{ id }}?"
+            },
+            "detail": {
+                "title": "Mail",
+                "meetingTime": "Thời gian họp",
+                "to": "Từ",
+                "from": "Đến"
+            },
+            "from": "From",
+            "to": "To",
+            "subject": "Subject",
+            "body": "Body",
+            "attachFile": "Attach File",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "meetingReminder": "Meeting Reminder"
+        }
+    }
+}

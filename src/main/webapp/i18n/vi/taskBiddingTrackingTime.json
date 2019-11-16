@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "taskBiddingTrackingTime" : {
+            "home": {
+                "title": "Task Bidding Tracking Times",
+                "createLabel": "Thêm mới một Task Bidding Tracking Time",
+                "createOrEditLabel": "Thêm mới hoặc cập nhật Task Bidding Tracking Time",
+                "search": "Tìm Task Bidding Tracking Time"
+            },
+            "created": "Một Task Bidding Tracking Time mới được tạo với định danh {{ param }}",
+            "updated": "Một Task Bidding Tracking Time cập nhật với định danh {{ param }}",
+            "deleted": "Một Task Bidding Tracking Time đã xóa với định danh {{ param }}",
+            "delete": {
+                "question": "Bạn có chắc là muốn xóa Task Bidding Tracking Time {{ id }}?"
+            },
+            "detail": {
+                "title": "Task Bidding Tracking Time"
+            },
+            "userLogin": "User Login",
+            "role": "Role",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "startStatus": "Start Status",
+            "endStatus": "End Status",
+            "duration": "Duration",
+            "biddingScope": "Bidding Scope",
+            "task": "Task"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+package fpt.dps.dtms.security;
+
+/**
+ * Constants for Spring Security authorities.
+ */
+public final class AuthorityResourceConstants {
+	public static final String[] AUTHORITY_RESOURCES = { "ADMIN_RESOURCE", "BUSSINESS_LINE", "PROJECT_TEMPLATES", "CUSTOMER", "BUG_LIST_DEFAULT",
+			"PROJECT", "PURCHASE_ORDERS", "TMS_CUSTOMER_FIELD", "ISSUE", "FEED_BACK", "VIEW_FEED_BACK", "TMS_LOG_HISTORY", "NOTES", "PACKAGE", "MEMBERS_MANAGEMENT", "ALLOCATION", "TRACKING_MANAGEMENT",
+			"PROJECT_USERS", "PROJECT_WORK_FLOW", "TASK", "BUSINESS_UNIT", "BUSINESS_UNIT_MANAGER", "MAIL", "NOTIFICATION_TEMPLATE" };
+}

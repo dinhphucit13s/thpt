@@ -1,0 +1,45 @@
+<form name="importForm" (ngSubmit)="changePasswordUser()" #editForm="ngForm">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="userManagement.home.resetPassword">Reset PassWord</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-md-4 control-label" jhiTranslate="userManagement.confirmPass">Confirm Password</label>
+            <div class="col-md-8">
+                <input type="password" class="form-control" name="login" #newPassword="ngModel"
+                       [(ngModel)]="password" required minlength="4" maxlength="50">
+                <div *ngIf="newPassword.dirty && newPassword.invalid">
+                    <small class="form-text text-danger"
+                           *ngIf="newPassword.errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="newPassword.errors.maxlength" jhiTranslate="entity.validation.maxlength"
+                           translateValues="{max: 50}">
+                        This field cannot be longer than 50 characters.
+                    </small>
+
+                    <small class="form-text text-danger"
+                           *ngIf="newPassword.errors.pattern" jhiTranslate="entity.validation.patternLogin">
+                        This field can only contain letters, digits and e-mail addresses.
+                    </small>
+                </div>
+            </div>
+        </div>
+        <!--<div>
+            <span style="margin-left: 18px;color: red;font-size: 12px;" jhiTranslate="userManagement.note"></span>
+        </div>-->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.resetPassword">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,69 @@
+<div style="display: flow-root">
+    <div *ngIf="thread" class="col-lg-12 col-md-12 col-sm-12">
+        <div>
+            <div
+                *ngIf="!isEditTitle || thread.closed || thread.answers > 1 || thread.createdBy.toLocaleLowerCase() !== currentUserLogin"
+                style="display: flex; align-items: center"
+                [ngStyle]="{'cursor' : !thread.closed && thread.answers === 1 && thread.createdBy.toLocaleLowerCase() === currentUserLogin ? 'pointer' : 'default'}"
+                (dblclick)="isEditTitle = true;">
+                <span class="fa fa-question-circle" style="font-size: 36px; line-height: 36px;"></span>
+                <span class="thread-title">{{threadTitle}}</span>
+            </div>
+            <div
+                *ngIf="isEditTitle && !thread.closed && thread.answers === 1 && thread.createdBy.toLocaleLowerCase() === currentUserLogin">
+      <textarea class="thread-title" [(ngModel)]="threadTitle" style="margin-left: 0px;width: 100%; resize: none">
+      </textarea>
+                <div>
+                    <button class="btn btn-primary btn-qa" (click)="changeTitleOfThread()">Change</button>
+                    <button class="btn btn-qa" style="margin-left: 15px"
+                            (click)="isEditTitle = false;threadTitle = thread.title;">Cancel
+                    </button>
+                </div>
+            </div>
+            <div style="margin-top: 10px">
+      <span *ngIf="!thread.closed" class="badge-in-progress"
+            [ngStyle]="{'cursor' : thread.createdBy.toLocaleLowerCase() === currentUserLogin ? 'pointer' : 'default'}"
+            [routerLink]="['/', { outlets: { popup: ['tms-thread-closed'] } }]">In-progress</span>
+                <span *ngIf="thread.closed" class="badge-closed">Closed</span>
+                <span class="mr-20"><i class="fa fa-eye" style="font-size: 20px"></i> {{thread.views}} views</span>
+                <span class="mr-20"><i class="fa fa-paper-plane-o" style="font-size: 20px"></i> Asked in {{thread.createdDate | date: 'MMM dd,yyyy'}}</span>
+                <span class="mr-20"><i class="fa fa-hand-o-right" style="font-size: 20px"></i> {{thread.assigneeUserLogin}}</span>
+            </div>
+        </div>
+        <jhi-post-answer [posts]="thread.posts"
+                         [isClosed]="thread.closed"
+                         [currentUserLogin]="currentUserLogin"></jhi-post-answer>
+
+        <div class="margin-top-20 margin-bottom-10" style="display: flex">
+            <div
+                style="border-left: 1px solid #c4ccdf; border-top: 1px solid #c4ccdf; border-right: 1px solid #c4ccdf; padding: 10px 15px 10px 15px;">
+                {{totalItemsAnswer}}&nbsp;
+                <span *ngIf="totalItemsAnswer > 1">Answers</span>
+                <span *ngIf="totalItemsAnswer <= 1">Answer</span>
+            </div>
+            <div class="col-lg-1" style="border-bottom: 1px solid #c4ccdf; flex-grow: 1">
+                <button *ngIf="(currentUserLogin === thread.createdBy.toLocaleLowerCase()
+      || currentUserLogin === thread.assigneeUserLogin.toLocaleLowerCase()) && !thread.closed" class="btn btn-danger"
+                        [routerLink]="['/', { outlets: { popup: ['tms-post-new', thread.id] } }]">Write your answer
+                </button>
+            </div>
+        </div>
+        <div *ngIf="listAnswer.length > 0">
+            <jhi-post-answer [posts]="listAnswer"
+                             [isClosed]="thread.closed"
+                             [currentUserLogin]="currentUserLogin"></jhi-post-answer>
+            <div class="row justify-content-center">
+                <ngb-pagination class="col-lg-12" [collectionSize]="totalItemsAnswer" [(page)]="page"
+                                [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"
+                                (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+
+        <button type="submit"
+                routerLink="/tms-thread"
+                class="btn btn-info">
+            <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+    </div>
+    <ngx-spinner type="line-spin-fade"></ngx-spinner>
+</div>

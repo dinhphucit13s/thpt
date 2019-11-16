@@ -1,0 +1,31 @@
+
+{
+    "dtmsApp": {
+        "attachments" : {
+            "home": {
+                "title": "Attachments",
+                "createLabel": "Attachments を追加",
+                "createOrEditLabel": "Attachmentsを追加または編集",
+                "search": "Search for Attachments"
+            },
+            "created": "A new Attachments is created with identifier {{ param }}",
+            "updated": "A Attachments is updated with identifier {{ param }}",
+            "deleted": "A Attachments is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Attachments {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Attachments"
+            },
+            "filename": "Filename",
+            "diskFile": "Disk File",
+            "fileType": "File Type",
+            "bugs": "Bugs",
+            "notes": "Notes",
+            "issues": "Issues",
+            "mail": "Mail",
+            "comment": "Comment",
+            "post": "Post"
+        }
+    }
+}

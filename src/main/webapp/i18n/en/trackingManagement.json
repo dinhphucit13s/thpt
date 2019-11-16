@@ -1,0 +1,53 @@
+
+{
+    "dtmsApp": {
+        "trackingManagement" : {
+            "home": {
+                "title": "Tracking Management",
+                "createLabel": "Create a new Tracking Management",
+                "createOrEditLabel": "Create or edit a Tracking Management",
+                "search": "Search for Tracking Management"
+            },
+            "created": "A new Tracking Management is created with identifier {{ param }}",
+            "updated": "A Tracking Management is updated with identifier {{ param }}",
+            "deleted": "A Tracking Management is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete {{ name }}?",
+                "warningMessage": "Bound to child data! cannot delete {{ name }}"
+            },
+            "detail": {
+                "title": "Tracking Management",
+                "history": "Tracking History"
+            },
+            "name": "Task Name",
+            "totalBugs": "Total Bugs",
+            "TotalBugsOpen": "Total Bugs Open",
+            "errorRate":"The task rate has errors: ",
+            "op": "OP",
+            "review1": "Review1",
+            "review2": "Review2",
+            "fixer": "Fixer",
+            "fi": "Fi",
+            "status": "Status",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "description": "Description",
+            "tmsCustomFieldScreenValue": "Tms Custom Field Screen Value",
+            "project": "Project Name",
+            "role": "Project Role",
+            "time": "Time To Join The Project",
+            "totalTime": "Total Time",
+            "to": "to",
+            "day": "days",
+            "highestRole": "Highest Role",
+            "projects": "Projects",
+            "statistical": "Statistical",
+            "fullName": "Full Name: ",
+            "purchaseOrderLead": "Purchase Order Lead",
+            "packages": "Packages",
+            "historyProject": "History Projects",
+            "totalTaskAssign": "Total Tasks Assign",
+            "ratioBug": "Task Rate Has Errors"
+        }
+    }
+}

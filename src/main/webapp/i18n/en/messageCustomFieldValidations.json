@@ -1,0 +1,15 @@
+
+{
+    "dtmsApp": {
+        "messageCustomFieldValidations" : {
+            "message": {
+                "default": "default required",
+                "maxLength": "Max length is {{ validator }} characters?",
+                "minLength": "Min length is {{ validator }} characters?",
+                "max": "Max value of field is {{ validator }}!",
+                "min": "Min value of field is {{ validator }}!",
+                "pattern": "pattern format is {{ validator }}!"
+            }
+        }
+    }
+}

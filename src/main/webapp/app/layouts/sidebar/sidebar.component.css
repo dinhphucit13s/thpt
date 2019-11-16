@@ -1,0 +1,3 @@
+.page-sidebar-menu li.open > .sub-menu{
+  display: block;
+}
